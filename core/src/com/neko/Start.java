@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.neko.config.enums.WindowState;
 import com.neko.game.player.Player;
 import com.neko.system.base.ApplicationGame;
+import com.neko.system.data.CardFilter;
 import com.neko.ui.screen.Screen_Cover;
 import com.neko.ui.screen.Screen_StoryMode;
 
@@ -18,10 +19,14 @@ public class Start extends ApplicationAdapter {
 
 	@Override
 	public void create() {
+		//注册窗口，初始化Screen
 		screen = Screen_Cover.getInstance();
-		ag = new ApplicationGame(null);
-		ag.setScreen(screen);
+		ag = new ApplicationGame(null);			
+		ag.setScreen(screen);	
+		//读取用户存档信息
 		global = Player.loaddata();
+		//加载卡牌过滤器
+		CardFilter.init();
 	}
 
 	@SuppressWarnings("incomplete-switch")
