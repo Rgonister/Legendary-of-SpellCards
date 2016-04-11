@@ -63,8 +63,6 @@ build/
 ## OS Specific
 .DS_Store
 local.properties
-/android/
-/core/
 /desktop/
 
 .project
