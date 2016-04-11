@@ -16,7 +16,7 @@ public class Stage_Info_Window extends Group {
 	private Image bg;
 	private Image border;
 	private List<Image> stageImage = new ArrayList<Image>();
-	
+
 	public static Stage_Info_Window getInstance() {
 		if (instance == null) {
 			synchronized (Stage_Info_Window.class) {
@@ -34,13 +34,14 @@ public class Stage_Info_Window extends Group {
 		bg.setHeight(790 * Config.Scale);
 		bg.setPosition(970 * Config.Scale, 55 * Config.Scale);
 		bg.setColor(80, 80, 80, 0.65f);
-		
-		for(int i = 1;i<=6;i++){
-			Image img = ImageUtil.getImage("graphics/StoryMode/Chapter"+Stage_Window.chapter_number+"/Stage"+i+"/hero.png");
-			img.setPosition(1020, 325);
+
+		for (int i = 1; i <= 6; i++) {
+			Image img = ImageUtil
+					.getImage("graphics/StoryMode/Chapter" + Stage_Window.chapter_number + "/Stage" + i + "/hero.png");
+			img.setPosition(1020 * Config.Scale, 325 * Config.Scale);
 			stageImage.add(img);
-		}		
-		
+		}
+		// stageImage.add(ImageUtil.getImage("graphics/StoryMode/Chapter"+Stage_Window.chapter_number+"/Stage1"+"/hero.png"));
 		border = ImageUtil.getImage("graphics/StoryMode/border.png");
 		border.setPosition(1005 * Config.Scale, 315 * Config.Scale);
 	}
@@ -49,7 +50,7 @@ public class Stage_Info_Window extends Group {
 		this.clear();
 		this.addActor(bg);
 		this.addActor(border);
-		this.addActor(stageImage.get(stage_number-1));
+		this.addActor(stageImage.get(stage_number - 1));
 		Level_Window.init(Stage_Window.chapter_number, stage_number);
 		this.addActor(Level_Window.getInstance());
 	}
