@@ -3,7 +3,7 @@ package com.neko;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Screen;
 import com.neko.config.enums.WindowState;
-import com.neko.game.Player;
+import com.neko.game.player.Player;
 import com.neko.system.base.ApplicationGame;
 import com.neko.ui.screen.Screen_Cover;
 import com.neko.ui.screen.Screen_StoryMode;

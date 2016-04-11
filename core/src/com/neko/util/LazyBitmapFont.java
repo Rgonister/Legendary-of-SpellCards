@@ -22,6 +22,8 @@ public class LazyBitmapFont extends BitmapFont {
 	private FreeTypeFontGenerator generator;
 	private FreeTypeBitmapFontData data;
 	private FreeTypeFontParameter parameter;
+	
+	public static Color c = new Color(0,0,0,1);
 
 	private static FreeTypeFontGenerator GLOBAL_GEN = null;
 	
@@ -144,7 +146,7 @@ public class LazyBitmapFont extends BitmapFont {
 			if (gab == null || gab.bitmap == null)
 				return null;
 
-			Pixmap map = gab.bitmap.getPixmap(Format.RGBA8888, new Color(0,0,0,1), 1);
+			Pixmap map = gab.bitmap.getPixmap(Format.RGBA8888, c, 1);
 			TextureRegion rg = new TextureRegion(new Texture(map));
 			map.dispose();
 

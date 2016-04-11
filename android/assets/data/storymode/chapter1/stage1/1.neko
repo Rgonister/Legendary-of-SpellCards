@@ -1,4 +1,7 @@
-name:9;
-cost:2;
-skill:1234;
-reward:1-30
+heroname|Remilia Scarlet#
+heroimg|Remilia#
+skillcost|2#
+skilldescription|Draw 2 Cards#
+skillimg|draw#
+rewardtype|gold#
+rewardnumber|40
