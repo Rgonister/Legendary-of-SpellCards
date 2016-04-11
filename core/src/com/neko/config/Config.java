@@ -22,6 +22,8 @@ public class Config {
 	
 	public static final String StoryMode_Path = "graphics/StoryMode/";
 	public static final String Chapter_Image_Path = "graphics/StoryMode/Chapter";
+	public static final String StoryMode_Data_Path = "data/storymode/chapter";
+	
 	public static final int Chapter_Number = 6;
 	public static final int Current_Chapter = 1;
 
@@ -33,4 +35,8 @@ public class Config {
 	public static final boolean SE_ON = true;
 	
 	public static final String Data_Path_Storymode = "data/storymode/";
+	
+	public static String getSMode_Data_Path(int Chapter,int Stage){
+		return (StoryMode_Data_Path+Chapter+"stage"+Stage+".neko");
+	}
 }
