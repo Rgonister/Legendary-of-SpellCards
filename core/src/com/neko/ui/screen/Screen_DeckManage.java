@@ -1,6 +1,9 @@
 package com.neko.ui.screen;
 
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.neko.system.base.component.Screen_Window;
+import com.neko.ui.window.DeckManage.DeckView_Window;
+import com.neko.util.ImageUtil;
 
 public class Screen_DeckManage extends Screen_Window {
 	private static Screen_DeckManage instance = null;
@@ -17,5 +20,12 @@ public class Screen_DeckManage extends Screen_Window {
 	}
 
 	private Screen_DeckManage() {
+	}
+	
+	@Override
+	public void show() {
+		stage = new Stage();
+		stage.addActor(ImageUtil.getImage("graphics/bg.jpg", false));
+		stage.addActor(DeckView_Window.getInstance());
 	}
 }

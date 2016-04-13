@@ -72,8 +72,8 @@ public class Level_Window extends Group {
 		for (Image i : levelselector) {
 			lw.addActor(i);
 		}
-		String[] text = Gdx.files.internal(Config.Data_Path_Storymode+"chapter1/stage1/1.neko").readString().split(";");
-		System.out.println(text[0]);
+		//String[] text = Gdx.files.internal(Config.Data_Path_Storymode+"chapter1/stage1/1.neko").readString().split(";");
+		//System.out.println(text[0]);
 	}
 
 	public static Level getLevel() {

@@ -2,7 +2,7 @@ package com.neko.game.item;
 
 import com.neko.config.enums.Rarity;
 
-public abstract class Card {
+public class Card {
 	public int id;
 	public Rarity rarity;
 	public int group;

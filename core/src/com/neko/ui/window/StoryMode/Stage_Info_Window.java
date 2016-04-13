@@ -17,7 +17,7 @@ public class Stage_Info_Window extends Group {
 	private Image bg;
 	private Image border;
 	private List<Image> stageImage = new ArrayList<Image>();
-	private List<StageInfo> sis= new ArrayList<StageInfo>();
+	public List<StageInfo> sis = new ArrayList<StageInfo>();
 
 	public static Stage_Info_Window getInstance() {
 		if (instance == null) {
