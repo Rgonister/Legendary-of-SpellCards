@@ -2,6 +2,7 @@ package com.neko.util;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.neko.config.Config;
 
@@ -35,9 +36,19 @@ public class ImageUtil {
 
 	public static Image getImage(String Path) {
 		return resize(new Image(getTexture(Path)));
-	}	
+	}
 
 	public static Image getImage(String Path, boolean b) {
 		return resize(new Image(getTexture(Path)), b);
+	}
+
+	public static Image setpostion(Image image, float X, float Y) {
+		image.setPosition(X * Config.Scale, Y * Config.Scale);
+		return image;
+	}
+	
+	public static Actor setpostion(Actor actor, float X, float Y) {
+		actor.setPosition(X * Config.Scale, Y * Config.Scale);
+		return actor;
 	}
 }

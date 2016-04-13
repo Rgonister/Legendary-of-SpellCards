@@ -3,6 +3,8 @@ package com.neko.ui.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.neko.config.Config;
+import com.neko.game.item.CardData;
+import com.neko.game.item.CardImage;
 import com.neko.system.base.component.Screen_Window;
 import com.neko.ui.button.Cover.Button_DeckManage;
 import com.neko.ui.button.Cover.Button_Exit;
@@ -40,6 +42,14 @@ public class Screen_Cover extends Screen_Window {
 		stage.addActor(new Button_Options());
 		stage.addActor(new Button_Exit());
 		Gdx.input.setInputProcessor(stage);
+		
+		
+//		CardData c = new CardData();
+//		c.picPath = "data/card/card1.png";
+//		c.cost = 133214;
+//		CardImage ci = new CardImage(c);
+//		ci.setPosition(100, 200);
+//		stage.addActor(ci);
 	}
 	
 }
