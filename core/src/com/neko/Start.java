@@ -7,6 +7,7 @@ import com.neko.game.player.Player;
 import com.neko.system.base.ApplicationGame;
 import com.neko.system.data.CardFilter;
 import com.neko.ui.screen.Screen_Cover;
+import com.neko.ui.screen.Screen_DeckManage;
 import com.neko.ui.screen.Screen_StoryMode;
 
 public class Start extends ApplicationAdapter {
@@ -29,7 +30,6 @@ public class Start extends ApplicationAdapter {
 		CardFilter.init();
 	}
 
-	@SuppressWarnings("incomplete-switch")
 	@Override
 	public void render() {
 		if (temp != windowstate) {
@@ -39,6 +39,8 @@ public class Start extends ApplicationAdapter {
 				screen = Screen_Cover.getInstance();	break;
 			case StoryMode:
 				screen = Screen_StoryMode.getInstance();	break;
+			case DeckManage:
+				screen = Screen_DeckManage.getInstance(); 	break;
 			}
 			ag.setScreen(screen);
 			temp = windowstate; // 漏了这句直接爆炸，还好电脑抗性高
