@@ -44,7 +44,7 @@ public class Screen_Cover extends Screen_Window {
 		stage.addActor(new Button_Exit());
 		Gdx.input.setInputProcessor(stage);
 		
-		CardLoader.load();
+		
 //		CardData c = new CardData();
 //		c.picPath = "data/card/card1.png";
 //		c.cost = 133214;

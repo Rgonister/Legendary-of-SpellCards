@@ -6,6 +6,7 @@ import com.neko.config.enums.WindowState;
 import com.neko.game.player.Player;
 import com.neko.system.base.ApplicationGame;
 import com.neko.system.data.CardFilter;
+import com.neko.system.data.CardLoader;
 import com.neko.ui.screen.Screen_Cover;
 import com.neko.ui.screen.Screen_DeckManage;
 import com.neko.ui.screen.Screen_StoryMode;
@@ -28,6 +29,8 @@ public class Start extends ApplicationAdapter {
 		global = Player.loaddata();
 		//加载卡牌过滤器
 		CardFilter.init();
+		//加载卡牌信息
+		CardLoader.load();
 	}
 
 	@Override

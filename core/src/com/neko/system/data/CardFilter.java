@@ -8,7 +8,7 @@ import java.util.Map;
 import com.badlogic.gdx.Gdx;
 
 public class CardFilter {
-	public static final String path = "data/card/filter.neko";
+	public static final String path = "data/filter.neko";
 
 	public static Map<String, List<Integer>> filter = new HashMap<String, List<Integer>>();
 
