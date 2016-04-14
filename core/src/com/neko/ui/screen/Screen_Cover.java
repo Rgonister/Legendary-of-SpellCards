@@ -6,6 +6,7 @@ import com.neko.config.Config;
 import com.neko.game.item.CardData;
 import com.neko.game.item.CardImage;
 import com.neko.system.base.component.Screen_Window;
+import com.neko.system.data.CardLoader;
 import com.neko.ui.button.Cover.Button_DeckManage;
 import com.neko.ui.button.Cover.Button_Exit;
 import com.neko.ui.button.Cover.Button_NetDuel;
@@ -43,7 +44,7 @@ public class Screen_Cover extends Screen_Window {
 		stage.addActor(new Button_Exit());
 		Gdx.input.setInputProcessor(stage);
 		
-		
+		CardLoader.load("data/card/alice.neko");
 //		CardData c = new CardData();
 //		c.picPath = "data/card/card1.png";
 //		c.cost = 133214;
