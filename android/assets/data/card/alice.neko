@@ -1,0 +1,25 @@
+{
+	ID|1#
+	NAME|泛用人形-上海#
+	COST|2#
+	ATK|2#
+	LIFE|1#
+	RACE|人形#
+	DIS|冲锋#
+	RARITY|NORMAL#
+	GROUP|ALICE#
+	TYPE|SUMMON#
+}
+
+{
+	ID|2#
+	NAME|泛用人形-蓬莱#
+	COST|2#
+	ATK|3#
+	LIFE|2#
+	RACE|人形#
+	DIS|嘲讽#
+	RARITY|NORMAL#
+	GROUP|ALICE#
+	TYPE|SUMMON#
+}

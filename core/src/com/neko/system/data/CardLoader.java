@@ -7,19 +7,20 @@ import java.util.List;
 import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
+import com.neko.game.item.Card;
 import com.neko.game.item.CardData;
 
 public class CardLoader {
 
-	public static List<CardData> load(String path){
+	public static List<Card> load(String path) {
 
-		String[] str = Gdx.files.internal(path).readString().replaceAll(" ", "").replaceAll("\r\n", "").replaceAll("\t", "").replaceAll("\\{", "").split("\\}");
+		String[] str = Gdx.files.internal(path).readString().replaceAll(" ", "").replaceAll("\r\n", "")
+				.replaceAll("\t", "").replaceAll("\\{", "").split("\\}");
 		return loadData(str);
 	}
-	
-	
-	private static List<CardData> loadData(String[] ss) {
-		List<CardData> l = new ArrayList<CardData>();
+
+	private static List<Card> loadData(String[] ss) {
+		List<Card> l = new ArrayList<Card>();
 		for (String strs : ss) {
 			CardData c = new CardData();
 			String[] string = strs.split("#");
@@ -38,14 +39,15 @@ public class CardLoader {
 						field.set(c, str);
 					} else {
 						field.set(c, Integer.parseInt(str));// only for
-															// string & int 
-															// need furthur develop
+															// string & int
+															// need furthur
+															// develop
 					}
 				}
 			} catch (Exception e) {
 				System.out.println("×°ÔØfieldÊ§°Ü:" + e.getMessage());
 			}
-			l.add(c);
+			l.add(new Card(c));
 		}
 		return l;
 	}
