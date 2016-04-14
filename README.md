@@ -1,3 +1,5 @@
 # Legendary-of-SpellCards
 
-Informal，just for a try;
+informal，just for a try;
+
+all graphics are temp;
