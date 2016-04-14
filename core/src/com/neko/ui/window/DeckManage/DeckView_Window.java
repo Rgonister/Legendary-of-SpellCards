@@ -51,6 +51,7 @@ public class DeckView_Window extends Group {
 			this.addActor(i);
 		}
 		this.add_window_button();
+		this.add_filter_button();
 	}
 
 	private void initcardimage() {
@@ -131,5 +132,37 @@ public class DeckView_Window extends Group {
 		}
 		front.setPosition(Config.Scale * 220, Config.Scale * 65);
 		this.addActor(front);
+	}
+
+	private void add_filter_button() {
+		Image alice = ImageUtil.getImage("graphics/icon/alice.png");
+		alice.setPosition(1150, 700);
+		alice.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if (!"Alice".equals(cfilter[0])) {
+					SEControler.play(1, "Click");
+					page = 1;
+					cfilter[0] = "Alice";
+					refresh();
+				}
+			}
+		});
+		this.addActor(alice);
+		
+		Image cirno = ImageUtil.getImage("graphics/icon/9.png");
+		cirno.setPosition(1150, 650);
+		cirno.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if (!"Cirno".equals(cfilter[0])) {
+					SEControler.play(1, "Click");
+					page = 1;
+					cfilter[0] = "Cirno";
+					refresh();
+				}
+			}
+		});
+		this.addActor(cirno);
 	}
 }
