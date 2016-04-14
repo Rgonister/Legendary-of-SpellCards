@@ -7,12 +7,15 @@ public class Card {
 	private CardImage actor;
 
 	public Card(CardData d) {
-		data = d;
+		d.picPath = "graphics/card/" + d.ID + ".png";
+		data = d;		
 		ID = d.ID;
 	}
 
 	public CardImage getActor() {
+		if (actor == null) {
+			actor = new CardImage(data);
+		}
 		return actor;
 	}
-
 }

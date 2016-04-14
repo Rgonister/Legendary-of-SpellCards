@@ -46,7 +46,24 @@ public class CardFilter {
 	}
 
 	private static Integer getRandom(List<Integer> l) {
-			return l.get((int) (Math.random() * l.size()));			
+		return l.get((int) (Math.random() * l.size()));
 	}
-	
+
+	public static List<Integer> getlistwithfilter(String[] ss) {
+		if (ss.length == 1)
+			return filter.get(ss[0]);
+		List<Integer> l = new ArrayList<Integer>();
+		for (Integer integ : filter.get(ss[0])) {
+			boolean flag = true;
+			for (int i = 1; i < ss.length; i++) {
+				if(!filter.get(ss[i]).contains(integ)){
+					flag = false;
+					break;
+				}
+			}
+			if(flag)
+				l.add(integ);
+		}
+		return l;
+	}
 }

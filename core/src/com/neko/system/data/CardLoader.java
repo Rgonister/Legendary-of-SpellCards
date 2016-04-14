@@ -14,10 +14,15 @@ public class CardLoader {
 
 	public static final String Path = "data/card/";
 	
-	public static List<Card> load() {
+	public static Map<Integer,Card> load() {
 		List<Card> l = new ArrayList<Card>();
-		l.addAll(loadData(read("alice")));
-		return l;
+		l.addAll(loadData(read("Alice")));
+		l.addAll(loadData(read("Cirno")));
+		Map<Integer,Card> m = new HashMap<Integer,Card>();
+		for(Card c :l){
+			m.put(c.ID, c);
+		}
+		return m;
 	}
 
 	private static String[] read(String s){

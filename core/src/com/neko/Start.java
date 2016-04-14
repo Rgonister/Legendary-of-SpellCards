@@ -1,8 +1,12 @@
 package com.neko;
 
+import java.util.List;
+import java.util.Map;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Screen;
 import com.neko.config.enums.WindowState;
+import com.neko.game.item.Card;
 import com.neko.game.player.Player;
 import com.neko.system.base.ApplicationGame;
 import com.neko.system.data.CardFilter;
@@ -18,6 +22,7 @@ public class Start extends ApplicationAdapter {
 	public static WindowState windowstate = WindowState.Cover;
 	private WindowState temp = WindowState.Cover;
 	public static Player global = new Player();
+	public static Map<Integer,Card> cards;
 
 	@Override
 	public void create() {
@@ -30,7 +35,7 @@ public class Start extends ApplicationAdapter {
 		//加载卡牌过滤器
 		CardFilter.init();
 		//加载卡牌信息
-		CardLoader.load();
+		cards = CardLoader.load();
 	}
 
 	@Override
