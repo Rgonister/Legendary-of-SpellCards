@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.neko.game.item.Card;
 import com.neko.game.item.CardData;
 
@@ -17,14 +16,15 @@ public class CardLoader {
 	
 	public static List<Card> load() {
 		List<Card> l = new ArrayList<Card>();
-		FileHandle[] files = Gdx.files.local(Path).list();
-		for(FileHandle f:files){
-		String[] str = f.readString().replaceAll(" ", "").replaceAll("\r\n", "").replaceAll("\t", "").replaceAll("\\{", "").split("\\}");
-		l.addAll(loadData(str));
-		}
+		l.addAll(loadData(read("alice")));
 		return l;
 	}
 
+	private static String[] read(String s){
+		String str = Gdx.files.internal(Path+s+".neko").readString();
+		return str.replaceAll(" ", "").replaceAll("\r\n", "").replaceAll("\t", "").replaceAll("\\{", "").split("\\}");
+	}
+	
 	private static List<Card> loadData(String[] ss) {
 		List<Card> l = new ArrayList<Card>();
 		for (String strs : ss) {
@@ -54,4 +54,6 @@ public class CardLoader {
 		}
 		return l;
 	}
+	
+	
 }

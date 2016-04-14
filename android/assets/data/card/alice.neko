@@ -23,3 +23,141 @@
 	GROUP|ALICE#
 	TYPE|SUMMON#
 }
+
+{
+	ID|3#
+	NAME|泛用人形-法兰西#
+	COST|3#
+	ATK|3#
+	LIFE|3#
+	RACE|人形#
+	DIS|宣言:恢复一个角色3点生命值#
+	RARITY|NORMAL#
+	GROUP|ALICE#
+	TYPE|SUMMON#
+}
+
+{
+	ID|4#
+	NAME|泛用人形-伦敦#
+	COST|3#
+	ATK|4#
+	LIFE|2#
+	RACE|人形#
+	DIS|潜行#
+	RARITY|NORMAL#
+	GROUP|ALICE#
+	TYPE|SUMMON#
+}
+
+{
+	ID|5#
+	NAME|自律人形-上海#
+	COST|6#
+	ATK|6#
+	LIFE|4#
+	RACE|人形#
+	DIS|疮痍:造成6点伤害,并随机分配给敌方角色#
+	RARITY|RARE#
+	GROUP|ALICE#
+	TYPE|SUMMON#
+}
+
+{
+	ID|6#
+	NAME|自律人形-蓬莱#
+	COST|6#
+	ATK|4#
+	LIFE|6#
+	RACE|人形#
+	DIS|宣言:对所有角色造成2点伤害#
+	RARITY|RARE#
+	GROUP|ALICE#
+	TYPE|SUMMON#
+}
+
+{
+	ID|7#
+	NAME|魔理沙(旧)#
+	COST|9#
+	ATK|5#
+	LIFE|8#
+	RACE|魔法使#
+	DIS|宣言:召唤一个天仪;疮痍:给自机装备解放的魔导书并将技能替换为魔界共鸣#
+	RARITY|LEGENDARY#
+	GROUP|ALICE#
+	TYPE|SUMMON#
+}
+
+{
+	ID|8#
+	NAME|封印的魔导书#
+	COST|4#
+	ATK|0#
+	LIFE|1#
+	DIS|弹幕强度+1#
+	RARITY|RARE#
+	GROUP|ALICE#
+	TYPE|EQUIP#
+}
+
+{
+	ID|9#
+	NAME|狡猾的献祭#
+	COST|3#
+	DIS|牺牲一个人形，对敌方所有子机造成等用于该人形攻击力的伤害#
+	RARITY|NORMAL#
+	GROUP|ALICE#
+	TYPE|SPELLCARD#
+}
+
+
+{
+	ID|10#
+	NAME|小小军势#
+	COST|3#
+	DIS|使己方所有人形获得+2/+1#
+	RARITY|NORMAL#
+	GROUP|ALICE#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|11#
+	NAME|玩偶战争#
+	COST|7#
+	DIS|随机召唤3个人形#
+	RARITY|NORMAL#
+	GROUP|ALICE#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|12#
+	NAME|萌萌大千枪#
+	COST|4#
+	DIS|对一个敌方角色造成5点伤害/如果你控制了任何自律人形，则改为造成8点伤害#
+	RARITY|RARE#
+	GROUP|ALICE#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|13#
+	NAME|陷阱网#
+	COST|4#
+	DIS|对所有敌方子机造成1点伤害,并使其在本回合内获得能力:迟缓#
+	RARITY|RARE#
+	GROUP|ALICE#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|14#
+	NAME|回归虚无#
+	COST|10#
+	DIS|消灭战场上的所有子机;你每控制一个人形,该符卡消耗-1,并对敌方自机造成2点伤害#
+	RARITY|LEGENDARY#
+	GROUP|ALICE#
+	TYPE|SPELLCARD#
+}
