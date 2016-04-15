@@ -10,7 +10,7 @@ import com.neko.util.LazyBitmapFont;
 public class FontActor extends Actor {
 
 	private static String font = "SJ";
-	private static int fontsize = 20;
+	private static int fontsize = 18;
 	private String s;
 	private static LazyBitmapFont lbf = new LazyBitmapFont(new FreeTypeFontGenerator(Gdx.files.internal(font + ".ttf")),
 			fontsize);
@@ -22,6 +22,7 @@ public class FontActor extends Actor {
 	}
 
 	public void draw(Batch batch, float parentAlpha) {
+		
 		lbf.draw(batch, s, this.getX(), this.getY());
 	}
 
@@ -42,4 +43,10 @@ public class FontActor extends Actor {
 	public void setcolor(Color c) {
 		LazyBitmapFont.c = c;
 	}
+	
+	public static int getfontsize(){
+		return fontsize;
+	}
+	
+
 }

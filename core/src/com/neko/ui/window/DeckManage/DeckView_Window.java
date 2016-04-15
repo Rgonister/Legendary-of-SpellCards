@@ -36,11 +36,12 @@ public class DeckView_Window extends Group {
 
 	private DeckView_Window() {
 		bg = new Image(ImageUtil.getTexture("graphics/StoryMode/gray.png"));
-		bg.setWidth(1100 * Config.Scale);
+		bg.setWidth(1030 * Config.Scale);
 		bg.setHeight(800 * Config.Scale);
 		bg.setPosition(50 * Config.Scale, 40 * Config.Scale);
 		bg.setColor(80, 80, 80, 0.65f);
 		cfilter.add("Alice");
+		cfilter.add("");
 		this.refresh();
 	}
 
@@ -53,6 +54,10 @@ public class DeckView_Window extends Group {
 		}
 		this.add_window_button();
 		this.add_groupfilter_button();
+		add_cost_filter_button();
+		for (String s : cfilter) {
+			System.out.println(s);
+		}
 	}
 
 	private void initcardimage() {
@@ -62,14 +67,14 @@ public class DeckView_Window extends Group {
 			if ((i + (page - 1) * 8) >= cardID.size())
 				break;
 			Actor img = Start.cards.get(cardID.get(i + (page - 1) * 8)).getActor();
-			img.setPosition((80 + 255 * i) * Config.Scale, 470 * Config.Scale);
+			img.setPosition((65 + 255 * i) * Config.Scale, 480 * Config.Scale);
 			cardimage.add(img);
 		}
 		for (int i = 0; i < 4; i++) {
 			if ((i + 4 + (page - 1) * 8) >= cardID.size())
 				break;
 			Actor img = Start.cards.get(cardID.get(i + 4 + (page - 1) * 8)).getActor();
-			img.setPosition((80 + 255 * i) * Config.Scale, 90 * Config.Scale);
+			img.setPosition((65 + 255 * i) * Config.Scale, 100 * Config.Scale);
 			cardimage.add(img);
 		}
 	}
@@ -101,7 +106,7 @@ public class DeckView_Window extends Group {
 				}
 			});
 		}
-		back.setPosition(Config.Scale * 125, Config.Scale * 65);
+		back.setPosition(Config.Scale * 886, Config.Scale * 55);
 		this.addActor(back);
 
 		final Image front;
@@ -131,7 +136,7 @@ public class DeckView_Window extends Group {
 				}
 			});
 		}
-		front.setPosition(Config.Scale * 220, Config.Scale * 65);
+		front.setPosition(Config.Scale * 981, Config.Scale * 55);
 		this.addActor(front);
 	}
 
@@ -166,21 +171,32 @@ public class DeckView_Window extends Group {
 		this.addActor(cirno);
 	}
 
-	private void add_cost_filter() {
-		for (int i = 1; i <= 7; i++) {
+	private void add_cost_filter_button() {
+		for (int i = 0; i <= 7; i++) {
 			final int num = i;
-			Image image = ImageUtil.getImage("graphics/icon/button_" + i + ".png");
-			image.setPosition(Config.Scale * (100), Config.Scale * (100 + i * 50));
-			image.addListener(new ClickListener(){
+			String path = "graphics/numbers/" + i + "w.jpg";
+			if (cfilter.get(1).equals("Cost" + num))
+				path = "graphics/numbers/" + i + "b.jpg";
+			Image image = ImageUtil.getImage(path);
+			image.setWidth(0.75f * image.getWidth() * Config.Scale);
+			image.setHeight(35 * Config.Scale);
+			image.setPosition(Config.Scale * (65 + i * 42), Config.Scale * (55));
+			image.addListener(new ClickListener() {
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
-					if(cfilter.get(1).equals("Cost"+num))
-						cfilter.remove(1);
-					else
-						cfilter.set(1, "Cost"+num);
-					refresh();			
+
+					if (cfilter.get(1).equals("Cost" + num)) {
+						SEControler.play(0.8f, "Click");
+						cfilter.set(1, "");
+					} else
+						SEControler.play(0.8f, "Click");
+					cfilter.set(1, "Cost" + num);
+
+					refresh();
 				}
 			});
+			this.addActor(image);
 		}
+
 	}
 }

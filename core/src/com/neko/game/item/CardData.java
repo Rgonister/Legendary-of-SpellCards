@@ -2,6 +2,7 @@ package com.neko.game.item;
 
 public class CardData {
 	public int ID;
+	public String NAME;
 	public String RARITY;
 	public String GROUP;
 	public String TYPE;

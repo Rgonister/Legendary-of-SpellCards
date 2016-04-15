@@ -71,6 +71,8 @@ public class CardFilter {
 		for (Integer integ : filter.get(ss.get(0))) {
 			boolean flag = true;
 			for (int i = 1; i < ss.size(); i++) {
+				if (ss.get(i).equals("")||ss.get(i).length()<=0)
+					continue;
 				if (!filter.get(ss.get(i)).contains(integ)) {
 					flag = false;
 					break;

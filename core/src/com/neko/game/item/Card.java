@@ -7,7 +7,7 @@ public class Card {
 	private CardImage actor;
 
 	public Card(CardData d) {
-		d.picPath = "graphics/card/" + d.ID + ".png";
+		d.picPath = "graphics/card/" + d.ID + ".jpg";
 		data = d;		
 		ID = d.ID;
 	}
