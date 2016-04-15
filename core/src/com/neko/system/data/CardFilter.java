@@ -17,11 +17,26 @@ public class CardFilter {
 		for (String s : ss) {
 			String[] s0 = s.split(":");
 			List<Integer> l = new ArrayList<Integer>();
-			for (String s1 : s0[1].split(",")) {
-				l.add(Integer.parseInt(s1));
+			if (s0[1].contains("-")) {
+				int min = Integer.parseInt(s0[1].split("-")[0]);
+				int max = Integer.parseInt(s0[1].split("-")[1]);
+				for (int i = min; i <= max; i++) {
+					l.add(new Integer(i));
+				}
+			} else {
+				for (String s1 : s0[1].split(",")) {
+					l.add(Integer.parseInt(s1));
+				}
 			}
 			filter.put(s0[0], l);
 		}
+		System.out.println("filter ×°ÔØ³É¹¦");
+		System.out.println("----------------");
+		for (String k : filter.keySet()) {
+			List<Integer> l = filter.get(k);
+			System.out.println(k + " : " + l.get(0) + " - " + l.get(l.size() - 1));
+		}
+		System.out.println("----------------");
 	}
 
 	public static int getCard(String[] param) {
@@ -49,19 +64,19 @@ public class CardFilter {
 		return l.get((int) (Math.random() * l.size()));
 	}
 
-	public static List<Integer> getlistwithfilter(String[] ss) {
-		if (ss.length == 1)
-			return filter.get(ss[0]);
+	public static List<Integer> getlistwithfilter(List<String> ss) {
+		if (ss.size() == 1)
+			return filter.get(ss.get(0));
 		List<Integer> l = new ArrayList<Integer>();
-		for (Integer integ : filter.get(ss[0])) {
+		for (Integer integ : filter.get(ss.get(0))) {
 			boolean flag = true;
-			for (int i = 1; i < ss.length; i++) {
-				if(!filter.get(ss[i]).contains(integ)){
+			for (int i = 1; i < ss.size(); i++) {
+				if (!filter.get(ss.get(i)).contains(integ)) {
 					flag = false;
 					break;
 				}
 			}
-			if(flag)
+			if (flag)
 				l.add(integ);
 		}
 		return l;

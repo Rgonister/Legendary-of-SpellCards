@@ -18,10 +18,14 @@ public class CardLoader {
 		List<Card> l = new ArrayList<Card>();
 		l.addAll(loadData(read("Alice")));
 		l.addAll(loadData(read("Cirno")));
+		l.addAll(loadData(read("PACHI")));
+		l.addAll(loadData(read("COMMON")));
+		
 		Map<Integer,Card> m = new HashMap<Integer,Card>();
 		for(Card c :l){
 			m.put(c.ID, c);
 		}
+		System.out.println("--CardData装载成功--共"+ l.size()+"项--");
 		return m;
 	}
 

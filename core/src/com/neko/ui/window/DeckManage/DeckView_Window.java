@@ -18,7 +18,7 @@ public class DeckView_Window extends Group {
 
 	private static DeckView_Window instance = null;
 	private Image bg;
-	private String[] cfilter = { "Alice" };
+	private List<String> cfilter = new ArrayList<String>();
 	private List<Integer> cardID = new ArrayList<Integer>();
 	private List<Actor> cardimage = new ArrayList<Actor>();
 	private int page = 1;
@@ -40,6 +40,7 @@ public class DeckView_Window extends Group {
 		bg.setHeight(800 * Config.Scale);
 		bg.setPosition(50 * Config.Scale, 40 * Config.Scale);
 		bg.setColor(80, 80, 80, 0.65f);
+		cfilter.add("Alice");
 		this.refresh();
 	}
 
@@ -51,7 +52,7 @@ public class DeckView_Window extends Group {
 			this.addActor(i);
 		}
 		this.add_window_button();
-		this.add_filter_button();
+		this.add_groupfilter_button();
 	}
 
 	private void initcardimage() {
@@ -134,35 +135,52 @@ public class DeckView_Window extends Group {
 		this.addActor(front);
 	}
 
-	private void add_filter_button() {
+	private void add_groupfilter_button() {
 		Image alice = ImageUtil.getImage("graphics/icon/alice.png");
-		alice.setPosition(1150, 700);
+		alice.setPosition(Config.Scale * 1150, Config.Scale * 700);
 		alice.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				if (!"Alice".equals(cfilter[0])) {
+				if (!"Alice".equals(cfilter.get(0))) {
 					SEControler.play(1, "Click");
 					page = 1;
-					cfilter[0] = "Alice";
+					cfilter.set(0, "Alice");
 					refresh();
 				}
 			}
 		});
 		this.addActor(alice);
-		
 		Image cirno = ImageUtil.getImage("graphics/icon/9.png");
-		cirno.setPosition(1150, 650);
+		cirno.setPosition(Config.Scale * 1150, Config.Scale * 650);
 		cirno.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				if (!"Cirno".equals(cfilter[0])) {
+				if (!"Cirno".equals(cfilter.get(0))) {
 					SEControler.play(1, "Click");
 					page = 1;
-					cfilter[0] = "Cirno";
+					cfilter.set(0, "Cirno");
 					refresh();
 				}
 			}
 		});
 		this.addActor(cirno);
+	}
+
+	private void add_cost_filter() {
+		for (int i = 1; i <= 7; i++) {
+			final int num = i;
+			Image image = ImageUtil.getImage("graphics/icon/button_" + i + ".png");
+			image.setPosition(Config.Scale * (100), Config.Scale * (100 + i * 50));
+			image.addListener(new ClickListener(){
+				@Override
+				public void clicked(InputEvent event, float x, float y) {
+					if(cfilter.get(1).equals("Cost"+num))
+						cfilter.remove(1);
+					else
+						cfilter.set(1, "Cost"+num);
+					refresh();			
+				}
+			});
+		}
 	}
 }
