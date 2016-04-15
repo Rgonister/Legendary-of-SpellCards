@@ -1,0 +1,100 @@
+{
+	ID|43#
+	NAME|普通的妖精#
+	COST|0#
+	ATK|0#
+	LIFE|1#
+	RACE|妖精#
+	DIS|疮痍:返回手牌#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|44#
+	NAME|兔子#
+	COST|0#
+	ATK|1#
+	LIFE|1#
+	DIS|己方回合开始时,变形为2-3的妖怪兔#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|45#
+	NAME|番薯#
+	COST|1#
+	ATK|1#
+	LIFE|1#
+	RACE|植物#
+	DIS|己方回合结束时,为你恢复2点生命值#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|46#
+	NAME|毛玉#
+	COST|1#
+	ATK|1#
+	LIFE|1#
+	DIS|疮痍:对所有角色造成1点伤害#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|47#
+	NAME|向日葵#
+	COST|1#
+	ATK|0#
+	LIFE|1#
+	RACE|植物#
+	DIS|你所有的符卡消耗-1#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|48#
+	NAME|怨灵#
+	COST|1#
+	ATK|1#
+	LIFE|2#
+	RACE|亡灵#
+	DIS|受到伤害时,对伤害来源造成等量伤害#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|49#
+	NAME|妖怪兔#
+	COST|2#
+	ATK|2#
+	LIFE|3#
+	RACE|月兔-妖怪兔#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|50#
+	NAME|露米娅#
+	COST|2#
+	ATK|3#
+	LIFE|2#
+	RACE|妖怪#
+	DIS|潜行;宣言:使随机一个敌方单位获得潜行#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}

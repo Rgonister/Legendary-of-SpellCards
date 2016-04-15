@@ -1,0 +1,158 @@
+{
+	ID|29#
+	NAME|无名的魔法笔记#
+	COST|2#
+	ATK|0#
+	LIFE|3#
+	RACE|书籍#
+	DIS|共鸣：将一张技能对应属性的符卡加入你的手牌#
+	RARITY|NORMAL#
+	GROUP|PACHI#
+	TYPE|SUMMON#
+}
+
+{
+	ID|30#
+	NAME|魔导书#
+	COST|3#
+	ATK|0#
+	LIFE|6#
+	RACE|书籍#
+	DIS|己方回合开始时，摧毁该角色并召唤雾雨魔理沙#
+	RARITY|NORMAL#
+	GROUP|PACHI#
+	TYPE|SUMMON#
+}
+
+{
+	ID|31#
+	NAME|小恶魔#
+	COST|4#
+	ATK|4#
+	LIFE|4#
+	RACE|使魔-式神#
+	DIS|宣言:将一张随机的书籍牌加入你的手牌#
+	RARITY|RARE#
+	GROUP|PACHI#
+	TYPE|SUMMON#
+}
+
+{
+	ID|32#
+	NAME|蕾米莉亚·斯卡雷特#
+	COST|7#
+	ATK|5#
+	LIFE|8#
+	RACE|妖怪#
+	DIS|你可以为你的随机效果指定作用目标#
+	RARITY|LEGENDARY#
+	GROUP|PACHI#
+	TYPE|SUMMON#
+}
+
+{
+	ID|33#
+	NAME|防护法阵#
+	COST|2#
+	ATK|0#
+	LIFE|7#
+	RACE|魔法阵;结界#
+	DIS|嘲讽
+	RARITY|NORMAL#
+	GROUP|PACHI#
+	TYPE|SUMMON#
+}
+
+{
+	ID|34#
+	NAME|警戒法阵#
+	COST|4#
+	ATK|5#
+	LIFE|6#
+	RACE|魔法阵;结界#
+	DIS|无法攻击;对方每召唤一个角色，便对该角色造成1点伤害#
+	RARITY|RARE#
+	GROUP|PACHI#
+	TYPE|SUMMON#
+}
+
+{
+	ID|35#
+	NAME|火神之光#
+	COST|3#
+	DIS|牺牲一个人形，对敌方所有子机造成等用于该人形攻击力的伤害#
+	RARITY|NORMAL#
+	GROUP|PACHI#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|36#
+	NAME|水精公主#
+	COST|3#
+	DIS|牺牲一个人形，对敌方所有子机造成等用于该人形攻击力的伤害#
+	RARITY|NORMAL#
+	GROUP|PACHI#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|37#
+	NAME|风灵的角笛#
+	COST|3#
+	DIS|牺牲一个人形，对敌方所有子机造成等用于该人形攻击力的伤害#
+	RARITY|NORMAL#
+	GROUP|PACHI#
+	TYPE|SPELLCARD#
+}
+
+
+{
+	ID|38#
+	NAME|慵懒三石塔#
+	COST|3#
+	DIS|使己方所有人形获得+2/+1#
+	RARITY|NORMAL#
+	GROUP|PACHI#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|39#
+	NAME|金属疲劳#
+	COST|7#
+	DIS|随机召唤3个人形#
+	RARITY|NORMAL#
+	GROUP|PACHI#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|40#
+	NAME|沉静的月神#
+	COST|4#
+	DIS|对一个敌方角色造成5点伤害/如果你控制了任何自律人形，则改为造成8点伤害#
+	RARITY|RARE#
+	GROUP|PACHI#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|41#
+	NAME|皇家圣焰#
+	COST|4#
+	DIS|对所有敌方子机造成1点伤害,并使其在本回合内获得能力:迟缓#
+	RARITY|RARE#
+	GROUP|PACHI#
+	TYPE|SPELLCARD#
+}
+
+{
+	ID|42#
+	NAME|贤者之石#
+	COST|5#
+	DIS|将你手牌和牌库中的符卡牌替换为对应的上级符卡#
+	RARITY|LEGENDARY#
+	GROUP|PACHI#
+	TYPE|SPELLCARD#
+}
