@@ -20,12 +20,18 @@ public class CardLoader {
 		l.addAll(loadData(read("Cirno")));
 		l.addAll(loadData(read("PACHI")));
 		l.addAll(loadData(read("COMMON")));
+		l.addAll(loadData(read("COMMON1")));
+		l.addAll(loadData(read("COMMON2")));
 		
 		Map<Integer,Card> m = new HashMap<Integer,Card>();
 		for(Card c :l){
 			m.put(c.ID, c);
 		}
 		System.out.println("--CardData装载成功--共"+ l.size()+"项--");
+//		for(Card c:l){
+//			if(c.data.COST >= 7 )
+//				System.out.print(c.ID+",");
+//		}
 		return m;
 	}
 

@@ -10,6 +10,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.neko.Start;
 import com.neko.config.Config;
+import com.neko.game.item.Card;
+import com.neko.game.item.CardImage;
+import com.neko.system.base.component.FontActor;
 import com.neko.system.data.CardFilter;
 import com.neko.system.sound.SEControler;
 import com.neko.util.ImageUtil;
@@ -22,6 +25,7 @@ public class DeckView_Window extends Group {
 	private List<Integer> cardID = new ArrayList<Integer>();
 	private List<Actor> cardimage = new ArrayList<Actor>();
 	private int page = 1;
+	public Card_Info_Window cfw;
 
 	public static DeckView_Window getInstance() {
 		if (instance == null) {
@@ -42,6 +46,10 @@ public class DeckView_Window extends Group {
 		bg.setColor(80, 80, 80, 0.65f);
 		cfilter.add("Alice");
 		cfilter.add("");
+		FontActor.addlbf("sj", 23, "sj23");
+		FontActor.addlbf("st", 23, "st25");
+		FontActor.addlbf("st", 30, "st30");
+		FontActor.addlbf("textur", 25, "textur");
 		this.refresh();
 	}
 
@@ -55,8 +63,8 @@ public class DeckView_Window extends Group {
 		this.add_window_button();
 		this.add_groupfilter_button();
 		add_cost_filter_button();
-		for (String s : cfilter) {
-			System.out.println(s);
+		if (cfw != null) {
+			this.addActor(cfw);
 		}
 	}
 
@@ -66,15 +74,43 @@ public class DeckView_Window extends Group {
 		for (int i = 0; i < 4; i++) {
 			if ((i + (page - 1) * 8) >= cardID.size())
 				break;
-			Actor img = Start.cards.get(cardID.get(i + (page - 1) * 8)).getActor();
+			final Card c = Start.cards.get(cardID.get(i + (page - 1) * 8));
+			CardImage img = c.getActor();
 			img.setPosition((65 + 255 * i) * Config.Scale, 480 * Config.Scale);
+			if (!img.flag) {
+				img.addListener(new ClickListener() {
+
+					@Override
+					public void clicked(InputEvent event, float x, float y) {
+						SEControler.play(1, "Click");
+						cfw = new Card_Info_Window(c.data);
+						DeckView_Window.getInstance().refresh();
+					}
+
+				});
+				img.flag = true;
+			}
 			cardimage.add(img);
 		}
 		for (int i = 0; i < 4; i++) {
 			if ((i + 4 + (page - 1) * 8) >= cardID.size())
 				break;
-			Actor img = Start.cards.get(cardID.get(i + 4 + (page - 1) * 8)).getActor();
+			final Card c = Start.cards.get(cardID.get(i + 4 + (page - 1) * 8));
+			CardImage img = c.getActor();
 			img.setPosition((65 + 255 * i) * Config.Scale, 100 * Config.Scale);
+			if (!img.flag) {
+				img.addListener(new ClickListener() {
+
+					@Override
+					public void clicked(InputEvent event, float x, float y) {
+						SEControler.play(1, "Click");
+						cfw = new Card_Info_Window(c.data);
+						DeckView_Window.getInstance().refresh();
+					}
+
+				});
+				img.flag = true;
+			}
 			cardimage.add(img);
 		}
 	}
@@ -155,6 +191,7 @@ public class DeckView_Window extends Group {
 			}
 		});
 		this.addActor(alice);
+		
 		Image cirno = ImageUtil.getImage("graphics/icon/9.png");
 		cirno.setPosition(Config.Scale * 1150, Config.Scale * 650);
 		cirno.addListener(new ClickListener() {
@@ -169,6 +206,36 @@ public class DeckView_Window extends Group {
 			}
 		});
 		this.addActor(cirno);
+		
+		Image pachi = ImageUtil.getImage("graphics/icon/9.png");
+		pachi.setPosition(Config.Scale * 1150, Config.Scale * 600);
+		pachi.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if (!"Pachi".equals(cfilter.get(0))) {
+					SEControler.play(1, "Click");
+					page = 1;
+					cfilter.set(0, "Pachi");
+					refresh();
+				}
+			}
+		});
+		this.addActor(pachi);
+		
+		Image common = ImageUtil.getImage("graphics/icon/9.png");
+		common.setPosition(Config.Scale * 1150, Config.Scale * 550);
+		common.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				if (!"Common".equals(cfilter.get(0))) {
+					SEControler.play(1, "Click");
+					page = 1;
+					cfilter.set(0, "Common");
+					refresh();
+				}
+			}
+		});
+		this.addActor(common);
 	}
 
 	private void add_cost_filter_button() {
@@ -188,10 +255,10 @@ public class DeckView_Window extends Group {
 					if (cfilter.get(1).equals("Cost" + num)) {
 						SEControler.play(0.8f, "Click");
 						cfilter.set(1, "");
-					} else
+					} else {
 						SEControler.play(0.8f, "Click");
-					cfilter.set(1, "Cost" + num);
-
+						cfilter.set(1, "Cost" + num);
+					}
 					refresh();
 				}
 			});

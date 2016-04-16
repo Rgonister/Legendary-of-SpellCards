@@ -13,7 +13,7 @@
 
 {
 	ID|44#
-	NAME|兔子#
+	NAME|兔 子#
 	COST|0#
 	ATK|1#
 	LIFE|1#
@@ -25,7 +25,7 @@
 
 {
 	ID|45#
-	NAME|番薯#
+	NAME|番 薯#
 	COST|1#
 	ATK|1#
 	LIFE|1#
@@ -38,7 +38,7 @@
 
 {
 	ID|46#
-	NAME|毛玉#
+	NAME|毛 玉#
 	COST|1#
 	ATK|1#
 	LIFE|1#
@@ -63,7 +63,7 @@
 
 {
 	ID|48#
-	NAME|怨灵#
+	NAME|怨 灵#
 	COST|1#
 	ATK|1#
 	LIFE|2#
@@ -95,6 +95,136 @@
 	RACE|妖怪#
 	DIS|潜行;宣言:使随机一个敌方单位获得潜行#
 	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|51#
+	NAME|莉格露·奈特巴格#
+	COST|2#
+	ATK|2#
+	LIFE|2#
+	RACE|妖怪#
+	DIS|宣言:召唤一个1-1的萤火虫#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|52#
+	NAME|雏人偶#
+	COST|2#
+	ATK|0#
+	LIFE|2#
+	RACE|人形#
+	DIS|疮痍:召唤键山雏#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|53#
+	NAME|梅 丽#
+	COST|2#
+	ATK|2#
+	LIFE|2#
+	RACE|人类#
+	DIS|宣言:将一张随机的境界牌加入你的手牌,如果你控制莲子,则改为两张#
+	RARITY|LEGENDARY#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|54#
+	NAME|莲 子#
+	COST|2#
+	ATK|2#
+	LIFE|2#
+	RACE|人类#
+	DIS|宣言:依次获知对方牌库顶端5张牌的消耗,如果你控制梅莉,则改为依次揭示这5张牌#
+	RARITY|LEGENDARY#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|55#
+	NAME|露娜萨·普莉兹姆利巴#
+	COST|3#
+	ATK|3#
+	LIFE|3#
+	RACE|亡灵#
+	DIS|宣言:使一个单位获得迟缓#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|56#
+	NAME|梅露兰·普莉兹姆利巴 #
+	COST|3#
+	ATK|4#
+	LIFE|2#
+	RACE|亡灵#
+	DIS|疮痍:使随机一个己方单位获得+1/+1#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|57#
+	NAME|莉莉卡·普莉兹姆利巴 #
+	COST|3#
+	ATK|2#
+	LIFE|4#
+	RACE|亡灵#
+	DIS|嘲讽#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|58#
+	NAME|桑尼·米尔克 #
+	COST|3#
+	ATK|3#
+	LIFE|3#
+	RACE|妖精#
+	DIS|宣言:使一个角色获得潜行#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|59#
+	NAME|露娜·切露德#
+	COST|3#
+	ATK|3#
+	LIFE|3#
+	RACE|妖精#
+	DIS|己方潜行角色攻击时,不会破除潜行状态#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|60#
+	NAME|斯塔·萨菲雅#
+	COST|3#
+	ATK|3#
+	LIFE|3#
+	RACE|妖精#
+	DIS|使桑尼和露娜获得免疫;当对方召唤子机时,返回手牌#
+	RARITY|RARE#
 	GROUP|COMMON#
 	TYPE|SUMMON#
 }

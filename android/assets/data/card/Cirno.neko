@@ -1,6 +1,6 @@
 {
 	ID|15#
-	NAME|冰凌#
+	NAME|冰 凌#
 	COST|1#
 	ATK|1#
 	LIFE|1#
@@ -12,7 +12,7 @@
 
 {
 	ID|16#
-	NAME|冰块#
+	NAME|冰 块#
 	COST|2#
 	ATK|0#
 	LIFE|5#
@@ -24,7 +24,7 @@
 
 {
 	ID|17#
-	NAME|青蛙#
+	NAME|青 蛙#
 	COST|2#
 	ATK|3#
 	LIFE|4#
@@ -62,7 +62,7 @@
 
 {
 	ID|20#
-	NAME|冰翼#
+	NAME|冰 翼#
 	COST|5#
 	ATK|2#
 	LIFE|4#
@@ -84,7 +84,7 @@
 
 {
 	ID|22#
-	NAME|冰瀑#
+	NAME|冰 瀑#
 	COST|2#
 	DIS|对目标两侧的子机造成3点伤害#
 	RARITY|NORMAL#

@@ -1,0 +1,281 @@
+{
+	ID|51#
+	NAME|红美铃#
+	COST|3#
+	ATK|4#
+	LIFE|7#
+	RACE|妖怪#
+	DIS|沉睡;底力:唤醒该角色#
+	RARITY|LEGENDARY#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|52#
+	NAME|键山雏#
+	COST|3#
+	ATK|2#
+	LIFE|5#
+	RACE|妖怪#
+	DIS|己方单位受到伤害时,改为由键山雏承担伤害#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|53#
+	NAME|本居小铃#
+	COST|3#
+	ATK|2#
+	LIFE|4#
+	RACE|人类#
+	DIS|宣言:随机召唤一本书籍#
+	RARITY|LEGENDARY#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|54#
+	NAME|魔理沙的弹幕回忆#
+	COST|4#
+	ATK|0#
+	LIFE|8#
+	RACE|书籍#
+	DIS|你的对手每释放一个法术,便将一个消耗+1的复制置入你的手牌#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|55#
+	NAME|式神-橙#
+	COST|4#
+	ATK|2#
+	LIFE|2#
+	RACE|式神-使魔#
+	DIS|疮痍:召唤八云蓝#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|56#
+	NAME|帝#
+	COST|4#
+	ATK|4#
+	LIFE|4#
+	RACE|月兔-妖怪兔#
+	DIS|宣言:使一个单位获得嘲讽#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|57#
+	NAME|莉莉怀特#
+	COST|4#
+	ATK|3#
+	LIFE|5#
+	RACE|妖精#
+	DIS|己方回合结束时,为所有其他角色恢复2点生命值#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|58#
+	NAME|莉莉布莱克#
+	COST|4#
+	ATK|5#
+	LIFE|3#
+	RACE|妖精#
+	DIS|己方回合开始时,对所有其他角色造成2点伤害#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|59#
+	NAME|妖 精#
+	COST|4#
+	ATK|1#
+	LIFE|1#
+	RACE|妖精#
+	DIS|疮痍:召唤该单位#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|60#
+	NAME|琪斯美#
+	COST|4#
+	ATK|3#
+	LIFE|6#
+	RACE|妖怪#
+	DIS|嘲讽;沉睡#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|61#
+	NAME|帕露西#
+	COST|4#
+	ATK|4#
+	LIFE|5#
+	RACE|妖怪#
+	DIS|当其它单位获得增益效果时,该单位获得同样的效果#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|62#
+	NAME|火焰猫 燐#
+	COST|5#
+	ATK|3#
+	LIFE|3#
+	RACE|人类#
+	DIS|敌方角色疮痍时,获得+1/+1;己方角色疮痍时,抽一张卡#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|63#
+	NAME|古明地觉#
+	COST|5#
+	ATK|5#
+	LIFE|5#
+	RACE|妖怪#
+	DIS|宣言:将一张敌方的符卡置入你的手牌#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|64#
+	NAME|二岩猯藏 #
+	COST|5#
+	ATK|4#
+	LIFE|4#
+	RACE|妖怪#
+	DIS|宣言:变形为一个单位的复制#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|65#
+	NAME|寅丸星 #
+	COST|5#
+	ATK|3#
+	LIFE|6#
+	DIS|宣言:为敌方召唤一个宝塔#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|66#
+	NAME|梦月#
+	COST|5#
+	ATK|4#
+	LIFE|4#
+	DIS|宣言:恢复一个角色5点生命值#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|67#
+	NAME|幻月#
+	COST|5#
+	ATK|4#
+	LIFE|4#
+	DIS|宣言:对一个角色造成3点伤害#
+	RARITY|LEGENDARY#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|68#
+	NAME|小兔姬 #
+	COST|5#
+	ATK|5#
+	LIFE|4#
+	RACE|人类#
+	DIS|宣言:封印一个单位#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|69#
+	NAME|宫古芳香#
+	COST|5#
+	ATK|3#
+	LIFE|3#
+	DIS|宣言:击破一个单位,并获得:疮痍,使该单位返回战场#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|70#
+	NAME|八云蓝#
+	COST|6#
+	ATK|4#
+	LIFE|5#
+	RACE|妖怪#
+	DIS|宣言:摧毁一个结界-魔法阵,并获得+3/+3#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|71#
+	NAME|琪露诺#
+	COST|6#
+	ATK|9#
+	LIFE|9#
+	RACE|妖精#
+	DIS|攻击时有50%概率不造成伤害#
+	RARITY|RARE#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
+
+{
+	ID|72#
+	NAME|霍青娥#
+	COST|6#
+	ATK|5#
+	LIFE|4#
+	RACE|仙人#
+	DIS|宣言:召唤宫古芳香,攻击时无视嘲讽#
+	RARITY|NORMAL#
+	GROUP|COMMON#
+	TYPE|SUMMON#
+}
