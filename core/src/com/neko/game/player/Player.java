@@ -40,6 +40,7 @@ public class Player {
 		if (!Gdx.files.local(Config.Save_Path).exists()) {
 			System.out.println("存档文件不存在，初始化data对象");
 			p.data = new Player_Data();
+			p.data.gold = 2500;
 			return p;
 		}
 		try {
