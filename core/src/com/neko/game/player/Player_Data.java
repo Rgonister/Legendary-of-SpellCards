@@ -40,9 +40,9 @@ public class Player_Data implements Serializable {
 			stage_progress.put(i, l);
 		}
 
-		card_no = new ArrayList<Integer>();		
-		for (int i = 0;i < 100;i++){
+		card_no = new ArrayList<Integer>();
+		for (int i = 0; i <= 92; i++) {
 			card_no.add(0);
 		}
-	}	
+	}
 }

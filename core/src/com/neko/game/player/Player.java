@@ -17,9 +17,16 @@ public class Player {
 
 	public void savedata() {
 		try {
-			ObjectOutputStream oo = new ObjectOutputStream(new FileOutputStream(Gdx.files.getLocalStoragePath() + Config.Save_Path));
+			ObjectOutputStream oo = new ObjectOutputStream(
+					new FileOutputStream(Gdx.files.getLocalStoragePath() + Config.Save_Path));
 			oo.writeObject(data);
 			System.out.println("data ´æ´¢³É¹¦");
+			System.out.println("gold : " + data.gold + "faith : " + data.faith);
+			for (int i = 0; i < data.card_no.size(); i++) {
+				if (data.card_no.get(i) != 0) {
+					//System.out.print(" ID" + i + ": " + data.card_no.get(i) + " ");
+				}
+			}
 			oo.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -37,7 +44,8 @@ public class Player {
 		}
 		try {
 			@SuppressWarnings("resource")
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(Gdx.files.getLocalStoragePath() + Config.Save_Path)));
+			ObjectInputStream ois = new ObjectInputStream(
+					new FileInputStream(new File(Gdx.files.getLocalStoragePath() + Config.Save_Path)));
 			p.data = (Player_Data) ois.readObject();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

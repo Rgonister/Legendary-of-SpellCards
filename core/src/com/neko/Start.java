@@ -12,6 +12,7 @@ import com.neko.system.data.CardFilter;
 import com.neko.system.data.CardLoader;
 import com.neko.ui.screen.Screen_Cover;
 import com.neko.ui.screen.Screen_DeckManage;
+import com.neko.ui.screen.Screen_Shop;
 import com.neko.ui.screen.Screen_StoryMode;
 import com.neko.util.FontUtil;
 
@@ -32,7 +33,6 @@ public class Start extends ApplicationAdapter {
 		ag.setScreen(screen);	
 		//读取用户存档信息
 		global = Player.loaddata();
-		
 		//加载卡牌过滤器
 		CardFilter.init();
 		//加载卡牌信息
@@ -52,6 +52,8 @@ public class Start extends ApplicationAdapter {
 				screen = Screen_StoryMode.getInstance();	break;
 			case DeckManage:
 				screen = Screen_DeckManage.getInstance(); 	break;
+			case Shop :
+				screen = Screen_Shop.getInstance();		break;
 			}
 			ag.setScreen(screen);
 			temp = windowstate; // 漏了这句直接爆炸，还好电脑抗性高

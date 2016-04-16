@@ -1,6 +1,6 @@
 package com.neko.config.enums;
 
 public enum WindowState {
-	Cover,StoryMode,DeckManage;
+	Cover,StoryMode,DeckManage,Shop;
 }
 

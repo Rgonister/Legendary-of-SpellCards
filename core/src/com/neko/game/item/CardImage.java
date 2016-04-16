@@ -8,17 +8,17 @@ import com.neko.util.ImageUtil;
 
 public class CardImage extends Group {
 
-	public static String border = "graphics/card/border2.png";
+	public static String border = "graphics/card/";
 	public boolean flag = false;
 
 	public CardImage(CardData data) {
 		String name = data.NAME;
 		this.addActor(ImageUtil.getImage(data.picPath));
-		this.addActor(ImageUtil.getImage(border));
+		this.addActor(ImageUtil.getImage(border+data.RARITY+".png"));
 		int h = 18;
 		String s = name.replaceAll("-", "").replaceAll("\\(", "").replaceAll("\\)", "");
 		int w = s.length() * h + (name.length() - s.length()) * 5;
-		Actor a = new FontActor(name, Config.Scale * (233 - w) / 2, Config.Scale * 61,"SJ");
+		Actor a = new FontActor(name, Config.Scale * (233 - w) / 2, Config.Scale * 61, "SJ");
 		this.addActor(a);
 		FontActor.addlbf("st", 20, "st20");
 		String str = "";
@@ -29,10 +29,10 @@ public class CardImage extends Group {
 		Actor act = new FontActor(str, Config.Scale * (231 - 9 * str.length()) / 2, Config.Scale * 33, "st20");
 		this.addActor(act);
 	}
-	
-	public CardImage(CardData data,boolean flag) {
+
+	public CardImage(CardData data, boolean flag) {
 		this.addActor(ImageUtil.getImage(data.picPath));
-		this.addActor(ImageUtil.getImage(border));
+		this.addActor(ImageUtil.getImage(border+data.RARITY+".png"));
 	}
 
 }

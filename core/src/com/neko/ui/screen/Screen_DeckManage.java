@@ -29,5 +29,6 @@ public class Screen_DeckManage extends Screen_Window {
 		stage.addActor(ImageUtil.getImage("graphics/bg.jpg", false));
 		stage.addActor(DeckView_Window.getInstance());
 		Gdx.input.setInputProcessor(stage);
+		DeckView_Window.getInstance().refresh();
 	}
 }
