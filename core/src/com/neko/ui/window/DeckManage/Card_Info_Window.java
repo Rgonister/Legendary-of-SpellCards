@@ -26,9 +26,17 @@ public class Card_Info_Window extends Group {
 		bg.setWidth(658 * Config.Scale);
 		bg.setHeight(525 * Config.Scale);
 		bg.setPosition(490 * Config.Scale, 200 * Config.Scale);
+		bg.setColor(40, 40, 40, 0.6f);
+
+		Image bg1 = new Image(ImageUtil.getTexture("graphics/StoryMode/white.png"));
+		bg1.setWidth(658 * Config.Scale);
+		bg1.setHeight(525 * Config.Scale);
+		bg1.setPosition(490 * Config.Scale, 200 * Config.Scale);
+		bg1.setColor(40, 40, 40, 0.2f);
+
 		this.addActor(cover);
-		bg.setColor(40, 40, 40, 0.5f);
 		this.addActor(bg);
+		this.addActor(bg1);
 		this.addCardImage();
 		this.addCardDescription();
 		this.addBotton();
@@ -58,9 +66,39 @@ public class Card_Info_Window extends Group {
 	}
 
 	private void addCardDescription() {
-		Actor a = new FontActor(data.NAME,1000,500,"st30");
+		String name = data.NAME;
+		int h = 30;
+		String s = name.replaceAll("-", "").replaceAll("\\(", "").replaceAll("\\)", "");
+		int w = s.length() * h + (name.length() - s.length()) * 5;
+		Actor a = new FontActor(data.NAME, Config.Scale * (980 - w / 2), 695, "sf30");
+		// 846 - 1149
 		this.addActor(a);
+		this.addActor(new FontActor("Type:\nGroup:\nSkill:", Config.Scale * 830, Config.Scale * 666, "textur25"));
+		String s1;
+		if (data.TYPE.equals("SUMMON"))			s1 = "子机";
+		else if (data.TYPE.equals("SPELLCARD"))	s1 = "符卡";
+		else									s1 = "装备";				
+	
+		this.addActor(new FontActor(s1, Config.Scale * 910, Config.Scale * 657, "sf25"));
+		String ss;
+		if (data.RACE == null || data.RACE.length() <= 0) 	ss = "无";
+		else 												ss = data.RACE;
+		this.addActor(new FontActor(ss, Config.Scale * 910, Config.Scale * 629, "sf25"));
 
+		String s2;
+		String str = "";
+		if (data.DIS.equals(null) || data.DIS.length() <= 0) 	s2 = "无";
+		else 													s2 = data.DIS;
+		int line = s2.length()/9;
+		for(int i = 0;i <= line;i++){
+			if(s2.length()	>= 9){
+				str += s2.substring(0, 9)+"\n";
+				s2 = s2.substring(9);
+			}else
+				str += s2;			
+		}
+		s2.replace("\\.", " ");
+		this.addActor(new FontActor(str, Config.Scale * 910, Config.Scale * 601, "sf25"));
 	}
 
 	private void addBotton() {

@@ -4,7 +4,7 @@
 	COST|6#
 	ATK|5#
 	LIFE|3#
-	DIS|你每次只会收到一点伤害#
+	DIS|你每次只会收到一点伤害.#
 	RARITY|RARE#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -17,7 +17,7 @@
 	ATK|5#
 	LIFE|5#
 	RACE|人类#
-	DIS|疮痍:将一张骚灵乐团置入你的手牌#
+	DIS|疮痍:将一张骚灵乐团置入你的手牌.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -29,8 +29,8 @@
 	COST|7#
 	ATK|4#
 	LIFE|6#
-	RACE|神速;风神#
-	DIS|己方回合结束时,为你恢复2点生命值#
+	RACE|天狗#
+	DIS|神速;风神.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -40,10 +40,10 @@
 	ID|76#
 	NAME|雾雨魔理沙#
 	COST|7#
-	ATK|4#
+	ATK|5#
 	LIFE|6#
 	RACE|魔法使#
-	DIS|宣言:将一张Master Spark加入你的手牌;疮痍:将一张随机的书籍牌加入你的手牌#
+	DIS|宣言:将一张Master Spark加入你的手牌;疮痍:将一张随机的书籍牌加入你的手牌.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -56,7 +56,7 @@
 	ATK|6#
 	LIFE|6#
 	RACE|妖怪#
-	DIS|宣言:召唤若干个1-1的头颅,直到铺满你的战场#
+	DIS|宣言:召唤若干个1-1的头颅,直到铺满你的战场.#
 	RARITY|RARE#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -69,7 +69,7 @@
 	ATK|8#
 	LIFE|8#
 	RACE|妖怪#
-	DIS|宣言:召唤式神-八云蓝;共鸣:将一张随机的境界牌加入你的手牌#
+	DIS|宣言:召唤式神-八云蓝;共鸣:将一张随机的境界牌加入你的手牌.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -82,7 +82,7 @@
 	ATK|6#
 	LIFE|8#
 	RACE|人类#
-	DIS|宣言:击破一个妖怪#
+	DIS|宣言:击破一个妖怪.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -95,7 +95,7 @@
 	ATK|6#
 	LIFE|9#
 	RACE|神#
-	DIS|宣言:击破一个受到伤害的子机;所有的妖精获得+3/+2#
+	DIS|宣言:击破一个受到伤害的子机;所有的妖精获得+3/+2.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -107,7 +107,7 @@
 	COST|10#
 	ATK|12#
 	LIFE|12#
-	DIS|疮痍:召唤一个0-4的凤凰卵;每个回合结束时,对所有角色造成2点伤害#
+	DIS|疮痍:召唤一个0-4的凤凰卵;每个回合结束时,对所有角色造成2点伤害.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -120,7 +120,7 @@
 	ATK|12#
 	LIFE|12#
 	RACE|神#
-	DIS|灵压;宣言:将两张随机的魔界魔法置入你的手牌#
+	DIS|灵压;宣言:将两张随机的魔界魔法置入你的手牌.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#

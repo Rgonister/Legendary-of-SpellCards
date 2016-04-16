@@ -14,6 +14,7 @@ import com.neko.system.data.CardLoader;
 import com.neko.ui.screen.Screen_Cover;
 import com.neko.ui.screen.Screen_DeckManage;
 import com.neko.ui.screen.Screen_StoryMode;
+import com.neko.util.FontUtil;
 
 public class Start extends ApplicationAdapter {
 
@@ -36,6 +37,8 @@ public class Start extends ApplicationAdapter {
 		CardFilter.init();
 		//º”‘ÿø®≈∆–≈œ¢
 		cards = CardLoader.load();
+		
+		FontUtil.init();
 	}
 
 	@Override

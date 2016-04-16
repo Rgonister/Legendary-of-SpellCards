@@ -46,10 +46,6 @@ public class DeckView_Window extends Group {
 		bg.setColor(80, 80, 80, 0.65f);
 		cfilter.add("Alice");
 		cfilter.add("");
-		FontActor.addlbf("sj", 23, "sj23");
-		FontActor.addlbf("st", 23, "st25");
-		FontActor.addlbf("st", 30, "st30");
-		FontActor.addlbf("textur", 25, "textur");
 		this.refresh();
 	}
 
@@ -177,8 +173,16 @@ public class DeckView_Window extends Group {
 	}
 
 	private void add_groupfilter_button() {
-		Image alice = ImageUtil.getImage("graphics/icon/alice.png");
-		alice.setPosition(Config.Scale * 1150, Config.Scale * 700);
+		Image bimg = new Image(ImageUtil.getTexture("graphics/StoryMode/gray.png"));
+		bimg.setWidth(70 * Config.Scale);
+		bimg.setHeight(250 * Config.Scale);
+		bimg.setPosition(1090 * Config.Scale, 590 * Config.Scale);
+		bimg.setColor(80, 80, 80, 0.65f);
+		this.addActor(bimg);
+		
+		Image alice = ImageUtil.getImage("graphics/icon/Alice.jpg");
+		alice.setPosition(Config.Scale * 1100, Config.Scale * 780);
+		alice.setColor(100, 100, 100, 0.85f);
 		alice.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
@@ -191,9 +195,10 @@ public class DeckView_Window extends Group {
 			}
 		});
 		this.addActor(alice);
-		
-		Image cirno = ImageUtil.getImage("graphics/icon/9.png");
-		cirno.setPosition(Config.Scale * 1150, Config.Scale * 650);
+
+		Image cirno = ImageUtil.getImage("graphics/icon/Cirno.jpg");
+		cirno.setPosition(Config.Scale * 1100, Config.Scale * 720);
+		cirno.setColor(100, 100, 100, 0.85f);
 		cirno.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
@@ -206,9 +211,10 @@ public class DeckView_Window extends Group {
 			}
 		});
 		this.addActor(cirno);
-		
-		Image pachi = ImageUtil.getImage("graphics/icon/9.png");
-		pachi.setPosition(Config.Scale * 1150, Config.Scale * 600);
+
+		Image pachi = ImageUtil.getImage("graphics/icon/Pachi.jpg");
+		pachi.setPosition(Config.Scale * 1100, Config.Scale * 660);
+		pachi.setColor(100, 100, 100, 0.85f);
 		pachi.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
@@ -221,9 +227,10 @@ public class DeckView_Window extends Group {
 			}
 		});
 		this.addActor(pachi);
-		
-		Image common = ImageUtil.getImage("graphics/icon/9.png");
-		common.setPosition(Config.Scale * 1150, Config.Scale * 550);
+
+		Image common = ImageUtil.getImage("graphics/icon/Public.jpg");
+		common.setPosition(Config.Scale * 1100, Config.Scale * 600);
+		common.setColor(100, 100, 100, 0.85f);
 		common.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {

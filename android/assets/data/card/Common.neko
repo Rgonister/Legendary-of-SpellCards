@@ -5,7 +5,7 @@
 	ATK|0#
 	LIFE|1#
 	RACE|妖精#
-	DIS|疮痍:返回手牌#
+	DIS|疮痍:返回手牌.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -17,7 +17,7 @@
 	COST|0#
 	ATK|1#
 	LIFE|1#
-	DIS|己方回合开始时,变形为2-3的妖怪兔#
+	DIS|己方回合开始时,变形为2-3的妖怪兔.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -30,7 +30,7 @@
 	ATK|1#
 	LIFE|1#
 	RACE|植物#
-	DIS|己方回合结束时,为你恢复2点生命值#
+	DIS|己方回合结束时,为你恢复2点生命值.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -42,7 +42,7 @@
 	COST|1#
 	ATK|1#
 	LIFE|1#
-	DIS|疮痍:对所有角色造成1点伤害#
+	DIS|疮痍:对所有角色造成1点伤害.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -55,7 +55,7 @@
 	ATK|0#
 	LIFE|1#
 	RACE|植物#
-	DIS|你所有的符卡消耗-1#
+	DIS|你所有的符卡消耗-1.#
 	RARITY|RARE#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -68,7 +68,7 @@
 	ATK|1#
 	LIFE|2#
 	RACE|亡灵#
-	DIS|受到伤害时,对伤害来源造成等量伤害#
+	DIS|受到伤害时,对伤害来源造成等量伤害.#
 	RARITY|RARE#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -93,7 +93,7 @@
 	ATK|3#
 	LIFE|2#
 	RACE|妖怪#
-	DIS|潜行;宣言:使随机一个敌方单位获得潜行#
+	DIS|潜行;宣言:使随机一个敌方单位获得潜行.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -106,7 +106,7 @@
 	ATK|2#
 	LIFE|2#
 	RACE|妖怪#
-	DIS|宣言:召唤一个1-1的萤火虫#
+	DIS|宣言:召唤一个1-1的萤火虫.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -119,7 +119,7 @@
 	ATK|0#
 	LIFE|2#
 	RACE|人形#
-	DIS|疮痍:召唤键山雏#
+	DIS|疮痍:召唤键山雏.#
 	RARITY|RARE#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -132,7 +132,7 @@
 	ATK|2#
 	LIFE|2#
 	RACE|人类#
-	DIS|宣言:将一张随机的境界牌加入你的手牌,如果你控制莲子,则改为两张#
+	DIS|宣言:将一张随机的境界牌加入你的手牌,如果你控制莲子,则改为两张.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -145,7 +145,7 @@
 	ATK|2#
 	LIFE|2#
 	RACE|人类#
-	DIS|宣言:依次获知对方牌库顶端5张牌的消耗,如果你控制梅莉,则改为依次揭示这5张牌#
+	DIS|宣言:依次获知对方牌库顶端5张牌的消耗,如果你控制梅莉,则改为依次揭示这5张牌.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -158,7 +158,7 @@
 	ATK|3#
 	LIFE|3#
 	RACE|亡灵#
-	DIS|宣言:使一个单位获得迟缓#
+	DIS|宣言:使一个单位获得迟缓.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -171,7 +171,7 @@
 	ATK|4#
 	LIFE|2#
 	RACE|亡灵#
-	DIS|疮痍:使随机一个己方单位获得+1/+1#
+	DIS|疮痍:使随机一个己方单位获得+1/+1.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -197,7 +197,7 @@
 	ATK|3#
 	LIFE|3#
 	RACE|妖精#
-	DIS|宣言:使一个角色获得潜行#
+	DIS|宣言:使一个角色获得潜行.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -210,7 +210,7 @@
 	ATK|3#
 	LIFE|3#
 	RACE|妖精#
-	DIS|己方潜行角色攻击时,不会破除潜行状态#
+	DIS|己方潜行角色攻击时,不会破除潜行状态.#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -223,7 +223,7 @@
 	ATK|3#
 	LIFE|3#
 	RACE|妖精#
-	DIS|使桑尼和露娜获得免疫;当对方召唤子机时,返回手牌#
+	DIS|使桑尼和露娜获得免疫;当对方召唤子机时,返回手牌.#
 	RARITY|RARE#
 	GROUP|COMMON#
 	TYPE|SUMMON#

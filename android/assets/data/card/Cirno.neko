@@ -28,7 +28,7 @@
 	COST|2#
 	ATK|3#
 	LIFE|4#
-	DIS|己方回合结束时,有50%概率被冻结#
+	DIS|己方回合结束时,有50%概率被冻结.#
 	RARITY|NORMAL#
 	GROUP|CIRNO#
 	TYPE|SUMMON#
@@ -41,7 +41,7 @@
 	ATK|2#
 	LIFE|4#
 	RACE|妖精#
-	DIS|宣言:恢复一个己方子机所有的生命值,如果目标是妖精,则额外获得等同数值的生命值提升#
+	DIS|宣言:恢复一个己方子机所有的生命值,如果目标是妖精,则额外获得等同数值的生命值提升.#
 	RARITY|RARE#
 	GROUP|CIRNO#
 	TYPE|SUMMON#
@@ -54,7 +54,7 @@
 	ATK|4#
 	LIFE|7#
 	RACE|妖怪#
-	DIS|冻结受到其伤害的角色;攻击被冻结的角色时,获得免疫#
+	DIS|冻结受到其伤害的角色;攻击被冻结的角色时,获得免疫.#
 	RARITY|LEGENDARY#
 	GROUP|CIRNO#
 	TYPE|SUMMON#
@@ -66,7 +66,7 @@
 	COST|5#
 	ATK|2#
 	LIFE|4#
-	DIS|冻结受到其伤害的角色;你的所有符卡费用-1#
+	DIS|冻结受到其伤害的角色;你的所有符卡费用-1.#
 	RARITY|RARE#
 	GROUP|CIRNO#
 	TYPE|EQUIP#
@@ -76,7 +76,7 @@
 	ID|21#
 	NAME|急冻大气#
 	COST|2#
-	DIS|冻结所有子机#
+	DIS|冻结所有子机.#
 	RARITY|NORMAL#
 	GROUP|CIRNO#
 	TYPE|SPELLCARD#
@@ -86,7 +86,7 @@
 	ID|22#
 	NAME|冰 瀑#
 	COST|2#
-	DIS|对目标两侧的子机造成3点伤害#
+	DIS|对目标两侧的子机造成3点伤害.#
 	RARITY|NORMAL#
 	GROUP|CIRNO#
 	TYPE|SPELLCARD#
@@ -96,7 +96,7 @@
 	ID|23#
 	NAME|冰袭方阵#
 	COST|4#
-	DIS|召唤三个冰凌#
+	DIS|召唤三个冰凌.#
 	RARITY|NORMAL#
 	GROUP|CIRNO#
 	TYPE|SPELLCARD#
@@ -107,7 +107,7 @@
 	ID|24#
 	NAME|冰柱机枪#
 	COST|3#
-	DIS|造成5点伤害,并随机分配给敌方角色#
+	DIS|造成5点伤害,并随机分配给敌方角色.#
 	RARITY|NORMAL#
 	GROUP|CIRNO#
 	TYPE|SPELLCARD#
@@ -117,7 +117,7 @@
 	ID|25#
 	NAME|碎冰龙卷#
 	COST|4#
-	DIS|摧毁一个已被冻结的子机#
+	DIS|摧毁一个已被冻结的子机.#
 	RARITY|RARE#
 	GROUP|CIRNO#
 	TYPE|SPELLCARD#
@@ -127,7 +127,7 @@
 	ID|26#
 	NAME|完美冻结#
 	COST|5#
-	DIS|冻结敌方所有角色,如果目标已被冻结,则造成5点伤害#
+	DIS|冻结敌方所有角色,如果目标已被冻结,则造成5点伤害.#
 	RARITY|RARE#
 	GROUP|CIRNO#
 	TYPE|SPELLCARD#
@@ -137,7 +137,7 @@
 	ID|27#
 	NAME|妖精旋转#
 	COST|4#
-	DIS|对目标造成5点伤害,如果目标已被冻结,则造成7点伤害#
+	DIS|对目标造成5点伤害,如果目标已被冻结,则造成7点伤害.#
 	RARITY|RARE#
 	GROUP|CIRNO#
 	TYPE|SPELLCARD#
@@ -147,7 +147,7 @@
 	ID|28#
 	NAME|终极暴雪#
 	COST|10#
-	DIS|冻结所有敌方角色,并造成4点伤害#
+	DIS|冻结所有敌方角色,并造成4点伤害.#
 	RARITY|LEGENDARY#
 	GROUP|CIRNO#
 	TYPE|SPELLCARD#
