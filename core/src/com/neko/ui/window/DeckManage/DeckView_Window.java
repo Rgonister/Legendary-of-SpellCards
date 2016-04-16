@@ -12,7 +12,6 @@ import com.neko.Start;
 import com.neko.config.Config;
 import com.neko.game.item.Card;
 import com.neko.game.item.CardImage;
-import com.neko.system.base.component.FontActor;
 import com.neko.system.data.CardFilter;
 import com.neko.system.sound.SEControler;
 import com.neko.util.ImageUtil;

@@ -8,7 +8,7 @@ import com.neko.util.ImageUtil;
 
 public class CardImage extends Group {
 
-	public static String border = "graphics/card/border1.png";
+	public static String border = "graphics/card/border2.png";
 	public boolean flag = false;
 
 	public CardImage(CardData data) {

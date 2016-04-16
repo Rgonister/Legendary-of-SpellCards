@@ -75,30 +75,48 @@ public class Card_Info_Window extends Group {
 		this.addActor(a);
 		this.addActor(new FontActor("Type:\nGroup:\nSkill:", Config.Scale * 830, Config.Scale * 666, "textur25"));
 		String s1;
-		if (data.TYPE.equals("SUMMON"))			s1 = "子机";
-		else if (data.TYPE.equals("SPELLCARD"))	s1 = "符卡";
-		else									s1 = "装备";				
-	
+		if (data.TYPE.equals("SUMMON"))
+			s1 = "子机";
+		else if (data.TYPE.equals("SPELLCARD"))
+			s1 = "符卡";
+		else
+			s1 = "装备";
+
 		this.addActor(new FontActor(s1, Config.Scale * 910, Config.Scale * 657, "sf25"));
 		String ss;
-		if (data.RACE == null || data.RACE.length() <= 0) 	ss = "无";
-		else 												ss = data.RACE;
+		if (data.RACE == null || data.RACE.length() <= 0)
+			ss = "无";
+		else
+			ss = data.RACE;
 		this.addActor(new FontActor(ss, Config.Scale * 910, Config.Scale * 629, "sf25"));
 
 		String s2;
 		String str = "";
-		if (data.DIS.equals(null) || data.DIS.length() <= 0) 	s2 = "无";
-		else 													s2 = data.DIS;
-		int line = s2.length()/9;
-		for(int i = 0;i <= line;i++){
-			if(s2.length()	>= 9){
-				str += s2.substring(0, 9)+"\n";
+		if (data.DIS.equals(null) || data.DIS.length() <= 0)
+			s2 = "无";
+		else
+			s2 = data.DIS;
+		int line = s2.length() / 9;
+		for (int i = 0; i <= line; i++) {
+			if (s2.length() >= 9) {
+				str += s2.substring(0, 9);
+				if (s2.length() > 9)
+					str += "\n";
 				s2 = s2.substring(9);
-			}else
-				str += s2;			
+			} else
+				str += s2;
 		}
-		s2.replace("\\.", " ");
 		this.addActor(new FontActor(str, Config.Scale * 910, Config.Scale * 601, "sf25"));
+		this.addActor(
+				new FontActor("Cost:\nAtk:\nDef:", Config.Scale * 830, Config.Scale * (581 - 35 * line), "textur25"));
+		this.addActor(new FontActor(String.valueOf(data.COST), Config.Scale * 910, Config.Scale * (580 - 35 * line),
+				"textur25"));
+		if (!data.TYPE.equals("SPELLCARD")) {
+			this.addActor(new FontActor(String.valueOf(data.ATK), Config.Scale * 910, Config.Scale * (551 - 35 * line),
+					"textur25"));
+			this.addActor(new FontActor(String.valueOf(data.LIFE), Config.Scale * 910, Config.Scale * (522 - 35 * line),
+					"textur25"));
+		}
 	}
 
 	private void addBotton() {

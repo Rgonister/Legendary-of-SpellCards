@@ -1,6 +1,5 @@
 package com.neko;
 
-import java.util.List;
 import java.util.Map;
 
 import com.badlogic.gdx.ApplicationAdapter;
@@ -33,6 +32,7 @@ public class Start extends ApplicationAdapter {
 		ag.setScreen(screen);	
 		//读取用户存档信息
 		global = Player.loaddata();
+		
 		//加载卡牌过滤器
 		CardFilter.init();
 		//加载卡牌信息

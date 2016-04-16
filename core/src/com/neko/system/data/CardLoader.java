@@ -13,8 +13,8 @@ import com.neko.game.item.CardData;
 public class CardLoader {
 
 	public static final String Path = "data/card/";
-	
-	public static Map<Integer,Card> load() {
+
+	public static Map<Integer, Card> load() {
 		List<Card> l = new ArrayList<Card>();
 		l.addAll(loadData(read("Alice")));
 		l.addAll(loadData(read("Cirno")));
@@ -22,24 +22,24 @@ public class CardLoader {
 		l.addAll(loadData(read("COMMON")));
 		l.addAll(loadData(read("COMMON1")));
 		l.addAll(loadData(read("COMMON2")));
-		
-		Map<Integer,Card> m = new HashMap<Integer,Card>();
-		for(Card c :l){
+
+		Map<Integer, Card> m = new HashMap<Integer, Card>();
+		for (Card c : l) {
 			m.put(c.ID, c);
 		}
-		System.out.println("--CardData装载成功--共"+ l.size()+"项--");
-//		for(Card c:l){
-//			if(c.data.COST >= 7 )
-//				System.out.print(c.ID+",");
+		System.out.println("--CardData装载成功--共" + l.size() + "项--");
+//		for (Card c : l) {
+//			if (c.data.RARITY.equals("LEGENDARY"))
+//				System.out.print(c.ID + ",");
 //		}
 		return m;
 	}
 
-	private static String[] read(String s){
-		String str = Gdx.files.internal(Path+s+".neko").readString();
+	private static String[] read(String s) {
+		String str = Gdx.files.internal(Path + s + ".neko").readString();
 		return str.replaceAll(" ", "").replaceAll("\r\n", "").replaceAll("\t", "").replaceAll("\\{", "").split("\\}");
 	}
-	
+
 	private static List<Card> loadData(String[] ss) {
 		List<Card> l = new ArrayList<Card>();
 		for (String strs : ss) {
@@ -69,6 +69,5 @@ public class CardLoader {
 		}
 		return l;
 	}
-	
-	
+
 }
