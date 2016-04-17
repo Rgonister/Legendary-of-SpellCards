@@ -11,6 +11,7 @@ import com.neko.util.ImageUtil;
 public class DeckImage extends Group {
 
 	public Deck deck;
+	public int id = -1;
 
 	public DeckImage(Deck d) {
 		this.deck = d;

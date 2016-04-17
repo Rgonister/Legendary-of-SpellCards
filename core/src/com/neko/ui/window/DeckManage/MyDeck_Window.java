@@ -37,7 +37,7 @@ public class MyDeck_Window extends Group {
 			final int num = i;
 			
 			Image hero = ImageUtil.getImage("graphics/deck/" + ds.get(i).Hero + ".jpg");
-			hero.setPosition(Config.Scale * 1185f, Config.Scale * (670f - 170 * i));
+			hero.setPosition(Config.Scale * 1185f, Config.Scale * (670f - 175 * i));
 			this.addActor(hero);
 			this.addActor(new FontActor(ds.get(i).DeckName, Config.Scale * 1190f, Config.Scale * (735f - 175 * i),
 					"textur55"));
@@ -45,8 +45,13 @@ public class MyDeck_Window extends Group {
 			hero.addListener(new ClickListener() {
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
+					
 					DeckView_Window dvw = DeckView_Window.getInstance();
+					if(ds.get(num).Hero.equals("ALICE"))		{dvw.cfilter.set(0, "Alice");}
+					else if(ds.get(num).Hero.equals("CIRNO"))	{dvw.cfilter.set(0, "Cirno");}
+					else 										{dvw.cfilter.set(0, "Pachi");System.out.println(1);}
 					dvw.deckImage = new DeckImage(ds.get(num));
+					dvw.deckImage.id = num;
 					dvw.editmode = true;
 					dvw.refresh();
 				}

@@ -14,7 +14,6 @@ import com.neko.config.enums.WindowState;
 import com.neko.game.item.Card;
 import com.neko.game.item.CardImage;
 import com.neko.game.player.Player;
-import com.neko.system.base.component.FontActor;
 import com.neko.system.data.CardFilter;
 import com.neko.system.sound.SEControler;
 import com.neko.util.BackgroundUtil;
@@ -69,16 +68,17 @@ public class DeckView_Window extends Group {
 		this.add_cost_filter_button();
 		if (cfw != null)
 			this.addActor(cfw);
-		if (selecter != null)
-			this.addActor(selecter);
 		if (editmode)
 			this.addActor(deckImage);
 		else {
 			MyDeck_Window.getInstance().refresh();
 			this.addActor(MyDeck_Window.getInstance());
 		}
-		this.addActor(new FontActor(String.valueOf(Start.global.data.faith), Config.Scale * 700, Config.Scale * 60,
-				"textur30"));
+		if (selecter != null)
+			this.addActor(selecter);
+		// this.addActor(new FontActor(String.valueOf(Start.global.data.faith),
+		// Config.Scale * 700, Config.Scale * 60,
+		// "textur30"));
 	}
 
 	private void initcardimage() {
@@ -249,7 +249,11 @@ public class DeckView_Window extends Group {
 				public void clicked(InputEvent event, float x, float y) {
 					Player p = Start.global;
 					DeckView_Window dvw = DeckView_Window.getInstance();
-					p.decks.data.add(dvw.deckImage.deck);
+					System.out.println(dvw.deckImage.id);
+					if (dvw.deckImage.id >= 0)
+						p.decks.data.set(dvw.deckImage.id, dvw.deckImage.deck);
+					else
+						p.decks.data.add(dvw.deckImage.deck);
 					System.out.println("¿¨×é´¢´æ³É¹¦");
 					p.savedata();
 					dvw.deckImage.clear();
@@ -354,10 +358,10 @@ public class DeckView_Window extends Group {
 		} else {
 			this.addActor(BackgroundUtil.getImage("gray", 1090, 710, 70, 130, 0.65f));
 			String h = deckImage.deck.Hero;
-			if (h.equals("Alice")) {
+			if (h.equals("ALICE")) {
 				alice.setPosition(Config.Scale * 1100, Config.Scale * 780);
 				this.addActor(alice);
-			} else if (h.equals("Cirno")) {
+			} else if (h.equals("CIRNO")) {
 				cirno.setPosition(Config.Scale * 1100, Config.Scale * 780);
 				this.addActor(cirno);
 			} else {
