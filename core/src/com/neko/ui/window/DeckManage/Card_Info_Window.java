@@ -5,9 +5,11 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.neko.Start;
 import com.neko.config.Config;
 import com.neko.game.item.CardData;
 import com.neko.game.item.CardImage;
+import com.neko.game.shop.Composite;
 import com.neko.system.base.component.FontActor;
 import com.neko.system.sound.SEControler;
 import com.neko.util.ImageUtil;
@@ -18,10 +20,20 @@ public class Card_Info_Window extends Group {
 
 	public Card_Info_Window(CardData c) {
 		data = c;
-		Image cover = new Image(ImageUtil.getTexture("graphics/StoryMode/gray.png"));
+		final Image cover = new Image(ImageUtil.getTexture("graphics/StoryMode/gray.png"));
 		cover.setWidth(1600 * Config.Scale);
 		cover.setHeight(900 * Config.Scale);
 		cover.setColor(125, 125, 125, 0.4f);
+		cover.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				Card_Info_Window cfw = DeckView_Window.getInstance().cfw;
+				cfw.clear();
+				cfw = null;
+				DeckView_Window.getInstance().refresh();
+			}
+		});
+
 		Image bg = new Image(ImageUtil.getTexture("graphics/StoryMode/black.png"));
 		bg.setWidth(658 * Config.Scale);
 		bg.setHeight(525 * Config.Scale);
@@ -107,16 +119,36 @@ public class Card_Info_Window extends Group {
 				str += s2;
 		}
 		this.addActor(new FontActor(str, Config.Scale * 910, Config.Scale * 601, "sf25"));
-		this.addActor(
-				new FontActor("Cost:\nAtk:\nDef:", Config.Scale * 830, Config.Scale * (581 - 35 * line), "textur25"));
-		this.addActor(new FontActor(String.valueOf(data.COST), Config.Scale * 910, Config.Scale * (580 - 35 * line),
-				"textur25"));
+
 		if (!data.TYPE.equals("SPELLCARD")) {
+			this.addActor(new FontActor("Cost:\nAtk:\nDef:", Config.Scale * 830, Config.Scale * (581 - 35 * line),
+					"textur25"));
+			this.addActor(new FontActor(String.valueOf(data.COST), Config.Scale * 910, Config.Scale * (580 - 35 * line),
+					"textur25"));
 			this.addActor(new FontActor(String.valueOf(data.ATK), Config.Scale * 910, Config.Scale * (551 - 35 * line),
 					"textur25"));
 			this.addActor(new FontActor(String.valueOf(data.LIFE), Config.Scale * 910, Config.Scale * (522 - 35 * line),
 					"textur25"));
+		} else {
+			this.addActor(new FontActor("Cost:", Config.Scale * 830, Config.Scale * (581 - 35 * line), "textur25"));
+			this.addActor(new FontActor(String.valueOf(data.COST), Config.Scale * 910, Config.Scale * (580 - 35 * line),
+					"textur25"));
 		}
+		int num = Start.global.data.card_no.get(data.ID);
+		Image img;
+		if (num < 7) {
+			img = ImageUtil.getImage("graphics/numbers/" + num + "w.jpg");
+			img.setWidth(0.75f * img.getWidth() * Config.Scale);
+			img.setHeight(35 * Config.Scale);
+			img.setPosition(Config.Scale * 639, Config.Scale * 210);
+
+		} else {
+			img = ImageUtil.getImage("graphics/numbers/" + 7 + "w.jpg");
+			img.setWidth(0.75f * img.getWidth() * Config.Scale);
+			img.setHeight(35 * Config.Scale);
+			img.setPosition(Config.Scale * 631.5f, Config.Scale * 210);
+		}
+		this.addActor(img);
 	}
 
 	private void addBotton() {
@@ -139,15 +171,49 @@ public class Card_Info_Window extends Group {
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
 				toCover.setSize(Config.Scale * 80, Config.Scale * 35);
-				toCover.setPosition(Config.Scale * 845, Config.Scale * 65);
+				toCover.setPosition(Config.Scale * 845, Config.Scale * 210);
 				Card_Info_Window cfw = DeckView_Window.getInstance().cfw;
 				cfw.clear();
 				cfw = null;
 				DeckView_Window.getInstance().refresh();
 			}
 		});
-		toCover.setPosition(Config.Scale * 845, Config.Scale * 210);
+		toCover.setPosition(Config.Scale * 1030, Config.Scale * 210);
 		this.addActor(toCover);
 
+		Image decompose;
+		if (Start.global.data.card_no.get(data.ID) <= 0)
+			decompose = ImageUtil.getImage("graphics/icon/2b.jpg");
+		else {
+			decompose = ImageUtil.getImage("graphics/icon/2w.jpg");
+			decompose.addListener(new ClickListener() {
+				@Override
+				public void clicked(InputEvent event, float x, float y) {
+					Composite.decomposite(data);
+					DeckView_Window.getInstance().cfw = new Card_Info_Window(data);
+					DeckView_Window.getInstance().refresh();
+				}
+			});
+		}
+		decompose.setPosition(Config.Scale * 930, Config.Scale * 210);
+
+		Image composite;
+		if (Composite.ifcomposite(data)) {
+			composite = ImageUtil.getImage("graphics/icon/1w.jpg");
+			composite.addListener(new ClickListener() {
+				@Override
+				public void clicked(InputEvent event, float x, float y) {
+					Composite.composite(data);
+					DeckView_Window.getInstance().cfw = new Card_Info_Window(data);
+					DeckView_Window.getInstance().refresh();
+				}
+			});
+		} else
+			composite = ImageUtil.getImage("graphics/icon/1b.jpg");
+		composite.setPosition(Config.Scale * 830, Config.Scale * 210);
+
+		this.addActor(decompose);
+		this.addActor(composite);
 	}
+
 }

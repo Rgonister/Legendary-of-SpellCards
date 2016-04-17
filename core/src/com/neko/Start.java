@@ -37,7 +37,6 @@ public class Start extends ApplicationAdapter {
 		CardFilter.init();
 		//º”‘ÿø®≈∆–≈œ¢
 		cards = CardLoader.load();
-		
 		FontUtil.init();
 	}
 

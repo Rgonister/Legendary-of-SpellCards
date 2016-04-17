@@ -6,7 +6,7 @@ import java.util.List;
 import com.neko.Start;
 import com.neko.system.data.CardFilter;
 
-public class shop {
+public class Shop {
 	public static final int NORMAL = 1;
 
 	public static List<Integer> drawcards(int status) {

@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.neko.Start;
 import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
-import com.neko.game.shop.shop;
+import com.neko.game.shop.Shop;
 import com.neko.system.sound.SEControler;
 import com.neko.util.ImageUtil;
 
@@ -84,7 +84,7 @@ public class Shop_Window extends Group {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
-				List<Integer> l = shop.drawcards(shop.NORMAL);
+				List<Integer> l = Shop.drawcards(Shop.NORMAL);
 				showCards(l);
 				back.setSize(Config.Scale * 80, Config.Scale * 35);
 				back.setPosition(Config.Scale * 125, Config.Scale * 65);

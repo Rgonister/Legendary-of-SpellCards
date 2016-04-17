@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 
 import com.badlogic.gdx.Gdx;
 import com.neko.config.Config;
+import com.neko.system.data.CardFilter;
 
 public class Player {
 
@@ -33,6 +34,7 @@ public class Player {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		CardFilter.refresh();
 	}
 
 	public static Player loaddata() {

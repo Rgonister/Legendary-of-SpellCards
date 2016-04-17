@@ -44,7 +44,7 @@
 	ATK|5#
 	LIFE|8#
 	RACE|妖怪#
-	DIS|你可以为你的随机效果指定作用目标.#
+	DIS|你的回合内，你可以为随机效果指定作用目标.#
 	RARITY|LEGENDARY#
 	GROUP|PACHI#
 	TYPE|SUMMON#

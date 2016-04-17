@@ -12,6 +12,7 @@ import com.neko.Start;
 import com.neko.config.Config;
 import com.neko.game.item.Card;
 import com.neko.game.item.CardImage;
+import com.neko.system.base.component.FontActor;
 import com.neko.system.data.CardFilter;
 import com.neko.system.sound.SEControler;
 import com.neko.util.ImageUtil;
@@ -45,6 +46,7 @@ public class DeckView_Window extends Group {
 		bg.setColor(80, 80, 80, 0.65f);
 		cfilter.add("Alice");
 		cfilter.add("");
+		cfilter.add("My");
 		this.refresh();
 	}
 
@@ -61,6 +63,8 @@ public class DeckView_Window extends Group {
 		if (cfw != null) {
 			this.addActor(cfw);
 		}
+		this.addActor(new FontActor(String.valueOf(Start.global.data.faith), Config.Scale * 700, Config.Scale * 60,
+				"textur30"));
 	}
 
 	private void initcardimage() {
@@ -72,6 +76,7 @@ public class DeckView_Window extends Group {
 			final Card c = Start.cards.get(cardID.get(i + (page - 1) * 8));
 			CardImage img = c.getActor();
 			img.setPosition((65 + 255 * i) * Config.Scale, 480 * Config.Scale);
+
 			if (!img.flag) {
 				img.addListener(new ClickListener() {
 
@@ -81,11 +86,16 @@ public class DeckView_Window extends Group {
 						cfw = new Card_Info_Window(c.data);
 						DeckView_Window.getInstance().refresh();
 					}
-
 				});
 				img.flag = true;
 			}
 			cardimage.add(img);
+			if (Start.global.data.card_no.get(cardID.get(i + (page - 1) * 8)) == 0) {
+				Image lost = ImageUtil.getImage("graphics/icon/lost.png");
+				lost.setColor(75, 50, 50, 0.7f);
+				lost.setPosition((106.5f + 255 * i) * Config.Scale, 630 * Config.Scale);
+				cardimage.add(lost);
+			}
 		}
 		for (int i = 0; i < 4; i++) {
 			if ((i + 4 + (page - 1) * 8) >= cardID.size())
@@ -105,8 +115,16 @@ public class DeckView_Window extends Group {
 
 				});
 				img.flag = true;
+				
 			}
 			cardimage.add(img);
+			if (Start.global.data.card_no.get(cardID.get(i + 4 + (page - 1) * 8)) == 0) {
+				Image lost = ImageUtil.getImage("graphics/icon/lost.png");
+				lost.setColor(75, 50, 50, 0.7f);
+				lost.setPosition((106.5f + 255 * i) * Config.Scale, 250 * Config.Scale);
+				cardimage.add(lost);
+			}
+
 		}
 	}
 
@@ -178,7 +196,7 @@ public class DeckView_Window extends Group {
 		bimg.setPosition(1090 * Config.Scale, 590 * Config.Scale);
 		bimg.setColor(80, 80, 80, 0.65f);
 		this.addActor(bimg);
-		
+
 		Image alice = ImageUtil.getImage("graphics/icon/Alice.jpg");
 		alice.setPosition(Config.Scale * 1100, Config.Scale * 780);
 		alice.setColor(100, 100, 100, 0.85f);
@@ -242,6 +260,22 @@ public class DeckView_Window extends Group {
 			}
 		});
 		this.addActor(common);
+
+		Image cirno1 = ImageUtil.getImage("graphics/icon/Cirno.jpg");
+		cirno1.setPosition(Config.Scale * 1100, Config.Scale * 120);
+		cirno1.setColor(100, 100, 100, 0.85f);
+		cirno1.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				SEControler.play(1, "Click");
+				if (cfilter.get(2) == null || cfilter.get(2).length() <= 0)
+					cfilter.set(2, "My");
+				else
+					cfilter.set(2, "");
+				refresh();
+			}
+		});
+		this.addActor(cirno1);
 	}
 
 	private void add_cost_filter_button() {
