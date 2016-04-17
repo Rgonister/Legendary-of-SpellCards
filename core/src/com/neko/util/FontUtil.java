@@ -13,5 +13,7 @@ public class FontUtil {
 		FontActor.addlbf("textur", 25, "textur25");
 		FontActor.addlbf("sf", 30, "sf30");
 		FontActor.addlbf("sf", 25, "sf25");
+		FontActor.addlbf("textur", 55, "textur55");
+		FontActor.addlbf("textur", 32, "textur32");
 	};
 }

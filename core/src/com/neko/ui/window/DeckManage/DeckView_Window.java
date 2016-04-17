@@ -13,6 +13,7 @@ import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
 import com.neko.game.item.Card;
 import com.neko.game.item.CardImage;
+import com.neko.game.player.Player;
 import com.neko.system.base.component.FontActor;
 import com.neko.system.data.CardFilter;
 import com.neko.system.sound.SEControler;
@@ -32,7 +33,8 @@ public class DeckView_Window extends Group {
 	public HeroSelecter_Window selecter;
 	public boolean viewstate = false;
 	public boolean editmode = false;
-	public DeckImage DeckImage;
+	public DeckImage deckImage;
+	public MyDeck_Window mdw;
 
 	public static DeckView_Window getInstance() {
 		if (instance == null) {
@@ -65,13 +67,16 @@ public class DeckView_Window extends Group {
 		this.add_window_button();
 		this.add_groupfilter_button();
 		this.add_cost_filter_button();
-		this.addActor(MyDeck_Window.getInstance());
 		if (cfw != null)
 			this.addActor(cfw);
 		if (selecter != null)
 			this.addActor(selecter);
 		if (editmode)
-			this.addActor(DeckImage);
+			this.addActor(deckImage);
+		else {
+			MyDeck_Window.getInstance().refresh();
+			this.addActor(MyDeck_Window.getInstance());
+		}
 		this.addActor(new FontActor(String.valueOf(Start.global.data.faith), Config.Scale * 700, Config.Scale * 60,
 				"textur30"));
 	}
@@ -222,18 +227,39 @@ public class DeckView_Window extends Group {
 		toCover.setPosition(Config.Scale * 1455, Config.Scale * 55);
 		this.addActor(toCover);
 
-		Image groupmode = ImageUtil.getImage("graphics/icon/groupw.jpg");
-		groupmode.setPosition(Config.Scale * 1310, Config.Scale * 55);
-		groupmode.setColor(100, 100, 100, 0.85f);
-		groupmode.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				selecter = new HeroSelecter_Window();
-				DeckView_Window.getInstance().cfilter.set(2, "My");
-				DeckView_Window.getInstance().refresh();
-			}
-		});
-		this.addActor(groupmode);
+		if (!editmode) {
+			Image groupmode = ImageUtil.getImage("graphics/icon/groupw.jpg");
+			groupmode.setPosition(Config.Scale * 1310, Config.Scale * 55);
+			groupmode.setColor(100, 100, 100, 0.85f);
+			groupmode.addListener(new ClickListener() {
+				@Override
+				public void clicked(InputEvent event, float x, float y) {
+					selecter = new HeroSelecter_Window();
+					DeckView_Window.getInstance().cfilter.set(2, "My");
+					DeckView_Window.getInstance().refresh();
+				}
+			});
+			this.addActor(groupmode);
+		} else {
+			Image groupmode = ImageUtil.getImage("graphics/icon/groupb.jpg");
+			groupmode.setPosition(Config.Scale * 1310, Config.Scale * 55);
+			groupmode.setColor(100, 100, 100, 0.85f);
+			groupmode.addListener(new ClickListener() {
+				@Override
+				public void clicked(InputEvent event, float x, float y) {
+					Player p = Start.global;
+					DeckView_Window dvw = DeckView_Window.getInstance();
+					p.decks.data.add(dvw.deckImage.deck);
+					System.out.println("¿¨×é´¢´æ³É¹¦");
+					p.savedata();
+					dvw.deckImage.clear();
+					dvw.deckImage = null;
+					dvw.editmode = false;
+					dvw.refresh();
+				}
+			});
+			this.addActor(groupmode);
+		}
 	}
 
 	private void add_groupfilter_button() {
@@ -292,9 +318,9 @@ public class DeckView_Window extends Group {
 				}
 			}
 		});
-		
+
 		Image makemode;
-		
+
 		if (!editmode) {
 			this.addActor(BackgroundUtil.getImage("gray", 1090, 590, 70, 250, 0.65f));
 			alice.setPosition(Config.Scale * 1100, Config.Scale * 780);
@@ -305,7 +331,7 @@ public class DeckView_Window extends Group {
 			this.addActor(cirno);
 			this.addActor(pachi);
 			this.addActor(common);
-			
+
 			if (viewstate)
 				makemode = ImageUtil.getImage("graphics/icon/makeb.jpg");
 			else
@@ -324,23 +350,23 @@ public class DeckView_Window extends Group {
 					refresh();
 				}
 			});
-						
-		}else{
+
+		} else {
 			this.addActor(BackgroundUtil.getImage("gray", 1090, 710, 70, 130, 0.65f));
-			String h = DeckImage.deck.Hero;
-			if(h.equals("Alice")){
+			String h = deckImage.deck.Hero;
+			if (h.equals("Alice")) {
 				alice.setPosition(Config.Scale * 1100, Config.Scale * 780);
 				this.addActor(alice);
-			}else if(h.equals("Crino")){
+			} else if (h.equals("Cirno")) {
 				cirno.setPosition(Config.Scale * 1100, Config.Scale * 780);
 				this.addActor(cirno);
-			}else{
+			} else {
 				pachi.setPosition(Config.Scale * 1100, Config.Scale * 780);
 				this.addActor(pachi);
 			}
 			common.setPosition(Config.Scale * 1100, Config.Scale * 720);
 			this.addActor(common);
-			
+
 			makemode = ImageUtil.getImage("graphics/icon/makeb.jpg");
 			makemode.setPosition(Config.Scale * 1190, Config.Scale * 55);
 			makemode.setColor(100, 100, 100, 0.85f);

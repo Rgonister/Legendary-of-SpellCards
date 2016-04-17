@@ -99,8 +99,7 @@ public class Shop_Window extends Group {
 		int num = 0;
 		for (Integer i : l) {
 			Actor a = Start.cards.get(i).getActor();
-			System.out.println();
-			System.out.print(Start.cards.get(i).data.RARITY+"  ");
+			System.out.println(Start.cards.get(i).data.RARITY+"  ");
 			a.setPosition(200 + 250 * num, 300);
 			this.addActor(a);
 			num += 1;

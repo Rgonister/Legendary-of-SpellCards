@@ -39,7 +39,7 @@ public class Card_Info_Window extends Group {
 		this.addActor(bg1);
 		this.addCardImage();
 		this.addCardDescription();
-		this.addBottom();
+		this.addBotton();
 	}
 
 	private void addCardImage() {
@@ -139,7 +139,7 @@ public class Card_Info_Window extends Group {
 		this.addActor(img);
 	}
 
-	private void addBottom() {
+	private void addBotton() {
 		final Image toCover = ImageUtil.getImage(Config.Icon_Path + "return0.png");
 		toCover.addListener(new ClickListener() {
 
@@ -202,6 +202,21 @@ public class Card_Info_Window extends Group {
 
 		this.addActor(decompose);
 		this.addActor(composite);
+		
+		final Image toCover1 = ImageUtil.getImage(Config.Icon_Path + "return0.png");
+		toCover1.addListener(new ClickListener() {
+
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				SEControler.play(1, "Click");
+				DeckView_Window.getInstance().deckImage.deck.add(data.ID);
+				DeckView_Window.getInstance().deckImage.refresh();
+				DeckView_Window.getInstance().refresh();
+			}
+		});
+		toCover1.setPosition(Config.Scale * 690, Config.Scale * 210);
+		this.addActor(toCover1);
+		
 	}
 
 }

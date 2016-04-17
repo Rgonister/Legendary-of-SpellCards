@@ -24,8 +24,9 @@ public class HeroSelecter_Window extends Group {
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
 				DeckView_Window dvw = DeckView_Window.getInstance();
-				Deck d = new Deck("Alice", "Alice");
-				dvw.DeckImage = new DeckImage(d);
+				Deck d = new Deck("Alice", "ALICE");
+				dvw.cfilter.set(0, "Alice");
+				dvw.deckImage = new DeckImage(d);
 				dvw.selecter.clear();
 				dvw.selecter = null;
 				dvw.editmode = true;
@@ -40,8 +41,9 @@ public class HeroSelecter_Window extends Group {
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
 				DeckView_Window dvw = DeckView_Window.getInstance();
-				Deck d = new Deck("Cirno", "Cirno");
-				dvw.DeckImage = new DeckImage(d);
+				Deck d = new Deck("Cirno", "CIRNO");
+				dvw.cfilter.set(0, "Cirno");
+				dvw.deckImage = new DeckImage(d);
 				dvw.selecter.clear();
 				dvw.selecter = null;
 				dvw.editmode = true;
@@ -56,8 +58,9 @@ public class HeroSelecter_Window extends Group {
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
 				DeckView_Window dvw = DeckView_Window.getInstance();
-				Deck d = new Deck("Pachi", "Pachi");
-				dvw.DeckImage = new DeckImage(d);
+				Deck d = new Deck("Pachi", "PACHI");
+				dvw.cfilter.set(0, "Pachi");
+				dvw.deckImage = new DeckImage(d);
 				dvw.selecter.clear();
 				dvw.selecter = null;
 				dvw.editmode = true;

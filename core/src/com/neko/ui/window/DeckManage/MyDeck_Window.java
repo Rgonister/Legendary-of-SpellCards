@@ -1,6 +1,16 @@
 package com.neko.ui.window.DeckManage;
 
+import java.util.List;
+
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.neko.Start;
+import com.neko.config.Config;
+import com.neko.game.player.Deck;
+import com.neko.system.base.component.FontActor;
+import com.neko.util.ImageUtil;
 
 public class MyDeck_Window extends Group {
 
@@ -18,7 +28,30 @@ public class MyDeck_Window extends Group {
 	}
 
 	private MyDeck_Window() {
-	}	
-	
+	}
+
+	public void refresh() {
+		this.clear();
+		final List<Deck> ds = Start.global.decks.data;
+		for (int i = 0; i < ds.size(); i++) {
+			final int num = i;
+			
+			Image hero = ImageUtil.getImage("graphics/deck/" + ds.get(i).Hero + ".jpg");
+			hero.setPosition(Config.Scale * 1185f, Config.Scale * (670f - 170 * i));
+			this.addActor(hero);
+			this.addActor(new FontActor(ds.get(i).DeckName, Config.Scale * 1190f, Config.Scale * (735f - 175 * i),
+					"textur55"));
+
+			hero.addListener(new ClickListener() {
+				@Override
+				public void clicked(InputEvent event, float x, float y) {
+					DeckView_Window dvw = DeckView_Window.getInstance();
+					dvw.deckImage = new DeckImage(ds.get(num));
+					dvw.editmode = true;
+					dvw.refresh();
+				}
+			});
+		}
+	}
 
 }
