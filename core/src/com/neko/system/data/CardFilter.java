@@ -39,12 +39,12 @@ public class CardFilter {
 		System.out.println(ls.size());
 		filter.put("My", ls);
 		System.out.println("filter ×°ÔØ³É¹¦");
-		System.out.println("----------------");
-		for (String k : filter.keySet()) {
-			List<Integer> l = filter.get(k);
-			System.out.println(k + " : " + l.get(0) + " - " + l.get(l.size() - 1));
-		}
-		System.out.println("----------------");
+//		System.out.println("----------------");
+//		for (String k : filter.keySet()) {
+//			List<Integer> l = filter.get(k);
+//			System.out.println(k + " : " + l.get(0) + " - " + l.get(l.size() - 1));
+//		}
+//		System.out.println("----------------");
 	}
 
 	public static void refresh(){

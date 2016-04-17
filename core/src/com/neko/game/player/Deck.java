@@ -1,7 +1,7 @@
 package com.neko.game.player;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import com.neko.Start;
 import com.neko.game.item.CardData;
@@ -9,7 +9,7 @@ import com.neko.game.item.CardData;
 public class Deck {
 	public String DeckName;
 	public String Hero;
-	public Map<Integer, Integer> data = new HashMap<Integer, Integer>();
+	public Map<Integer, Integer> data = new TreeMap<Integer, Integer>();
 
 	public Deck(String deckName, String hero) {
 		this.DeckName = deckName;

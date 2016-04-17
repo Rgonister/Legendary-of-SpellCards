@@ -12,6 +12,7 @@ import com.neko.game.item.CardImage;
 import com.neko.game.shop.Composite;
 import com.neko.system.base.component.FontActor;
 import com.neko.system.sound.SEControler;
+import com.neko.util.BackgroundUtil;
 import com.neko.util.ImageUtil;
 
 public class Card_Info_Window extends Group {
@@ -20,10 +21,9 @@ public class Card_Info_Window extends Group {
 
 	public Card_Info_Window(CardData c) {
 		data = c;
-		final Image cover = new Image(ImageUtil.getTexture("graphics/StoryMode/gray.png"));
-		cover.setWidth(1600 * Config.Scale);
-		cover.setHeight(900 * Config.Scale);
-		cover.setColor(125, 125, 125, 0.4f);
+		final Image cover = BackgroundUtil.getImage("gray", 1600, 900, 0.4f);
+		Image bg = BackgroundUtil.getImage("black", 490, 200, 658, 525, 0.6f);
+		Image bg1 = BackgroundUtil.getImage("white", 490, 200, 658, 525, 0.2f);
 		cover.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
@@ -34,24 +34,12 @@ public class Card_Info_Window extends Group {
 			}
 		});
 
-		Image bg = new Image(ImageUtil.getTexture("graphics/StoryMode/black.png"));
-		bg.setWidth(658 * Config.Scale);
-		bg.setHeight(525 * Config.Scale);
-		bg.setPosition(490 * Config.Scale, 200 * Config.Scale);
-		bg.setColor(40, 40, 40, 0.6f);
-
-		Image bg1 = new Image(ImageUtil.getTexture("graphics/StoryMode/white.png"));
-		bg1.setWidth(658 * Config.Scale);
-		bg1.setHeight(525 * Config.Scale);
-		bg1.setPosition(490 * Config.Scale, 200 * Config.Scale);
-		bg1.setColor(40, 40, 40, 0.2f);
-
 		this.addActor(cover);
 		this.addActor(bg);
 		this.addActor(bg1);
 		this.addCardImage();
 		this.addCardDescription();
-		this.addBotton();
+		this.addBottom();
 	}
 
 	private void addCardImage() {
@@ -151,7 +139,7 @@ public class Card_Info_Window extends Group {
 		this.addActor(img);
 	}
 
-	private void addBotton() {
+	private void addBottom() {
 		final Image toCover = ImageUtil.getImage(Config.Icon_Path + "return0.png");
 		toCover.addListener(new ClickListener() {
 

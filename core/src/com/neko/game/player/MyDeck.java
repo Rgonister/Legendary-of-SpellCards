@@ -15,5 +15,4 @@ public class MyDeck {
 		decks.add(new Deck(deckname,hero));
 	}
 	
-	
 }
