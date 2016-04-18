@@ -7,10 +7,10 @@ import java.util.TreeMap;
 import com.neko.Start;
 import com.neko.game.item.CardData;
 
-public class Deck implements Serializable{
-	
+public class Deck implements Serializable {
+
 	private static final long serialVersionUID = 8495720839174513076L;
-	
+
 	public String DeckName;
 	public String Hero;
 	public Map<Integer, Integer> data = new TreeMap<Integer, Integer>();
@@ -37,6 +37,11 @@ public class Deck implements Serializable{
 	}
 
 	public boolean add(Integer i) {
+
+		if (this.data.containsKey(i) && Start.global.data.card_no.get(i) <= this.data.get(i)) {
+			System.out.println("剩余卡牌数量不足");
+			return false;
+		}
 		if (number >= 30) {
 			System.out.println("--------超过上限--------");
 			return false;

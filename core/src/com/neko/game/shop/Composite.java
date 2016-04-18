@@ -13,7 +13,7 @@ public class Composite {
 		else if (c.RARITY.equals("RARE"))
 			faith = 100;
 		else
-			faith = 2000;
+			faith = 1500;
 		if (Start.global.data.faith >= faith)
 			flag = true;
 		return flag;

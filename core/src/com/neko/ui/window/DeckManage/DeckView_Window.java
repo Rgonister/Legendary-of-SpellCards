@@ -15,6 +15,7 @@ import com.neko.config.enums.WindowState;
 import com.neko.game.item.Card;
 import com.neko.game.item.CardImage;
 import com.neko.game.player.Player;
+import com.neko.system.base.component.FontActor;
 import com.neko.system.data.CardFilter;
 import com.neko.util.BackgroundUtil;
 import com.neko.util.ImageUtil;
@@ -80,9 +81,8 @@ public class DeckView_Window extends Group {
 		}
 		if (selecter != null)
 			this.addActor(selecter);
-		// this.addActor(new FontActor(String.valueOf(Start.global.data.faith),
-		// Config.Scale * 700, Config.Scale * 60,
-		// "textur30"));
+		this.addActor(new FontActor(String.valueOf("Faith : " + Start.global.data.faith), Config.Scale * 623,
+				Config.Scale * 92, "textur32"));
 	}
 
 	private void initcardimage() {
@@ -133,12 +133,12 @@ public class DeckView_Window extends Group {
 						if (editmode) {
 							float X = px + x;
 							float Y = py + y;
-							if (X > 1170 && X < 1550 && Y > 45 && Y < 690){							
+							if (X > 1170 && X < 1550 && Y > 45 && Y < 690) {
 								DeckView_Window.getInstance().deckImage.deck.add(c.ID);
 								DeckView_Window.getInstance().deckImage.refresh();
 								DeckView_Window.getInstance().refresh();
 							}
-							DeckView_Window.smallimg = null;	
+							DeckView_Window.smallimg = null;
 							DeckView_Window.getInstance().refresh();
 						}
 					}
@@ -172,10 +172,10 @@ public class DeckView_Window extends Group {
 					}
 				});
 				img.flag = true;
-				
+
 				final int px = 65 + 255 * i;
 				final int py = 100;
-				
+
 				img.addListener(new DragListener() {
 					@Override
 					public void dragStart(InputEvent event, float x, float y, int pointer) {
@@ -202,17 +202,17 @@ public class DeckView_Window extends Group {
 						if (editmode) {
 							float X = px + x;
 							float Y = py + y;
-							if (X > 1170 && X < 1550 && Y > 45 && Y < 690){							
+							if (X > 1170 && X < 1550 && Y > 45 && Y < 690) {
 								DeckView_Window.getInstance().deckImage.deck.add(c.ID);
 								DeckView_Window.getInstance().deckImage.refresh();
 								DeckView_Window.getInstance().refresh();
 							}
-							DeckView_Window.smallimg = null;	
+							DeckView_Window.smallimg = null;
 							DeckView_Window.getInstance().refresh();
 						}
 					}
 				});
-				
+
 			}
 			cardimage.add(img);
 			if (Start.global.data.card_no.get(cardID.get(i + 4 + (page - 1) * 8)) == 0) {
