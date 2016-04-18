@@ -47,8 +47,7 @@ public class DataLoader {
 				if (field.getType().equals(String.class)) {
 					field.set(o, str);
 				} else {
-					field.set(o, Integer.parseInt(str));// only for string&int
-														// need furthur develop
+					field.set(o, Integer.parseInt(str));
 				}
 			}
 		} catch (Exception e) {
@@ -83,9 +82,7 @@ public class DataLoader {
 					if (field.getType().equals(String.class)) {
 						field.set(o, str);
 					} else {
-						field.set(o, Integer.parseInt(str));// only for
-															// string & int 
-															// need furthur develop
+						field.set(o, Integer.parseInt(str));
 					}
 				}
 			} catch (Exception e) {

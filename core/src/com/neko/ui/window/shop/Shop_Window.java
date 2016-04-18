@@ -11,8 +11,8 @@ import com.neko.Start;
 import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
 import com.neko.game.shop.Shop;
-import com.neko.system.sound.SEControler;
 import com.neko.util.ImageUtil;
+import com.neko.util.SEControler;
 
 public class Shop_Window extends Group {
 	private static Shop_Window instance = null;

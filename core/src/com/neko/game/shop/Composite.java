@@ -4,6 +4,7 @@ import com.neko.Start;
 import com.neko.game.item.CardData;
 
 public class Composite {
+
 	public static boolean ifcomposite(CardData c) {
 		boolean flag = false;
 		int faith = 20;
@@ -19,13 +20,14 @@ public class Composite {
 	}
 
 	public static void composite(CardData c) {
+		if (!ifcomposite(c))return;
 		int faith;
 		if (c.RARITY.equals("NORMAL"))
 			faith = 20;
 		else if (c.RARITY.equals("RARE"))
 			faith = 100;
 		else
-			faith = 2000;
+			faith = 1500;
 		Start.global.data.faith -= faith;
 		Start.global.data.card_no.set(c.ID, Start.global.data.card_no.get(c.ID) + 1);
 		Start.global.savedata();

@@ -10,9 +10,9 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.neko.config.Config;
-import com.neko.system.sound.SEControler;
 import com.neko.ui.screen.Screen_StoryMode;
 import com.neko.util.ImageUtil;
+import com.neko.util.SEControler;
 
 public class Stage_Window extends Group {
 	private static Stage_Window instance = null;

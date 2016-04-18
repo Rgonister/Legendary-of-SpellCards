@@ -9,9 +9,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.neko.Start;
 import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
-import com.neko.system.sound.SEControler;
 import com.neko.ui.screen.Screen_StoryMode;
 import com.neko.util.ImageUtil;
+import com.neko.util.SEControler;
 
 public class Chapter_Window extends Group {
 

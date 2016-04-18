@@ -24,8 +24,5 @@ public class SpriteActor extends Actor {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		mSprite.draw(batch);
-		// Color color = getColor();
-		// batch.setColor(color.r, color.g, color.b, color.a * parentAlpha);
-		// batch.draw(mSprite, getX(), getY());
 	}
 }

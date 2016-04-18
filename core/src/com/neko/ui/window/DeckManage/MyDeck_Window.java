@@ -47,9 +47,9 @@ public class MyDeck_Window extends Group {
 				public void clicked(InputEvent event, float x, float y) {
 					
 					DeckView_Window dvw = DeckView_Window.getInstance();
-					if(ds.get(num).Hero.equals("ALICE"))		{dvw.cfilter.set(0, "Alice");}
-					else if(ds.get(num).Hero.equals("CIRNO"))	{dvw.cfilter.set(0, "Cirno");}
-					else 										{dvw.cfilter.set(0, "Pachi");System.out.println(1);}
+					if(ds.get(num).Hero.equals("ALICE"))		dvw.cfilter.set(0, "Alice");
+					else if(ds.get(num).Hero.equals("CIRNO"))	dvw.cfilter.set(0, "Cirno");
+					else 										dvw.cfilter.set(0, "Pachi");
 					dvw.deckImage = new DeckImage(ds.get(num));
 					dvw.deckImage.id = num;
 					dvw.editmode = true;
