@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.neko.Start;
 import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
@@ -34,6 +35,9 @@ public class DeckView_Window extends Group {
 	public boolean editmode = false;
 	public DeckImage deckImage;
 	public MyDeck_Window mdw;
+	public static Image smallimg;
+	public static float smallimgx;
+	public static float smallimgy;
 
 	public static DeckView_Window getInstance() {
 		if (instance == null) {
@@ -100,7 +104,48 @@ public class DeckView_Window extends Group {
 						DeckView_Window.getInstance().refresh();
 					}
 				});
+				final int px = 65 + 255 * i;
+				final int py = 480;
+
+				img.addListener(new DragListener() {
+					@Override
+					public void dragStart(InputEvent event, float x, float y, int pointer) {
+						if (editmode) {
+							DeckView_Window.smallimg = ImageUtil.getImage(c.data.picPath);
+							DeckView_Window.smallimg.setColor(1, 1, 1, 0.8f);
+							DeckView_Window.smallimg.setScale(0.5f);
+							DeckView_Window.smallimg.setPosition(px + x / 2, py + y / 2);
+							DeckView_Window.smallimgx = x / 2;
+							DeckView_Window.smallimgy = y / 2;
+							DeckView_Window.getInstance().addActor(smallimg);
+						}
+					}
+
+					@Override
+					public void drag(InputEvent event, float x, float y, int pointer) {
+						if (editmode) {
+							DeckView_Window.smallimg.setPosition(px - smallimgx + x, py - smallimgy + y);
+						}
+					}
+
+					@Override
+					public void dragStop(InputEvent event, float x, float y, int pointer) {
+						if (editmode) {
+							float X = px + x;
+							float Y = py + y;
+							if (X > 1170 && X < 1550 && Y > 45 && Y < 690){							
+								DeckView_Window.getInstance().deckImage.deck.add(c.ID);
+								DeckView_Window.getInstance().deckImage.refresh();
+								DeckView_Window.getInstance().refresh();
+							}
+							DeckView_Window.smallimg = null;	
+							DeckView_Window.getInstance().refresh();
+						}
+					}
+				});
+
 				img.flag = true;
+
 			}
 			cardimage.add(img);
 			if (Start.global.data.card_no.get(cardID.get(i + (page - 1) * 8)) == 0) {
@@ -127,6 +172,47 @@ public class DeckView_Window extends Group {
 					}
 				});
 				img.flag = true;
+				
+				final int px = 65 + 255 * i;
+				final int py = 100;
+				
+				img.addListener(new DragListener() {
+					@Override
+					public void dragStart(InputEvent event, float x, float y, int pointer) {
+						if (editmode) {
+							DeckView_Window.smallimg = ImageUtil.getImage(c.data.picPath);
+							DeckView_Window.smallimg.setColor(1, 1, 1, 0.8f);
+							DeckView_Window.smallimg.setScale(0.5f);
+							DeckView_Window.smallimg.setPosition(px + x / 2, py + y / 2);
+							DeckView_Window.smallimgx = x / 2;
+							DeckView_Window.smallimgy = y / 2;
+							DeckView_Window.getInstance().addActor(smallimg);
+						}
+					}
+
+					@Override
+					public void drag(InputEvent event, float x, float y, int pointer) {
+						if (editmode) {
+							DeckView_Window.smallimg.setPosition(px - smallimgx + x, py - smallimgy + y);
+						}
+					}
+
+					@Override
+					public void dragStop(InputEvent event, float x, float y, int pointer) {
+						if (editmode) {
+							float X = px + x;
+							float Y = py + y;
+							if (X > 1170 && X < 1550 && Y > 45 && Y < 690){							
+								DeckView_Window.getInstance().deckImage.deck.add(c.ID);
+								DeckView_Window.getInstance().deckImage.refresh();
+								DeckView_Window.getInstance().refresh();
+							}
+							DeckView_Window.smallimg = null;	
+							DeckView_Window.getInstance().refresh();
+						}
+					}
+				});
+				
 			}
 			cardimage.add(img);
 			if (Start.global.data.card_no.get(cardID.get(i + 4 + (page - 1) * 8)) == 0) {
@@ -335,7 +421,7 @@ public class DeckView_Window extends Group {
 			makemode = ImageUtil.getImage("graphics/icon/delete.jpg");
 			makemode.addListener(new ClickListener() {
 				@Override
-				public void clicked(InputEvent event, float x, float y) {			
+				public void clicked(InputEvent event, float x, float y) {
 					if (deckImage.id != -1) {
 						Start.global.decks.data.remove(deckImage.id);
 						Start.global.savedata();

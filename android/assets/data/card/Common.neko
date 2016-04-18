@@ -30,7 +30,7 @@
 	ATK|1#
 	LIFE|1#
 	RACE|植物#
-	DIS|己方回合结束时,为你恢复2点生命值.#
+	DIS|节俭:为你恢复等同数值的生命值#
 	RARITY|NORMAL#
 	GROUP|COMMON#
 	TYPE|SUMMON#

@@ -3,6 +3,7 @@ package com.neko;
 import java.util.Map;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.neko.config.enums.WindowState;
 import com.neko.game.item.Card;
@@ -15,6 +16,7 @@ import com.neko.ui.screen.Screen_DeckManage;
 import com.neko.ui.screen.Screen_Shop;
 import com.neko.ui.screen.Screen_StoryMode;
 import com.neko.util.FontUtil;
+import com.neko.util.MyTextInputListener;
 
 public class Start extends ApplicationAdapter {
 

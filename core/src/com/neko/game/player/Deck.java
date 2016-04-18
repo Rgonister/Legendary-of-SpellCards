@@ -27,7 +27,7 @@ public class Deck implements Serializable{
 			return false;
 		} else {
 			int num = data.get(i);
-			if (i == 1)
+			if (num == 1)
 				data.remove(i);
 			else
 				data.put(i, num - 1);

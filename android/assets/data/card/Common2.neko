@@ -82,7 +82,7 @@
 	ATK|6#
 	LIFE|8#
 	RACE|人类#
-	DIS|宣言:击破一个妖怪.#
+	DIS|宣言:击破一个妖怪.节俭:将一张对应消耗的符卡置入你的手牌.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#
@@ -107,7 +107,7 @@
 	COST|10#
 	ATK|12#
 	LIFE|12#
-	DIS|疮痍:召唤一个0-4的凤凰卵;每个回合结束时,对所有角色造成2点伤害.#
+	DIS|疮痍:召唤一个0-4的凤凰卵;咏唱:回合结束时,为你的自机回复1点生命值.#
 	RARITY|LEGENDARY#
 	GROUP|COMMON#
 	TYPE|SUMMON#

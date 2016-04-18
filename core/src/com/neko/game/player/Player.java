@@ -38,7 +38,6 @@ public class Player {
 				}
 			}
 			System.out.println("data ´æ´¢³É¹¦");
-			System.out.println("gold : " + data.gold + " faith : " + data.faith);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
