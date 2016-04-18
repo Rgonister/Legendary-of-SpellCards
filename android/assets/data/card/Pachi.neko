@@ -78,9 +78,9 @@
 
 {
 	ID|35#
-	NAME|火神之光#
-	COST|3#
-	DIS|牺牲一个人形,对敌方所有子机造成等用于该人形攻击力的伤害.#
+	NAME|金属疲劳#
+	COST|1#
+	DIS|摧毁对方装备,并抽一张牌.#
 	RARITY|NORMAL#
 	GROUP|PACHI#
 	TYPE|SPELLCARD#
@@ -88,19 +88,21 @@
 
 {
 	ID|36#
-	NAME|水精公主#
-	COST|3#
-	DIS|牺牲一个人形,对敌方所有子机造成等用于该人形攻击力的伤害.#
+	NAME|火神之光#
+	COST|2#
+	DIS|对一个角色造成3点伤害.#
 	RARITY|NORMAL#
 	GROUP|PACHI#
 	TYPE|SPELLCARD#
 }
 
+
+
 {
 	ID|37#
 	NAME|风灵的角笛#
 	COST|3#
-	DIS|牺牲一个人形,对敌方所有子机造成等用于该人形攻击力的伤害.#
+	DIS|使一个单位在本回合内获得:神速,风神.#
 	RARITY|NORMAL#
 	GROUP|PACHI#
 	TYPE|SPELLCARD#
@@ -111,7 +113,7 @@
 	ID|38#
 	NAME|慵懒三石塔#
 	COST|3#
-	DIS|使己方所有人形获得+2/+1.#
+	DIS|本回合内,敌方所有单位获得迟缓.#
 	RARITY|NORMAL#
 	GROUP|PACHI#
 	TYPE|SPELLCARD#
@@ -119,10 +121,10 @@
 
 {
 	ID|39#
-	NAME|金属疲劳#
-	COST|7#
-	DIS|随机召唤3个人形.#
-	RARITY|NORMAL#
+	NAME|皇家圣焰#
+	COST|4#
+	DIS|对敌方所有角色造成2点伤害,并且驱除战场上所有角色的冻结效果.#
+	RARITY|RARE#
 	GROUP|PACHI#
 	TYPE|SPELLCARD#
 }
@@ -130,25 +132,16 @@
 {
 	ID|40#
 	NAME|沉静的月神#
-	COST|4#
-	DIS|对一个敌方角色造成5点伤害,如果你控制了任何自律人形,则改为造成8点伤害.#
+	COST|5#
+	DIS|恢复己方单位所有生命值,同时对自己造成1/2的治疗效果.#
 	RARITY|RARE#
 	GROUP|PACHI#
 	TYPE|SPELLCARD#
 }
+
 
 {
 	ID|41#
-	NAME|皇家圣焰#
-	COST|4#
-	DIS|对所有敌方子机造成1点伤害,并使其在本回合内获得能力:迟缓.#
-	RARITY|RARE#
-	GROUP|PACHI#
-	TYPE|SPELLCARD#
-}
-
-{
-	ID|42#
 	NAME|贤者之石#
 	COST|5#
 	DIS|将你手牌和牌库中的符卡牌替换为对应的上级符卡.#
@@ -156,3 +149,16 @@
 	GROUP|PACHI#
 	TYPE|SPELLCARD#
 }
+
+{
+	ID|42#
+	NAME|水精公主#
+	COST|6#
+	DIS|直到你的下个回合开始时,为你的所有角色抵挡不超过10点伤害.#
+	RARITY|NORMAL#
+	GROUP|PACHI#
+	TYPE|SPELLCARD#
+}
+
+
+

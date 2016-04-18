@@ -29,9 +29,10 @@ public class CardLoader {
 		}
 		System.out.println("--CardData装载成功--共" + l.size() + "项--");
 //		for (Card c : l) {
-//			if (c.data.RARITY.equals("LEGENDARY"))
+//			if (c.data.COST ==4)
 //				System.out.print(c.ID + ",");
 //		}
+
 		return m;
 	}
 

@@ -13,6 +13,7 @@ import com.neko.system.data.CardFilter;
 import com.neko.system.data.CardLoader;
 import com.neko.ui.screen.Screen_Cover;
 import com.neko.ui.screen.Screen_DeckManage;
+import com.neko.ui.screen.Screen_GameBoard;
 import com.neko.ui.screen.Screen_Shop;
 import com.neko.ui.screen.Screen_StoryMode;
 import com.neko.util.FontUtil;
@@ -55,6 +56,8 @@ public class Start extends ApplicationAdapter {
 				screen = Screen_DeckManage.getInstance(); 	break;
 			case Shop :
 				screen = Screen_Shop.getInstance();		break;
+			case GameBoard :
+				screen = Screen_GameBoard.getInstance(); break;
 			}
 			ag.setScreen(screen);
 			temp = windowstate; // 漏了这句直接爆炸，还好电脑抗性高
