@@ -110,7 +110,7 @@ public class DeckView_Window extends Group {
 				cardimage.add(lost);
 			}
 		}
-		
+
 		for (int i = 0; i < 4; i++) {
 			if ((i + 4 + (page - 1) * 8) >= cardID.size())
 				break;
@@ -185,20 +185,24 @@ public class DeckView_Window extends Group {
 		this.addActor(toCover);
 
 		if (!editmode) {
-			Image groupmode = ImageUtil.getImage("graphics/icon/groupw.jpg");
+			Image groupmode = ImageUtil.getImage("graphics/icon/new.jpg");
 			groupmode.setPosition(Config.Scale * 1310, Config.Scale * 55);
 			groupmode.setColor(100, 100, 100, 0.85f);
 			groupmode.addListener(new ClickListener() {
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
-					selecter = new HeroSelecter_Window();
-					DeckView_Window.getInstance().cfilter.set(2, "My");
-					DeckView_Window.getInstance().refresh();
+					if (Start.global.decks.data.size() < 4) {
+						selecter = new HeroSelecter_Window();
+						DeckView_Window.getInstance().cfilter.set(2, "My");
+						DeckView_Window.getInstance().refresh();
+					} else {
+						System.out.println("¿¨×éÒÑÂú");
+					}
 				}
 			});
 			this.addActor(groupmode);
 		} else {
-			Image groupmode = ImageUtil.getImage("graphics/icon/groupb.jpg");
+			Image groupmode = ImageUtil.getImage("graphics/icon/save.jpg");
 			groupmode.setPosition(Config.Scale * 1310, Config.Scale * 55);
 			groupmode.setColor(100, 100, 100, 0.85f);
 			groupmode.addListener(new ClickListener() {
@@ -328,7 +332,20 @@ public class DeckView_Window extends Group {
 			common.setPosition(Config.Scale * 1100, Config.Scale * 720);
 			this.addActor(common);
 
-			makemode = ImageUtil.getImage("graphics/icon/makeb.jpg");
+			makemode = ImageUtil.getImage("graphics/icon/delete.jpg");
+			makemode.addListener(new ClickListener() {
+				@Override
+				public void clicked(InputEvent event, float x, float y) {			
+					if (deckImage.id != -1) {
+						Start.global.decks.data.remove(deckImage.id);
+						Start.global.savedata();
+					}
+					deckImage.clear();
+					deckImage = null;
+					DeckView_Window.getInstance().editmode = false;
+					DeckView_Window.getInstance().refresh();
+				}
+			});
 			makemode.setPosition(Config.Scale * 1190, Config.Scale * 55);
 			makemode.setColor(100, 100, 100, 0.85f);
 		}
