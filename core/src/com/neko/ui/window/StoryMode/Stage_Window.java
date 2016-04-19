@@ -49,11 +49,17 @@ public class Stage_Window extends Group {
 
 	public void refresh() {
 		this.clear();
+		Image im = new Image(ImageUtil.getTexture("graphics/StoryMode/gray.png"));
+		im.setWidth(830);
+		im.setHeight(790);
+		im.setPosition(110, 55);
+		im.setColor(80, 80, 80, 0.65f);
+		this.addActor(im);
 		ArrayList<Image> al = stage_image.get(chapter_number);
 		for (int i = 1; i <= 6; i++) {
 			final int num = i;
 			Image image = al.get(i - 1);
-			image.setPosition(125 * Config.Scale, ((6 - i) * 122.6f + 110) * Config.Scale);
+			image.setPosition(125, (6 - i) * 122.6f + 110);
 			image.addListener(new ClickListener() {
 				public void clicked(InputEvent event, float x, float y) {
 					Stage_Info_Window.getInstance().setStage_number(num);
@@ -69,11 +75,11 @@ public class Stage_Window extends Group {
 
 	private void add_window_button() {
 		Image back = ImageUtil.getImage(Config.Icon_Path + "goback1.png");
-		back.setPosition(Config.Scale * 125, Config.Scale * 65);
+		back.setPosition( 125, 65);
 		this.addActor(back);
 
 		Image front = ImageUtil.getImage(Config.Icon_Path + "gofront1.png");
-		front.setPosition(Config.Scale * 220, Config.Scale * 65);
+		front.setPosition( 220,  65);
 		this.addActor(front);
 
 		final Image toCover = ImageUtil.getImage(Config.Icon_Path + "return0.png");
@@ -99,11 +105,11 @@ public class Stage_Window extends Group {
 				Screen_StoryMode.setStage_group(Chapter_Window.getInstance());
 
 				Stage_Info_Window.getInstance().clear();
-				toCover.setSize(Config.Scale * 80, Config.Scale * 35);
-				toCover.setPosition(Config.Scale * 845, Config.Scale * 65);
+				toCover.setSize( 80,35);
+				toCover.setPosition( 845,65);
 			}
 		});
-		toCover.setPosition(Config.Scale * 845, Config.Scale * 65);
+		toCover.setPosition(845, 65);
 		this.addActor(toCover);
 	}
 

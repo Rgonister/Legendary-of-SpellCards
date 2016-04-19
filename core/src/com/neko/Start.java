@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Screen;
+import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
 import com.neko.game.item.Card;
 import com.neko.game.player.Player;
@@ -63,4 +64,11 @@ public class Start extends ApplicationAdapter {
 		ag.render();
 	}
 
+	@Override
+	public void resize(int width, int height) {
+		Config.ScaleX =  width / 1600f;
+		Config.ScaleY =  height / 900f;
+		Start.ag.setScreen(Start.ag.getScreen());
+
+	}
 }

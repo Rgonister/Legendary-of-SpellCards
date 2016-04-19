@@ -2,6 +2,7 @@ package com.neko.ui.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
 import com.neko.system.base.component.Screen_Window;
@@ -29,7 +30,9 @@ public class Screen_Cover extends Screen_Window {
 
 	@Override
 	public void show() {             
-		stage = new Stage();		
+		stage = new Stage();
+//		Image bg =ImageUtil.getImage(Config.Cover_Bg_Image_Path,false);
+//		bg.setScale(Config.Scale);
 		stage.addActor(ImageUtil.getImage(Config.Cover_Bg_Image_Path,false));
 		stage.addActor(new Redirect_Button("storymode",WindowState.StoryMode,0,330));
 		stage.addActor(new Redirect_Button("deckmanage",WindowState.DeckManage,0,270));

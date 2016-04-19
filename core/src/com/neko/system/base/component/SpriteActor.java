@@ -4,21 +4,20 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.neko.config.Config;
 
 public class SpriteActor extends Actor {
 	private Sprite mSprite;
 
 	public SpriteActor(Texture tx) {
 		this.mSprite = new Sprite(tx);
-		setWidth(mSprite.getWidth() * Config.Scale);
-		setHeight(mSprite.getHeight() * Config.Scale);
+		setWidth(mSprite.getWidth());
+		setHeight(mSprite.getHeight());
 	}
 
 	public SpriteActor(Sprite s) {
 		this.mSprite = s;
-		setWidth(s.getWidth() * Config.Scale);
-		setHeight(s.getHeight() * Config.Scale);
+		setWidth(s.getWidth());
+		setHeight(s.getHeight());
 	}
 
 	@Override

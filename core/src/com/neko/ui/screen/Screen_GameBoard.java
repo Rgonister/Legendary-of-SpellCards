@@ -27,7 +27,7 @@ public class Screen_GameBoard extends Screen_Window {
 	public void show() {
 		stage = new Stage();
 		Hand_Screen hs = new Hand_Screen();
-		hs.setScale(Config.Scale);
+		hs.setScale(Config.ScaleX, Config.ScaleY);
 		stage.addActor(hs);
 		
 		Gdx.input.setInputProcessor(stage);

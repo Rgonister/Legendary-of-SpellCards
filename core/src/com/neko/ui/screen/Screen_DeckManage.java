@@ -2,6 +2,7 @@ package com.neko.ui.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.neko.config.Config;
 import com.neko.system.base.component.Screen_Window;
 import com.neko.ui.window.DeckManage.DeckView_Window;
 import com.neko.util.ImageUtil;
@@ -27,6 +28,7 @@ public class Screen_DeckManage extends Screen_Window {
 	public void show() {
 		stage = new Stage();
 		stage.addActor(ImageUtil.getImage("graphics/bg.jpg", false));
+		DeckView_Window.getInstance().setScale(Config.ScaleX, Config.ScaleY);;
 		stage.addActor(DeckView_Window.getInstance());
 		Gdx.input.setInputProcessor(stage);
 		DeckView_Window.getInstance().refresh();

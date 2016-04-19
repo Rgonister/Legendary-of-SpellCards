@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.neko.config.Config;
 import com.neko.game.storymode.StageInfo;
 import com.neko.util.ImageUtil;
 
@@ -32,19 +31,19 @@ public class Stage_Info_Window extends Group {
 
 	private Stage_Info_Window() {
 		bg = new Image(ImageUtil.getTexture("graphics/StoryMode/gray.png"));
-		bg.setWidth(520 * Config.Scale);
-		bg.setHeight(790 * Config.Scale);
-		bg.setPosition(970 * Config.Scale, 55 * Config.Scale);
+		bg.setWidth(520);
+		bg.setHeight(790);
+		bg.setPosition(970, 55);
 		bg.setColor(80, 80, 80, 0.65f);
 
 		for (int i = 1; i <= 6; i++) {
 			Image img = ImageUtil
 					.getImage("graphics/StoryMode/Chapter" + Stage_Window.chapter_number + "/Stage" + i + "/hero.png");
-			img.setPosition(1020 * Config.Scale, 325 * Config.Scale);
+			img.setPosition(1020, 325);
 			stageImage.add(img);
 		}
 		border = ImageUtil.getImage("graphics/StoryMode/border.png");
-		border.setPosition(1005 * Config.Scale, 315 * Config.Scale);
+		border.setPosition(1005, 315);
 	}
 
 	public void refresh() {

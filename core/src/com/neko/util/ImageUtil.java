@@ -25,17 +25,17 @@ public class ImageUtil {
 	}
 
 	public static Image resize(Image image) {
-		image.setSize(image.getWidth() * Config.Scale, image.getHeight() * Config.Scale);
+		image.setSize(image.getWidth(), image.getHeight());
 		return image;
 	}
 
 	public static Image resize(Image image, boolean b) {
-		image.setSize(Config.Window_Size_Width, Config.Window_Size_Height);
+		image.setSize(1600 * Config.ScaleX, 900 * Config.ScaleY);
 		return image;
 	}
 
 	public static Image getImage(String Path) {
-		return resize(new Image(getTexture(Path)));
+		return new Image(getTexture(Path));
 	}
 
 	public static Image getImage(String Path, boolean b) {
@@ -43,12 +43,12 @@ public class ImageUtil {
 	}
 
 	public static Image setpostion(Image image, float X, float Y) {
-		image.setPosition(X * Config.Scale, Y * Config.Scale);
+		image.setPosition(X, Y);
 		return image;
 	}
-	
+
 	public static Actor setpostion(Actor actor, float X, float Y) {
-		actor.setPosition(X * Config.Scale, Y * Config.Scale);
+		actor.setPosition(X, Y);
 		return actor;
 	}
 }

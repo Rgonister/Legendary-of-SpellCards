@@ -81,8 +81,7 @@ public class DeckView_Window extends Group {
 		}
 		if (selecter != null)
 			this.addActor(selecter);
-		this.addActor(new FontActor(String.valueOf("Faith : " + Start.global.data.faith), Config.Scale * 623,
-				Config.Scale * 92, "textur32"));
+		this.addActor(new FontActor(String.valueOf("Faith : " + Start.global.data.faith), 623, 92, "textur32"));
 	}
 
 	private void initcardimage() {
@@ -93,7 +92,7 @@ public class DeckView_Window extends Group {
 				break;
 			final Card c = Start.cards.get(cardID.get(i + (page - 1) * 8));
 			CardImage img = c.getActor();
-			img.setPosition((65 + 255 * i) * Config.Scale, 480 * Config.Scale);
+			img.setPosition(65 + 255 * i, 480);
 
 			if (!img.flag) {
 				img.addListener(new ClickListener() {
@@ -151,7 +150,7 @@ public class DeckView_Window extends Group {
 			if (Start.global.data.card_no.get(cardID.get(i + (page - 1) * 8)) == 0) {
 				Image lost = ImageUtil.getImage("graphics/icon/lost.png");
 				lost.setColor(75, 50, 50, 0.7f);
-				lost.setPosition((106.5f + 255 * i) * Config.Scale, 630 * Config.Scale);
+				lost.setPosition(106.5f + 255 * i, 630);
 				cardimage.add(lost);
 			}
 		}
@@ -161,7 +160,7 @@ public class DeckView_Window extends Group {
 				break;
 			final Card c = Start.cards.get(cardID.get(i + 4 + (page - 1) * 8));
 			CardImage img = c.getActor();
-			img.setPosition((65 + 255 * i) * Config.Scale, 100 * Config.Scale);
+			img.setPosition(65 + 255 * i, 100);
 			if (!img.flag) {
 				img.addListener(new ClickListener() {
 					@Override
@@ -218,7 +217,7 @@ public class DeckView_Window extends Group {
 			if (Start.global.data.card_no.get(cardID.get(i + 4 + (page - 1) * 8)) == 0) {
 				Image lost = ImageUtil.getImage("graphics/icon/lost.png");
 				lost.setColor(75, 50, 50, 0.7f);
-				lost.setPosition((106.5f + 255 * i) * Config.Scale, 250 * Config.Scale);
+				lost.setPosition(106.5f + 255 * i, 250);
 				cardimage.add(lost);
 			}
 		}
@@ -239,7 +238,7 @@ public class DeckView_Window extends Group {
 				}
 			});
 		}
-		back.setPosition(Config.Scale * 886, Config.Scale * 55);
+		back.setPosition(886, 55);
 		this.addActor(back);
 
 		Image front;
@@ -256,7 +255,7 @@ public class DeckView_Window extends Group {
 				}
 			});
 		}
-		front.setPosition(Config.Scale * 981, Config.Scale * 55);
+		front.setPosition(981, 55);
 		this.addActor(front);
 
 		Image toCover = ImageUtil.getImage(Config.Icon_Path + "return0.png");
@@ -267,12 +266,12 @@ public class DeckView_Window extends Group {
 				Start.windowstate = WindowState.Cover;
 			}
 		});
-		toCover.setPosition(Config.Scale * 1455, Config.Scale * 55);
+		toCover.setPosition(1455, 55);
 		this.addActor(toCover);
 
 		if (!editmode) {
 			Image groupmode = ImageUtil.getImage("graphics/icon/new.jpg");
-			groupmode.setPosition(Config.Scale * 1310, Config.Scale * 55);
+			groupmode.setPosition(1310, 55);
 			groupmode.setColor(100, 100, 100, 0.85f);
 			groupmode.addListener(new ClickListener() {
 				@Override
@@ -289,7 +288,7 @@ public class DeckView_Window extends Group {
 			this.addActor(groupmode);
 		} else {
 			Image groupmode = ImageUtil.getImage("graphics/icon/save.jpg");
-			groupmode.setPosition(Config.Scale * 1310, Config.Scale * 55);
+			groupmode.setPosition(1310, 55);
 			groupmode.setColor(100, 100, 100, 0.85f);
 			groupmode.addListener(new ClickListener() {
 				@Override
@@ -374,10 +373,10 @@ public class DeckView_Window extends Group {
 
 		if (!editmode) {
 			this.addActor(BackgroundUtil.getImage("gray", 1090, 590, 70, 250, 0.65f));
-			alice.setPosition(Config.Scale * 1100, Config.Scale * 780);
-			cirno.setPosition(Config.Scale * 1100, Config.Scale * 720);
-			pachi.setPosition(Config.Scale * 1100, Config.Scale * 660);
-			common.setPosition(Config.Scale * 1100, Config.Scale * 600);
+			alice.setPosition(1100, 780);
+			cirno.setPosition(1100, 720);
+			pachi.setPosition(1100, 660);
+			common.setPosition(1100, 600);
 			this.addActor(alice);
 			this.addActor(cirno);
 			this.addActor(pachi);
@@ -387,7 +386,7 @@ public class DeckView_Window extends Group {
 				makemode = ImageUtil.getImage("graphics/icon/makeb.jpg");
 			else
 				makemode = ImageUtil.getImage("graphics/icon/makew.jpg");
-			makemode.setPosition(Config.Scale * 1190, Config.Scale * 55);
+			makemode.setPosition(1190, 55);
 			makemode.setColor(100, 100, 100, 0.85f);
 			makemode.addListener(new ClickListener() {
 				@Override
@@ -406,16 +405,16 @@ public class DeckView_Window extends Group {
 			this.addActor(BackgroundUtil.getImage("gray", 1090, 710, 70, 130, 0.65f));
 			String h = deckImage.deck.Hero;
 			if (h.equals("ALICE")) {
-				alice.setPosition(Config.Scale * 1100, Config.Scale * 780);
+				alice.setPosition(1100, 780);
 				this.addActor(alice);
 			} else if (h.equals("CIRNO")) {
-				cirno.setPosition(Config.Scale * 1100, Config.Scale * 780);
+				cirno.setPosition(1100, 780);
 				this.addActor(cirno);
 			} else {
-				pachi.setPosition(Config.Scale * 1100, Config.Scale * 780);
+				pachi.setPosition(1100, 780);
 				this.addActor(pachi);
 			}
-			common.setPosition(Config.Scale * 1100, Config.Scale * 720);
+			common.setPosition(1100, 720);
 			this.addActor(common);
 
 			makemode = ImageUtil.getImage("graphics/icon/delete.jpg");
@@ -432,7 +431,7 @@ public class DeckView_Window extends Group {
 					DeckView_Window.getInstance().refresh();
 				}
 			});
-			makemode.setPosition(Config.Scale * 1190, Config.Scale * 55);
+			makemode.setPosition(1190, 55);
 			makemode.setColor(100, 100, 100, 0.85f);
 		}
 
@@ -447,9 +446,9 @@ public class DeckView_Window extends Group {
 			if (cfilter.get(1).equals("Cost" + num))
 				path = "graphics/numbers/" + i + "b.jpg";
 			Image image = ImageUtil.getImage(path);
-			image.setWidth(0.75f * image.getWidth() * Config.Scale);
-			image.setHeight(35 * Config.Scale);
-			image.setPosition(Config.Scale * (65 + i * 42), Config.Scale * (55));
+			image.setWidth(0.75f * image.getWidth());
+			image.setHeight(35);
+			image.setPosition(65 + i * 42, 55);
 			image.addListener(new ClickListener() {
 				@Override
 				public void clicked(InputEvent event, float x, float y) {

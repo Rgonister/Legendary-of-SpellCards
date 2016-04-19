@@ -56,13 +56,13 @@ public class Shop_Window extends Group {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
-				toCover.setSize(Config.Scale * 80, Config.Scale * 35);
-				toCover.setPosition(Config.Scale * 845, Config.Scale * 65);
+				toCover.setSize(80, 35);
+				toCover.setPosition(845, 65);
 				Shop_Window.instance.clear();
 				Start.windowstate = WindowState.Cover;
 			}
 		});
-		toCover.setPosition(Config.Scale * 845, Config.Scale * 210);
+		toCover.setPosition(845, 210);
 		this.addActor(toCover);
 
 		final Image back;
@@ -86,12 +86,12 @@ public class Shop_Window extends Group {
 				SEControler.play(1, "Click");
 				List<Integer> l = Shop.drawcards(Shop.NORMAL);
 				showCards(l);
-				back.setSize(Config.Scale * 80, Config.Scale * 35);
-				back.setPosition(Config.Scale * 125, Config.Scale * 65);
+				back.setSize(80, 35);
+				back.setPosition(125, 65);
 			}
 		});
 
-		back.setPosition(Config.Scale * 125, Config.Scale * 65);
+		back.setPosition(125, 65);
 		this.addActor(back);
 	}
 
@@ -99,7 +99,7 @@ public class Shop_Window extends Group {
 		int num = 0;
 		for (Integer i : l) {
 			Actor a = Start.cards.get(i).getActor();
-			System.out.println(Start.cards.get(i).data.RARITY+"  ");
+			System.out.println(Start.cards.get(i).data.RARITY + "  ");
 			a.setPosition(200 + 250 * num, 300);
 			this.addActor(a);
 			num += 1;

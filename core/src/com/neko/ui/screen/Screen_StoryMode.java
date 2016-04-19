@@ -34,17 +34,7 @@ public class Screen_StoryMode extends Screen_Window {
 		stage = new Stage();
 
 		stage.addActor(ImageUtil.getImage("graphics/bg.jpg", false));
-		Image im = new Image(ImageUtil.getTexture("graphics/StoryMode/gray.png"));
-		im.setWidth(830 * Config.Scale);
-		im.setHeight(790 * Config.Scale);
-		im.setPosition(110 * Config.Scale, 55 * Config.Scale);
-		im.setColor(80, 80, 80, 0.65f);
-						
-		stage.addActor(im);
-		
-//		Image im3= ImageUtil.getImage("graphics/StoryMode/Chapter1/Stage6/hero.png");
-//		im3.setPosition(1020, 335);
-//		stage.addActor(im3);
+		select_window.setScale(Config.ScaleX, Config.ScaleY);
 		stage.addActor(select_window);
 		Gdx.input.setInputProcessor(stage);
 	}

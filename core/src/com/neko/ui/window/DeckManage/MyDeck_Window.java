@@ -35,21 +35,23 @@ public class MyDeck_Window extends Group {
 		final List<Deck> ds = Start.global.decks.data;
 		for (int i = 0; i < ds.size(); i++) {
 			final int num = i;
-			
+
 			Image hero = ImageUtil.getImage("graphics/deck/" + ds.get(i).Hero + ".jpg");
-			hero.setPosition(Config.Scale * 1185f, Config.Scale * (670f - 175 * i));
+			hero.setPosition(1185f, 670f - 175 * i);
 			this.addActor(hero);
-			this.addActor(new FontActor(ds.get(i).DeckName, Config.Scale * 1190f, Config.Scale * (735f - 175 * i),
-					"textur55"));
+			this.addActor(new FontActor(ds.get(i).DeckName, 1190f, 735f - 175 * i, "textur55"));
 
 			hero.addListener(new ClickListener() {
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
-					
+
 					DeckView_Window dvw = DeckView_Window.getInstance();
-					if(ds.get(num).Hero.equals("ALICE"))		dvw.cfilter.set(0, "Alice");
-					else if(ds.get(num).Hero.equals("CIRNO"))	dvw.cfilter.set(0, "Cirno");
-					else 										dvw.cfilter.set(0, "Pachi");
+					if (ds.get(num).Hero.equals("ALICE"))
+						dvw.cfilter.set(0, "Alice");
+					else if (ds.get(num).Hero.equals("CIRNO"))
+						dvw.cfilter.set(0, "Cirno");
+					else
+						dvw.cfilter.set(0, "Pachi");
 					dvw.deckImage = new DeckImage(ds.get(num));
 					dvw.deckImage.id = num;
 					dvw.editmode = true;

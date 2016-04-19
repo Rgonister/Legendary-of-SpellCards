@@ -45,20 +45,20 @@ public class Card_Info_Window extends Group {
 	private void addCardImage() {
 		Actor a = new CardImage(data, false);
 		a.setScale(1.3f);
-		a.setPosition(505 * Config.Scale, 255 * Config.Scale);
+		a.setPosition(505, 255);
 
 		String name = data.NAME;
 		int h = 23;
 		String s = name.replaceAll("-", "").replaceAll("\\(", "").replaceAll("\\)", "");
 		int w = s.length() * h + (name.length() - s.length()) * 5;
-		Actor a1 = new FontActor(name, Config.Scale * (1313 - w) / 2, Config.Scale * 334, "sj23");
+		Actor a1 = new FontActor(name, (1313 - w) / 2, 334, "sj23");
 
 		String str = "";
 		if (data.TYPE.equals("SPELLCARD"))
 			str = "Cost - " + data.COST;
 		else
 			str = data.COST + "-" + data.ATK + "-" + data.LIFE + " ";
-		Actor a2 = new FontActor(str, Config.Scale * (1304 - 9 * str.length()) / 2, Config.Scale * 297, "st25");
+		Actor a2 = new FontActor(str, (1304 - 9 * str.length()) / 2, 297, "st25");
 
 		this.addActor(a);
 		this.addActor(a1);
@@ -70,10 +70,10 @@ public class Card_Info_Window extends Group {
 		int h = 30;
 		String s = name.replaceAll("-", "").replaceAll("\\(", "").replaceAll("\\)", "");
 		int w = s.length() * h + (name.length() - s.length()) * 5;
-		Actor a = new FontActor(data.NAME, Config.Scale * (980 - w / 2), 695, "sf30");
+		Actor a = new FontActor(data.NAME, 980 - w / 2, 695, "sf30");
 		// 846 - 1149
 		this.addActor(a);
-		this.addActor(new FontActor("Type:\nGroup:\nSkill:", Config.Scale * 830, Config.Scale * 666, "textur25"));
+		this.addActor(new FontActor("Type:\nGroup:\nSkill:", 830, 666, "textur25"));
 		String s1;
 		if (data.TYPE.equals("SUMMON"))
 			s1 = "子机";
@@ -82,13 +82,13 @@ public class Card_Info_Window extends Group {
 		else
 			s1 = "装备";
 
-		this.addActor(new FontActor(s1, Config.Scale * 910, Config.Scale * 657, "sf25"));
+		this.addActor(new FontActor(s1, 910, 657, "sf25"));
 		String ss;
 		if (data.RACE == null || data.RACE.length() <= 0)
 			ss = "无";
 		else
 			ss = data.RACE;
-		this.addActor(new FontActor(ss, Config.Scale * 910, Config.Scale * 629, "sf25"));
+		this.addActor(new FontActor(ss, 910, 629, "sf25"));
 
 		String s2;
 		String str = "";
@@ -106,35 +106,30 @@ public class Card_Info_Window extends Group {
 			} else
 				str += s2;
 		}
-		this.addActor(new FontActor(str, Config.Scale * 910, Config.Scale * 601, "sf25"));
+		this.addActor(new FontActor(str, 910, 601, "sf25"));
 
 		if (!data.TYPE.equals("SPELLCARD")) {
-			this.addActor(new FontActor("Cost:\nAtk:\nDef:", Config.Scale * 830, Config.Scale * (581 - 35 * line),
-					"textur25"));
-			this.addActor(new FontActor(String.valueOf(data.COST), Config.Scale * 910, Config.Scale * (580 - 35 * line),
-					"textur25"));
-			this.addActor(new FontActor(String.valueOf(data.ATK), Config.Scale * 910, Config.Scale * (551 - 35 * line),
-					"textur25"));
-			this.addActor(new FontActor(String.valueOf(data.LIFE), Config.Scale * 910, Config.Scale * (522 - 35 * line),
-					"textur25"));
+			this.addActor(new FontActor("Cost:\nAtk:\nDef:", 830, 581 - 35 * line, "textur25"));
+			this.addActor(new FontActor(String.valueOf(data.COST), 910, 580 - 35 * line, "textur25"));
+			this.addActor(new FontActor(String.valueOf(data.ATK), 910, 551 - 35 * line, "textur25"));
+			this.addActor(new FontActor(String.valueOf(data.LIFE), 910, 522 - 35 * line, "textur25"));
 		} else {
-			this.addActor(new FontActor("Cost:", Config.Scale * 830, Config.Scale * (581 - 35 * line), "textur25"));
-			this.addActor(new FontActor(String.valueOf(data.COST), Config.Scale * 910, Config.Scale * (580 - 35 * line),
-					"textur25"));
+			this.addActor(new FontActor("Cost:", 830, 581 - 35 * line, "textur25"));
+			this.addActor(new FontActor(String.valueOf(data.COST), 910, 580 - 35 * line, "textur25"));
 		}
 		int num = Start.global.data.card_no.get(data.ID);
 		Image img;
 		if (num < 7) {
 			img = ImageUtil.getImage("graphics/numbers/" + num + "w.jpg");
-			img.setWidth(0.75f * img.getWidth() * Config.Scale);
-			img.setHeight(35 * Config.Scale);
-			img.setPosition(Config.Scale * 639, Config.Scale * 210);
+			img.setWidth(0.75f * img.getWidth());
+			img.setHeight(35);
+			img.setPosition(639, 210);
 
 		} else {
 			img = ImageUtil.getImage("graphics/numbers/" + 7 + "w.jpg");
-			img.setWidth(0.75f * img.getWidth() * Config.Scale);
-			img.setHeight(35 * Config.Scale);
-			img.setPosition(Config.Scale * 631.5f, Config.Scale * 210);
+			img.setWidth(0.75f * img.getWidth());
+			img.setHeight(35);
+			img.setPosition(631.5f, 210);
 		}
 		this.addActor(img);
 	}
@@ -158,15 +153,15 @@ public class Card_Info_Window extends Group {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
-				toCover.setSize(Config.Scale * 80, Config.Scale * 35);
-				toCover.setPosition(Config.Scale * 845, Config.Scale * 210);
+				toCover.setSize(80, 35);
+				toCover.setPosition( 845,210);
 				Card_Info_Window cfw = DeckView_Window.getInstance().cfw;
 				cfw.clear();
 				cfw = null;
 				DeckView_Window.getInstance().refresh();
 			}
 		});
-		toCover.setPosition(Config.Scale * 1030, Config.Scale * 210);
+		toCover.setPosition( 1030, 210);
 		this.addActor(toCover);
 
 		Image decompose;
@@ -183,7 +178,7 @@ public class Card_Info_Window extends Group {
 				}
 			});
 		}
-		decompose.setPosition(Config.Scale * 930, Config.Scale * 210);
+		decompose.setPosition(930,210);
 
 		Image composite;
 		if (Composite.ifcomposite(data)) {
@@ -198,7 +193,7 @@ public class Card_Info_Window extends Group {
 			});
 		} else
 			composite = ImageUtil.getImage("graphics/icon/1b.jpg");
-		composite.setPosition(Config.Scale * 830, Config.Scale * 210);
+		composite.setPosition(830,  210);
 
 		this.addActor(decompose);
 		this.addActor(composite);

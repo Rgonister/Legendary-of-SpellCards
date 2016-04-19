@@ -7,17 +7,18 @@ public class Config {
 
 	public static final boolean Filter_Linear = true;
 
-	public static final int Window_Size_Width = 1600;
-	public static final int Window_Size_Height = 900;
+//	public static final int Window_Size_Width = 1600;
+//	public static final int Window_Size_Height = 900;
 
-//	 public static final int Window_Size_Width = 800;
-//	 public static final int Window_Size_Height = 450;
+	 public static final int Window_Size_Width = 800;
+	 public static final int Window_Size_Height = 450;
 
 	// public static final int Window_Size_Width = 1920;
 	// public static final int Window_Size_Height = 1080;
 
-	public static final float Scale = (Window_Size_Width / 1600f);
-
+	public static  float ScaleX = (Window_Size_Width / 1600f);
+	public static  float ScaleY = (Window_Size_Height / 900f);
+	
 	public static final String Cover_Bg_Image_Path = "graphics/Reisen.jpg";
 	
 	public static final String StoryMode_Path = "graphics/StoryMode/";

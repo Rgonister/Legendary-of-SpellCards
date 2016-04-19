@@ -15,15 +15,16 @@ public class Redirect_Button extends Image {
 		super(ImageUtil.getTexture(path + ImgPath + ".png"));
 		ImageUtil.resize(this);
 		if (x == 0)
-			this.setX((Config.Window_Size_Width - this.getWidth()) / 2);
+			this.setX(Config.ScaleX * (800 - this.getWidth() / 2));
 		else
-			this.setX(Config.Scale * x);
-		this.setY(Config.Scale * y);
+			this.setX(Config.ScaleX * x);
+		this.setY(Config.ScaleY * y);
 		this.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				Start.windowstate = ws;
 			}
 		});
+		this.setScale(Config.ScaleX, Config.ScaleY);
 	}
 }

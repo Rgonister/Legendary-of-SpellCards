@@ -72,6 +72,6 @@ public class HeroSelecter_Window extends Group {
 		this.addActor(img1);
 		this.addActor(img2);
 
-		this.addActor(new FontActor("自  机  选  择", Config.Scale * 695, Config.Scale * 560, "sf30"));
+		this.addActor(new FontActor("自  机  选  择",695, 560, "sf30"));
 	}
 }

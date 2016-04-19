@@ -46,7 +46,7 @@ public class Level_Window extends Group {
 					System.out.println(Chapter + "-" + Stage + "-" + level.toString() + "Clicked");
 				}
 			});
-			sbutton.setPosition(1005 * Config.Scale, 110 * Config.Scale);
+			sbutton.setPosition(1005, 110 );
 			startbutton.add(sbutton);
 
 			Image lselector = ImageUtil.getImage(Config.StoryMode_Path + "Level/selector" + i + ".png");
@@ -58,7 +58,7 @@ public class Level_Window extends Group {
 						Level_Window.refresh(n);
 					}
 				});
-			lselector.setPosition((893 + i * 112) * Config.Scale, 65 * Config.Scale);
+			lselector.setPosition(893 + i * 112, 65 );
 			levelselector.add(lselector);
 		}
 		Level_Window.refresh(1);

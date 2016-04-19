@@ -30,9 +30,9 @@ public class DeckImage extends Group {
 		if (deck.data == null)
 			return;
 		String name = deck.DeckName;
-		this.addActor(new FontActor(name, Config.Scale * 1190f, Config.Scale * 735f, "textur55"));
+		this.addActor(new FontActor(name, 1190f,735f, "textur55"));
 		int f = deck.number > 9 ? 15 : 0;
-		this.addActor(new FontActor(deck.number + "/30", Config.Scale * (1470f - f), Config.Scale * 830f, "textur32"));
+		this.addActor(new FontActor(deck.number + "/30",1470f - f,830f, "textur32"));
 		int count = 0;
 		for (Integer i : deck.data.keySet()) {
 			count++;

@@ -43,22 +43,29 @@ public class Chapter_Window extends Group {
 				path = Config.Chapter_Image_Path + "/Chapter" + i + "_locked.jpg";
 			chapter_Image.add(ImageUtil.getImage(path));
 		}
+
 		this.refresh();
 	}
 
 	public void refresh() {
 		this.clear();
+		Image im = new Image(ImageUtil.getTexture("graphics/StoryMode/gray.png"));
+		im.setWidth(830);
+		im.setHeight(790);
+		im.setPosition(110, 55);
+		im.setColor(80, 80, 80, 0.65f);
+		this.addActor(im);
 		for (int i = 1; i <= page_size; i++) {
 			final int chapter_number = (page_number - 1) * page_size + i;
 			if (chapter_number > Config.Chapter_Number)
 				break;
 			Image image = chapter_Image.get(chapter_number - 1);
-			image.setPosition(125 * Config.Scale, ((page_size - i) * 185 + 110) * Config.Scale);
+			image.setPosition(125 , (page_size - i) * 185 + 110);
 			if (chapter_number <= Config.Current_Chapter) {
 				image.addListener(new ClickListener() {
 					@Override
 					public void clicked(InputEvent event, float x, float y) {
-						SEControler.play(1, "Click");	
+						SEControler.play(1, "Click");
 						Stage_Window.getInstance();
 						Stage_Window.chapter_number = chapter_number;
 						Screen_StoryMode.setStage_group(Stage_Window.getInstance());
@@ -91,16 +98,16 @@ public class Chapter_Window extends Group {
 
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
-					SEControler.play(1, "Click");	
+					SEControler.play(1, "Click");
 					Chapter_Window.getInstance().page_number -= 1;
 					Chapter_Window.getInstance().refresh();
 
-					back.setSize(Config.Scale * 80, Config.Scale * 35);
-					back.setPosition(Config.Scale * 125, Config.Scale * 65);
+					back.setSize(80, 35);
+					back.setPosition(125, 65);
 				}
 			});
 		}
-		back.setPosition(Config.Scale * 125, Config.Scale * 65);
+		back.setPosition(125, 65);
 		this.addActor(back);
 
 		final Image front;
@@ -114,7 +121,8 @@ public class Chapter_Window extends Group {
 				public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 					if (super.touchDown(event, x, y, pointer, button)) {
 						front.setSize(front.getWidth() * 0.92f, front.getHeight() * 0.92f);
-						front.setPosition(front.getX() + front.getWidth() * 0.04f,front.getY() + front.getHeight() * 0.04f);
+						front.setPosition(front.getX() + front.getWidth() * 0.04f,
+								front.getY() + front.getHeight() * 0.04f);
 						return true;
 					} else {
 						return false;
@@ -123,17 +131,17 @@ public class Chapter_Window extends Group {
 
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
-					
-					SEControler.play(1, "Click");					
+
+					SEControler.play(1, "Click");
 					Chapter_Window.getInstance().page_number += 1;
 					Chapter_Window.getInstance().refresh();
 
-					front.setSize(Config.Scale * 80, Config.Scale * 35);
-					front.setPosition(Config.Scale * 220, Config.Scale * 65);
+					front.setSize(80, 35);
+					front.setPosition(220, 65);
 				}
 			});
 		}
-		front.setPosition(Config.Scale * 220, Config.Scale * 65);
+		front.setPosition(220, 65);
 		this.addActor(front);
 
 		final Image toCover = ImageUtil.getImage(Config.Icon_Path + "return0.png");
@@ -143,7 +151,8 @@ public class Chapter_Window extends Group {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				if (super.touchDown(event, x, y, pointer, button)) {
 					toCover.setSize(toCover.getWidth() * 0.92f, toCover.getHeight() * 0.92f);
-					toCover.setPosition(toCover.getX() + toCover.getWidth() * 0.04f,toCover.getY() + toCover.getHeight() * 0.04f);
+					toCover.setPosition(toCover.getX() + toCover.getWidth() * 0.04f,
+							toCover.getY() + toCover.getHeight() * 0.04f);
 					return true;
 				} else {
 					return false;
@@ -152,17 +161,16 @@ public class Chapter_Window extends Group {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				SEControler.play(1, "Click");	
+				SEControler.play(1, "Click");
 				Start.windowstate = WindowState.Cover;
 				page_number = 1;
 				refresh();
-				toCover.setSize(Config.Scale * 80, Config.Scale * 35);
-				toCover.setPosition(Config.Scale * 845, Config.Scale * 65);
+				toCover.setSize(80, 35);
+				toCover.setPosition(845, 65);
 			}
 		});
-		toCover.setPosition(Config.Scale * 845, Config.Scale * 65);
+		toCover.setPosition(845, 65);
 		this.addActor(toCover);
 	}
-	
 
 }
