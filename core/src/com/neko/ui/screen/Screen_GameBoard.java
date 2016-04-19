@@ -2,6 +2,7 @@ package com.neko.ui.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.neko.config.Config;
 import com.neko.system.base.component.Screen_Window;
 import com.neko.ui.window.GameBoard.Hand_Screen;
 
@@ -25,7 +26,10 @@ public class Screen_GameBoard extends Screen_Window {
 	@Override
 	public void show() {
 		stage = new Stage();
-		stage.addActor(new Hand_Screen());
+		Hand_Screen hs = new Hand_Screen();
+		hs.setScale(Config.Scale);
+		stage.addActor(hs);
+		
 		Gdx.input.setInputProcessor(stage);
 	}
 }
