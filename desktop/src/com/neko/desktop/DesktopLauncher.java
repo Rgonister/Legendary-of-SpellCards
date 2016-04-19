@@ -16,6 +16,7 @@ public class DesktopLauncher {
 	public static void main(String[] arg) {
 		
 		LwjglApplicationConfiguration config = init();
+		config.samples = 10;//¿ªÆô¿¹¾â³Ý
 		new LwjglApplication(new Start(), config);
 	}
 

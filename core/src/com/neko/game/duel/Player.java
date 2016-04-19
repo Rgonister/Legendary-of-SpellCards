@@ -15,8 +15,10 @@ public class Player {
 
 	public List<CardData> board;
 
-	public Player(Deck deck) {
+	public String Hero;
 
+	public Player(Deck deck) {
+		Hero = deck.Hero;
 		ArrayList<CardData> l = new ArrayList<CardData>();
 		for (Integer i : deck.data.keySet()) {
 			CardData c = Start.cards.get(i).data;
@@ -43,7 +45,6 @@ public class Player {
 			hand.add(c);
 		}
 		mydeck.remove(index);
-		GameBoard_Window.getInstance().refresh();
 	}
 
 	public void getCards(Integer ID) {

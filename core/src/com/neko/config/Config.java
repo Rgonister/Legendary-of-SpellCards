@@ -5,7 +5,7 @@ public class Config {
 	public static final String Version = "0.01.02.2016.4.7";
 	public static final String Title = "Legendary Of SpellCards";
 
-	public static final boolean Filter_Linear = true;
+	public static final boolean Filter_Linear = false;
 
 	public static final int Window_Size_Width = 1600;
 	public static final int Window_Size_Height = 900;

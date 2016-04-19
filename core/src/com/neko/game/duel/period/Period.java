@@ -2,5 +2,9 @@ package com.neko.game.duel.period;
 
 public class Period {
 
-	public  void init(){}
+	public boolean acting = false;
+	
+	public void act(){
+		
+	}
 }

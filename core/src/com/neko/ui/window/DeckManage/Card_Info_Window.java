@@ -7,10 +7,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.neko.Start;
 import com.neko.config.Config;
+import com.neko.game.duel.Game;
 import com.neko.game.item.CardData;
 import com.neko.game.item.CardImage;
 import com.neko.game.shop.Composite;
 import com.neko.system.base.component.FontActor;
+import com.neko.ui.screen.Screen_GameBoard;
+import com.neko.ui.window.GameBoard.GameBoard_Window;
 import com.neko.util.BackgroundUtil;
 import com.neko.util.ImageUtil;
 import com.neko.util.SEControler;
@@ -137,24 +140,10 @@ public class Card_Info_Window extends Group {
 	private void addButton() {
 		final Image toCover = ImageUtil.getImage(Config.Icon_Path + "return0.png");
 		toCover.addListener(new ClickListener() {
-
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				if (super.touchDown(event, x, y, pointer, button)) {
-					toCover.setSize(toCover.getWidth() * 0.92f, toCover.getHeight() * 0.92f);
-					toCover.setPosition(toCover.getX() + toCover.getWidth() * 0.04f,
-							toCover.getY() + toCover.getHeight() * 0.04f);
-					return true;
-				} else {
-					return false;
-				}
-			}
-
+	
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
-				toCover.setSize(80, 35);
-				toCover.setPosition( 845,210);
 				Card_Info_Window cfw = DeckView_Window.getInstance().cfw;
 				cfw.clear();
 				cfw = null;

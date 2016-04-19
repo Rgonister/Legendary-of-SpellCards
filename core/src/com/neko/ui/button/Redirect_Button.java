@@ -26,10 +26,10 @@ public class Redirect_Button extends Image {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				Start.windowstate = ws;
-				
-				GameBoard_Window.getInstance().setScale(Config.ScaleX, Config.ScaleY);
-				GameBoard_Window.init(new Game(Start.global.decks.data.get(0), Start.global.decks.data.get(0)));		
-				Screen_GameBoard.getInstance().stage.addActor(GameBoard_Window.getInstance());
+//				
+//				GameBoard_Window.getInstance().setScale(Config.ScaleX, Config.ScaleY);
+//				GameBoard_Window.init(new Game(Start.global.decks.data.get(0), Start.global.decks.data.get(0)));		
+//				Screen_GameBoard.getInstance().stage.addActor(GameBoard_Window.getInstance());
 			}
 		});
 		this.setScale(Config.ScaleX, Config.ScaleY);
