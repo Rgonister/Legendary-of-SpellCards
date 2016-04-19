@@ -4,7 +4,6 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.neko.config.Config;
 import com.neko.game.player.Deck;
 import com.neko.system.base.component.FontActor;
 import com.neko.util.BackgroundUtil;

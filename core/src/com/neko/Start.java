@@ -7,7 +7,7 @@ import com.badlogic.gdx.Screen;
 import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
 import com.neko.game.item.Card;
-import com.neko.game.player.Player;
+import com.neko.game.player.Global;
 import com.neko.system.base.ApplicationGame;
 import com.neko.system.data.CardFilter;
 import com.neko.system.data.CardLoader;
@@ -24,7 +24,7 @@ public class Start extends ApplicationAdapter {
 	public static ApplicationGame ag;
 	public static WindowState windowstate = WindowState.Cover;
 	private WindowState temp = WindowState.Cover;
-	public static Player global = new Player();
+	public static Global global = new Global();
 	public static Map<Integer,Card> cards;
 
 	@Override
@@ -34,7 +34,7 @@ public class Start extends ApplicationAdapter {
 		ag = new ApplicationGame(null);			
 		ag.setScreen(screen);	
 		//读取用户存档信息
-		global = Player.loaddata();
+		global = Global.loaddata();
 		//加载卡牌过滤器
 		CardFilter.init();
 		//加载卡牌信息

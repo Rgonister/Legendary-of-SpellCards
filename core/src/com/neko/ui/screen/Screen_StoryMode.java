@@ -3,7 +3,6 @@ package com.neko.ui.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.neko.config.Config;
 import com.neko.system.base.component.Screen_Window;
 import com.neko.ui.window.StoryMode.Chapter_Window;

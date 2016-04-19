@@ -14,7 +14,7 @@ import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
 import com.neko.game.item.Card;
 import com.neko.game.item.CardImage;
-import com.neko.game.player.Player;
+import com.neko.game.player.Global;
 import com.neko.system.base.component.FontActor;
 import com.neko.system.data.CardFilter;
 import com.neko.util.BackgroundUtil;
@@ -293,7 +293,7 @@ public class DeckView_Window extends Group {
 			groupmode.addListener(new ClickListener() {
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
-					Player p = Start.global;
+					Global p = Start.global;
 					DeckView_Window dvw = DeckView_Window.getInstance();
 					System.out.println(dvw.deckImage.id);
 					if (dvw.deckImage.id >= 0)
