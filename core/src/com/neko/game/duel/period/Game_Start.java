@@ -21,6 +21,9 @@ import com.neko.util.ImageUtil;
 
 public class Game_Start extends Period {
 	static List<CardData> l;
+	static int[] inter;
+	static List<SelectorImage> lsi = new ArrayList<SelectorImage>();
+	static boolean flag = true;
 
 	public void act() {
 		acting = true;
@@ -34,17 +37,66 @@ public class Game_Start extends Period {
 		l.add(Game.player_me.mydeck.get(28));
 		l.add(Game.player_me.mydeck.get(27));
 
-		int[] inter = { 29, 28, 27 };
-		GameBoard_Window.game.period = new Turn_Before_Start(0);
+		inter = new int[] { 1, 1, 1 };
+
 		GameBoard_Window.getInstance().refresh();
 
 		initSelectorImage(0);
+
+		Actor a = ImageUtil.getImage("graphics/icon/lost.png");
+		a.setPosition(725, 160);
+		a.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				Game_Start.flag = false;
+				int count = 0;
+				for (int i = 0; i <= 2; i++) {
+					if (Game_Start.inter[i] == -1) {
+						CardData c = Game.player_me.mydeck.get(26 - count);
+						l.set(i, c);
+						count++;
+						Game_Start.lsi.get(i).goback = true;
+						Game_Start.lsi.get(i).flag = false;
+						Game_Start.lsi.get(i).refresh(Game_Start.lsi.get(i));
+					}
+				}
+				// for (int i = 0; i <= 2; i++) {
+				//
+				// }
+
+				System.out.println(Game_Start.inter[0] + " " + Game_Start.inter[1] + " " + Game_Start.inter[2]);
+			}
+		});
+		GameBoard_Window.getInstance().addActor(a);
 	}
 
 	public static void initSelectorImage(int count) {
-		if (count <= 2)
-			GameBoard_Window.getInstance()
-					.addActor(new SelectorImage(l.get(count), 1367, 80, (413.5f + 270 * count), 275, count));
+		if (count <= 2) {
+			SelectorImage si = new SelectorImage(l.get(count), 1367, 80, (413.5f + 270 * count), 275, count);
+			lsi.add(si);
+			GameBoard_Window.getInstance().addActor(si);
+		}
+	}
+
+	public static void drawcontrol() {
+		Game.player_me.hand.addAll(l);
+		for (int i = 0; i <= 2; i++) {
+			if (inter[i] == 1)
+				Game.player_me.mydeck.remove(29 - i);
+		}
+
+		int num = Game.player_me.mydeck.size() - 27;
+		for (int i = 0; i < num; i++) {
+			Game.player_me.mydeck.remove(26 - i);
+		}
+		//GameBoard_Window.getInstance().refresh();
+//		System.out.println(lsi.size()+"-------------");
+		//Action move = Actions.moveTo(200, 300,1f);
+		for(SelectorImage si:lsi){
+			si.clear();
+		}
+		System.out.println(111);
+		
 	}
 
 	static class SelectorImage extends Group {
@@ -58,6 +110,7 @@ public class Game_Start extends Period {
 		public int count;
 		public boolean click = false;
 		public boolean done = false;
+		public boolean goback = false;
 
 		public SelectorImage(CardData c, float ox, float oy, float tox, float toy, int count) {
 			card = (CardImage) Start.cards.get(c.ID).getActor().clone();
@@ -71,6 +124,41 @@ public class Game_Start extends Period {
 
 		public void refresh(final SelectorImage g) {
 			this.clear();
+			if (goback) {
+
+				if (!flag) {
+					this.addActor(card);
+					Action act = Actions.scaleTo(0.01f, 1f, 0.2f);
+					Action move = Actions.moveTo((tox + ox) / 2, (toy + oy) / 2, 0.2f);
+					ParallelAction Paction = Actions.parallel(act, move);
+					Action end = Actions.run(new Runnable() {
+						@Override
+						public void run() {
+							flag = true;
+							g.refresh(g);
+						}
+					});
+					SequenceAction seq = Actions.sequence(Paction, end);
+					this.addAction(seq);
+				} else {
+					Image img = ImageUtil.getImage("graphics/card/back.png");
+					this.addActor(img);
+					Action act = Actions.scaleTo(1f, 1f, 0.2f);
+					Action move = Actions.moveTo(ox, oy, 0.2f);
+					ParallelAction Paction = Actions.parallel(act, move);
+					Action end = Actions.run(new Runnable() {
+						@Override
+						public void run() {
+							g.clear();
+							//Game_Start.lsi.remove(count);
+							initSelectorImage(count);
+						}
+					});
+					SequenceAction seq = Actions.sequence(Paction, end);
+					g.addAction(seq);
+				}
+				return;
+			}
 			if (!done) {
 				if (!flag) {
 					Image img = ImageUtil.getImage("graphics/card/back.png");
@@ -84,7 +172,9 @@ public class Game_Start extends Period {
 						public void run() {
 							g.flag = true;
 							g.refresh(g);
-							initSelectorImage(g.count + 1);
+							if (Game_Start.flag)
+								initSelectorImage(g.count + 1);
+
 						}
 					});
 					SequenceAction seq = Actions.sequence(Paction, end);
@@ -98,8 +188,18 @@ public class Game_Start extends Period {
 						@Override
 						public void run() {
 							done = true;
-							System.out.println("done");
 							g.refresh(g);
+							if (!Game_Start.flag) {
+								int num = -1;
+								for (int i = 0; i <= 2; i++) {
+									if (inter[i] == -1)
+										num = i;
+								}
+								System.out.println("num" + num);
+								if (count == num) {
+									drawcontrol();
+								}
+							}
 						}
 					});
 					SequenceAction seq = Actions.sequence(Paction, end);
@@ -117,6 +217,7 @@ public class Game_Start extends Period {
 				img.addListener(new ClickListener() {
 					@Override
 					public void clicked(InputEvent event, float x, float y) {
+						Game_Start.inter[count] = -Game_Start.inter[count];
 						g.click = !g.click;
 						g.refresh(g);
 					}
