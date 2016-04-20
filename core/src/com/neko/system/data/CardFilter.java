@@ -76,6 +76,10 @@ public class CardFilter {
 	public static int getCard(String param) {
 		return getRandom(filter.get(param));
 	}
+	
+	public static int getCard(List<String> params) {
+		return getRandom(CardFilter.getlistwithfilter(params));
+	}
 
 	private static Integer getRandom(List<Integer> l) {
 		return l.get((int) (Math.random() * l.size()));

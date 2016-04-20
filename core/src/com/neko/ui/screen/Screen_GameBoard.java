@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.neko.config.Config;
 import com.neko.system.base.component.Screen_Window;
 import com.neko.ui.window.GameBoard.DeckSelecter_Window;
+import com.neko.util.ImageUtil;
 
 public class Screen_GameBoard extends Screen_Window {
 	private static Screen_GameBoard instance = null;
@@ -30,6 +31,7 @@ public class Screen_GameBoard extends Screen_Window {
 	@Override
 	public void show() {
 		stage = new Stage();
+		stage.addActor(ImageUtil.getImage("graphics/bg.jpg", false));
 		if (g == null){
 			g = DeckSelecter_Window.getInstance();
 		}

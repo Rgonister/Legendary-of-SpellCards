@@ -29,4 +29,28 @@ public class Shop {
 		Start.global.savedata();
 		return l;
 	}
+	
+	public static List<Integer> drawcardsbygroup(int status,String group) {
+		List<Integer> l = new ArrayList<Integer>();
+		if (status == 1) {
+			Start.global.data.gold -= 150;
+			for (int i = 0; i < 5; i++) {
+				Integer integ = null;
+				double d = Math.random();
+				List<String> list = new ArrayList<String>();
+				list.add(group);
+				if (d <= 0.82)
+					list.add("Normal");
+				else if (d <= 0.99)
+					list.add("Rare");
+				else
+					list.add("Legendary");
+				integ = CardFilter.getCard(list);
+				Start.global.data.card_no.set(integ, Start.global.data.card_no.get(integ) + 1);
+				l.add(integ);
+			}
+		}
+		Start.global.savedata();
+		return l;
+	}
 }

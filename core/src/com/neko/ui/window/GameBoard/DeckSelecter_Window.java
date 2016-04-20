@@ -39,7 +39,7 @@ public class DeckSelecter_Window extends Group {
 		this.clear();
 		Image bg = BackgroundUtil.getImage("black", 400, 200, 800, 525, 0.6f);
 		Image bg1 = BackgroundUtil.getImage("white", 400, 200, 800, 525, 0.2f);
-		this.addActor(ImageUtil.getImage("graphics/bg.jpg", false));
+		
 		this.addActor(bg);
 		this.addActor(bg1);
 		

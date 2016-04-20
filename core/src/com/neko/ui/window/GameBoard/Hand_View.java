@@ -6,7 +6,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.neko.game.item.CardData;
-import com.neko.system.base.component.FontActor;
 import com.neko.util.ImageUtil;
 
 public class Hand_View extends Group {
