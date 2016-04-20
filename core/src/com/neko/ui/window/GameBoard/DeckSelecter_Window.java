@@ -20,6 +20,8 @@ import com.neko.util.SEControler;
 public class DeckSelecter_Window extends Group {
 	private static DeckSelecter_Window instance = null;
 
+	public static int position = -1;
+
 	public static DeckSelecter_Window getInstance() {
 		if (instance == null) {
 			synchronized (GameBoard_Window.class) {
@@ -39,22 +41,30 @@ public class DeckSelecter_Window extends Group {
 		this.clear();
 		Image bg = BackgroundUtil.getImage("black", 400, 200, 800, 525, 0.6f);
 		Image bg1 = BackgroundUtil.getImage("white", 400, 200, 800, 525, 0.2f);
-		
+
 		this.addActor(bg);
 		this.addActor(bg1);
-		
 		ArrayList<Deck> ds = Start.global.decks.data;
 		for (int i = 0; i < ds.size(); i++) {
 			Deck d = ds.get(i);
-			Deckimage di = new Deckimage(d);
+			Deckimage di = new Deckimage(d, i);
 			if (i < 2)
 				di.setPosition(440 + 380 * i, 460);
 			else
 				di.setPosition(440 + 380 * (i - 2), 290);
 			this.addActor(di);
-		}		
+		}
 		this.addActor(new FontActor("Deck Select", 688, 700, "textur55"));
-		
+
+		if (position > -1) {
+			Image img = ImageUtil.getImage("graphics/deck/kuang.png");
+			if (position < 2)
+				img.setPosition(439 + 380 * position, 459);
+			else
+				img.setPosition(439 + 380 * (position - 2), 289);
+			this.addActor(img);
+		}
+
 		final Image toCover = ImageUtil.getImage(Config.Icon_Path + "return0.png");
 		toCover.addListener(new ClickListener() {
 			@Override
@@ -62,19 +72,17 @@ public class DeckSelecter_Window extends Group {
 				SEControler.play(1, "Click");
 				Game g = new Game();
 				GameBoard_Window.init(g);
-				Screen_GameBoard.g= GameBoard_Window.getInstance();	
+				Screen_GameBoard.g = GameBoard_Window.getInstance();
 				GameBoard_Window.getInstance().refresh();
 				Screen_GameBoard.getInstance().show();
 			}
-	
-
 		});
 		toCover.setPosition(1030, 210);
 		this.addActor(toCover);
 	}
 
 	class Deckimage extends Group {
-		public Deckimage(final Deck d) {
+		public Deckimage(final Deck d, final int p) {
 			Image hero = ImageUtil.getImage("graphics/deck/" + d.Hero + ".jpg");
 			String name = d.DeckName;
 			this.addActor(hero);
@@ -83,7 +91,10 @@ public class DeckSelecter_Window extends Group {
 
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
+					SEControler.play(1, "Click");
+					DeckSelecter_Window.position = p;
 					Game.player_me = new Player(d);
+					DeckSelecter_Window.getInstance().refresh();
 				}
 
 			});

@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.neko.system.base.component.FontActor;
 import com.neko.util.ImageUtil;
 
-public class CardImage extends Group {
+public class CardImage extends Group implements Cloneable {
 
 	public static String border = "graphics/card/";
 	public boolean flag = false;
@@ -33,5 +33,15 @@ public class CardImage extends Group {
 		this.addActor(ImageUtil.getImage(data.picPath));
 		this.addActor(ImageUtil.getImage(border + data.RARITY + ".png"));
 	}
+	
+	public Object clone() {
+		CardImage o = null;
+		  try {
+		   o = (CardImage) super.clone();
+		  } catch (CloneNotSupportedException e) {
+		   e.printStackTrace();
+		  }
+		  return o;
+		 }
 
 }

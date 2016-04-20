@@ -15,7 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.neko.Start;
 import com.neko.config.Config;
 import com.neko.config.enums.WindowState;
-import com.neko.game.shop.Shop;
+import com.neko.game.shop.shop;
 import com.neko.util.ImageUtil;
 import com.neko.util.SEControler;
 
@@ -68,7 +68,7 @@ public class Shop_Window extends Group {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
-				List<Integer> l = Shop.drawcards(Shop.NORMAL);
+				List<Integer> l = shop.drawcards(shop.NORMAL);
 				showCards(l);
 			}
 		});
@@ -107,8 +107,8 @@ public class Shop_Window extends Group {
 				ClickListener c = new ClickListener() {
 					@Override
 					public void clicked(InputEvent event, float x, float y) {
-						Action act = Actions.scaleTo(0.1f, 1f, 0.65f);
-						Action move = Actions.moveBy(116.5f, 0, 0.65f);
+						Action act = Actions.scaleTo(0.01f, 1f, 0.5f);
+						Action move = Actions.moveBy(116.5f, 0, 0.5f);
 						ParallelAction Paction = Actions.parallel(act,move);
 						Action end = Actions.run(new Runnable() {
 							@Override
@@ -125,8 +125,8 @@ public class Shop_Window extends Group {
 				this.addActor(img);
 			} else {
 				this.addActor(card);
-				Action act = Actions.scaleTo(1f, 1f, 0.65f);
-				Action move = Actions.moveBy(-116.5f, 0, 0.65f);
+				Action act = Actions.scaleTo(1f, 1f, 0.5f);
+				Action move = Actions.moveBy(-116.5f, 0, 0.5f);
 				ParallelAction Paction = Actions.parallel(act,move);
 				this.addAction(Paction);
 			}

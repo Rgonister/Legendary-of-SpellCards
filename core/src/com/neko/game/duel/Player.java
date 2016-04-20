@@ -59,4 +59,14 @@ public class Player {
 		hand.add(c);
 		GameBoard_Window.getInstance().refresh();
 	}
+
+	public void shuffle() {
+		List<CardData> l = new ArrayList<CardData>(mydeck.size());
+		do {
+			int index = (int) (Math.random() * mydeck.size());
+			l.add(mydeck.get(index));
+			mydeck.remove(index);
+		} while (mydeck.size() > 0);
+		mydeck = l;
+	}
 }

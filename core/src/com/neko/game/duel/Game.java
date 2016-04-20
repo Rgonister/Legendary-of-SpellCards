@@ -15,10 +15,6 @@ public class Game {
 	public Game(Deck mydeck,Deck opdeck){
 		player_me = new Player(mydeck);
 		player_op = new Player(opdeck);
-		
-		//period = new Game_Start();
-		
-	//	period.init();
 	}
 	
 	public Game(){
