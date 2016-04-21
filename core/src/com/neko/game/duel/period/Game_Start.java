@@ -121,7 +121,6 @@ public class Game_Start extends Period {
 		public void refresh(final SelectorImage g) {
 			this.clear();
 			if (goback) {
-
 				if (!flag) {
 					this.addActor(card);
 					Action act = Actions.scaleTo(0.01f, 1f, 0.2f);
@@ -172,13 +171,17 @@ public class Game_Start extends Period {
 
 						}
 					});
-					SequenceAction seq = Actions.sequence(Paction, end);
+					SequenceAction seq = Actions.sequence(Paction,end);
 					g.addAction(seq);
 				} else {
 					this.addActor(card);
 					Action act = Actions.scaleTo(1f, 1f, 0.2f);
 					Action move = Actions.moveTo(tox, toy, 0.2f);
 					ParallelAction Paction = Actions.parallel(act, move);
+					float f = 0f;
+					if (!Game_Start.flag)
+						f = 0.5f;
+					Action delay = Actions.delay(f);
 					Action end = Actions.run(new Runnable() {
 						@Override
 						public void run() {
@@ -196,7 +199,7 @@ public class Game_Start extends Period {
 							}
 						}
 					});
-					SequenceAction seq = Actions.sequence(Paction, end);
+					SequenceAction seq = Actions.sequence(Paction, delay, end);
 					this.addAction(seq);
 					done = true;
 				}
@@ -228,7 +231,7 @@ public class Game_Start extends Period {
 		private static final float y = -3500;
 		private static final float r = 3500;
 		private static final float scale = 0.5f;
-		private static final float time = 0.35f;
+		private static final float time = 0.4f;
 
 		public handImage(CardData ca, int i) {
 			actor = (CardImage) Start.cards.get(ca.ID).getActor().clone();
@@ -238,14 +241,11 @@ public class Game_Start extends Period {
 		}
 
 		public void act() {
-			float degree = (2.8f - 3 * 0.1f) * (position - (3 - 1f) / 2f);
-			float dx = (float) (r * Math.sin(degree * Math.PI / 360)
-					- Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
-			float dy = (float) (r * Math.cos(degree * Math.PI / 360)
-					+ scale * 233f / 2 * Math.sin(degree * Math.PI / 360));
-
-			Action act = Actions.moveTo((int) (x + dx), (int) (y + dy), time);
-			Action rotateto = Actions.rotateTo(-(2.8f - 3 * 0.1f) * (position - (3 - 1f) / 2f), time);
+			float degree = 2.5f * (position - 1);
+			int dx = (int) (r * Math.sin(degree * Math.PI / 360)- Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
+			int dy = (int) (r * Math.cos(degree * Math.PI / 360) + scale * 233f / 2 * Math.sin(degree * Math.PI / 360));
+			Action act = Actions.moveTo(x + dx, y + dy, time);
+			Action rotateto = Actions.rotateTo(-2.5f * (position - 1f), time);
 			Action scaleto = Actions.scaleTo(scale, scale, time);
 			ParallelAction Paction = Actions.parallel(act, rotateto, scaleto);
 
