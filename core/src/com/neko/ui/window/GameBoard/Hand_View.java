@@ -18,7 +18,8 @@ public class Hand_View extends Group {
 	public Hand_View(List<CardData> l) {
 		int length = l.size();
 		for (int i = 0; i < length; i++) {
-			CardImage a =  (CardImage) Start.cards.get(l.get(i).ID).getActor().clone();
+			//CardImage a =  (CardImage) Start.cards.get(l.get(i).ID).getActor().clone();
+			CardImage a = new CardImage(Start.cards.get(l.get(i).ID).data);
 			a.setScale(scale);
 			positoncaculate(a, (2.8f - length * 0.1f) * (i - (length - 1f) / 2f));
 			a.setRotation(-(2.8f - length * 0.1f) * (i - (length - 1f) / 2f));
@@ -41,12 +42,6 @@ public class Hand_View extends Group {
 	}
 
 	private void positoncaculate(Actor img, double degree) {
-		// float dx = (float) (r * Math.sin(degree * Math.PI / 360)
-		// - Math.abs(scale * img.getWidth() / 2 * Math.cos(degree * Math.PI /
-		// 360)));
-		// float dy = (float) (r * Math.cos(degree * Math.PI / 360)
-		// + scale * img.getWidth() / 2 * Math.sin(degree * Math.PI / 360));
-
 		float dx = (float) (r * Math.sin(degree * Math.PI / 360)
 				- Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
 		float dy = (float) (r * Math.cos(degree * Math.PI / 360) + scale * 233f / 2 * Math.sin(degree * Math.PI / 360));

@@ -12,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.actions.ParallelAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.neko.Start;
 import com.neko.game.duel.Game;
 import com.neko.game.item.CardData;
 import com.neko.game.item.CardImage;
@@ -109,7 +108,8 @@ public class Game_Start extends Period {
 		public boolean goback = false;
 
 		public SelectorImage(CardData c, float ox, float oy, float tox, float toy, int count) {
-			card = (CardImage) Start.cards.get(c.ID).getActor().clone();
+			// card = new (CardImage) Start.cards.get(c.ID).getActor().clone();
+			card = new CardImage(c);
 			this.ox = ox;
 			this.oy = oy;
 			this.tox = tox;
@@ -149,7 +149,7 @@ public class Game_Start extends Period {
 						}
 					});
 					SequenceAction seq = Actions.sequence(Paction, end);
-					g.addAction(seq);
+					this.addAction(seq);
 				}
 				return;
 			}
@@ -168,20 +168,16 @@ public class Game_Start extends Period {
 							g.refresh(g);
 							if (Game_Start.flag)
 								initSelectorImage(g.count + 1);
-
 						}
 					});
-					SequenceAction seq = Actions.sequence(Paction,end);
-					g.addAction(seq);
+					SequenceAction seq = Actions.sequence(Paction, end);
+					this.addAction(seq);
 				} else {
-					this.addActor(card);
+					g.addActor(card);
 					Action act = Actions.scaleTo(1f, 1f, 0.2f);
 					Action move = Actions.moveTo(tox, toy, 0.2f);
 					ParallelAction Paction = Actions.parallel(act, move);
-					float f = 0f;
-					if (!Game_Start.flag)
-						f = 0.5f;
-					Action delay = Actions.delay(f);
+
 					Action end = Actions.run(new Runnable() {
 						@Override
 						public void run() {
@@ -199,7 +195,13 @@ public class Game_Start extends Period {
 							}
 						}
 					});
-					SequenceAction seq = Actions.sequence(Paction, delay, end);
+					SequenceAction seq;
+					if (!Game_Start.flag) {
+						Action delay = Actions.delay(0.3f);
+						seq = Actions.sequence(Paction, delay, end);
+					} else {
+						seq = Actions.sequence(Paction, end);
+					}
 					this.addAction(seq);
 					done = true;
 				}
@@ -234,7 +236,7 @@ public class Game_Start extends Period {
 		private static final float time = 0.4f;
 
 		public handImage(CardData ca, int i) {
-			actor = (CardImage) Start.cards.get(ca.ID).getActor().clone();
+			actor = new CardImage(ca);
 			position = i;
 			actor.setPosition(413.5f + 270 * position, 275);
 			this.addActor(actor);
@@ -242,7 +244,8 @@ public class Game_Start extends Period {
 
 		public void act() {
 			float degree = 2.5f * (position - 1);
-			int dx = (int) (r * Math.sin(degree * Math.PI / 360)- Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
+			int dx = (int) (r * Math.sin(degree * Math.PI / 360)
+					- Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
 			int dy = (int) (r * Math.cos(degree * Math.PI / 360) + scale * 233f / 2 * Math.sin(degree * Math.PI / 360));
 			Action act = Actions.moveTo(x + dx, y + dy, time);
 			Action rotateto = Actions.rotateTo(-2.5f * (position - 1f), time);
