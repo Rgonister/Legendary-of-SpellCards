@@ -298,7 +298,6 @@ public class DeckView_Window extends Group {
 				public void clicked(InputEvent event, float x, float y) {
 					Global p = Start.global;
 					DeckView_Window dvw = DeckView_Window.getInstance();
-					System.out.println(dvw.deckImage.id);
 					if (dvw.deckImage.id >= 0)
 						p.decks.data.set(dvw.deckImage.id, dvw.deckImage.deck);
 					else

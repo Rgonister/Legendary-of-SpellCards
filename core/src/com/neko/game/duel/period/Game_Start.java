@@ -88,13 +88,11 @@ public class Game_Start extends Period {
 		for (SelectorImage si : lsi) {
 			si.clear();
 		}
-		System.out.println(Game.player_me.hand.size()+"------------");
 		for (int i = 0; i <= 2; i++) {
 			handImage a = new handImage(Game.player_me.hand.get(i), i);
 			GameBoard_Window.getInstance().addActor(a);
 			a.act();
 		}
-
 	}
 
 	static class SelectorImage extends Group {
@@ -192,7 +190,6 @@ public class Game_Start extends Period {
 									if (inter[i] == -1)
 										num = i;
 								}
-								System.out.println("num" + num);
 								if (count == num) {
 									drawcontrol();
 								}

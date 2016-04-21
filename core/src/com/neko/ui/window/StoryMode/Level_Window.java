@@ -43,7 +43,6 @@ public class Level_Window extends Group {
 			sbutton.addListener(new ClickListener() {
 				public void clicked(InputEvent event, float x, float y) {
 					SEControler.play(1, "Click");
-					System.out.println(Chapter + "-" + Stage + "-" + level.toString() + "Clicked");
 				}
 			});
 			sbutton.setPosition(1005, 110 );
@@ -71,8 +70,6 @@ public class Level_Window extends Group {
 		for (Image i : levelselector) {
 			lw.addActor(i);
 		}
-		//String[] text = Gdx.files.internal(Config.Data_Path_Storymode+"chapter1/stage1/1.neko").readString().split(";");
-		//System.out.println(text[0]);
 	}
 
 	public static Level getLevel() {

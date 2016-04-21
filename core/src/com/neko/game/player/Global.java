@@ -31,12 +31,12 @@ public class Global {
 			oo1.writeObject(decks);
 			oo1.close();
 
-			for (int i = 0; i < data.card_no.size(); i++) {
-				if (data.card_no.get(i) != 0) {
-					// System.out.print(" ID" + i + ": " + data.card_no.get(i) +
-					// " ");
-				}
-			}
+//			for (int i = 0; i < data.card_no.size(); i++) {
+//				if (data.card_no.get(i) != 0) {
+//					 System.out.print(" ID" + i + ": " + data.card_no.get(i) +
+//					 " ");
+//				}
+//			}
 			System.out.println("data ´æ´¢³É¹¦");
 
 		} catch (FileNotFoundException e) {
