@@ -43,7 +43,7 @@ public class Game_Start extends Period {
 
 		initSelectorImage(0);
 
-		Actor a = ImageUtil.getImage("graphics/icon/lost.png");
+		final Actor a = ImageUtil.getImage("graphics/icon/lost.png");
 		a.setPosition(725, 160);
 		a.addListener(new ClickListener() {
 			@Override
@@ -52,6 +52,7 @@ public class Game_Start extends Period {
 				int count = 0;
 				for (int i = 0; i <= 2; i++) {
 					if (Game_Start.inter[i] == -1) {
+						GameBoard_Window.getInstance().removeActor(a);
 						CardData c = Game.player_me.mydeck.get(26 - count);
 						l.set(i, c);
 						count++;
@@ -60,11 +61,6 @@ public class Game_Start extends Period {
 						Game_Start.lsi.get(i).refresh(Game_Start.lsi.get(i));
 					}
 				}
-				// for (int i = 0; i <= 2; i++) {
-				//
-				// }
-
-				System.out.println(Game_Start.inter[0] + " " + Game_Start.inter[1] + " " + Game_Start.inter[2]);
 			}
 		});
 		GameBoard_Window.getInstance().addActor(a);
@@ -89,14 +85,16 @@ public class Game_Start extends Period {
 		for (int i = 0; i < num; i++) {
 			Game.player_me.mydeck.remove(26 - i);
 		}
-		//GameBoard_Window.getInstance().refresh();
-//		System.out.println(lsi.size()+"-------------");
-		//Action move = Actions.moveTo(200, 300,1f);
-		for(SelectorImage si:lsi){
+		for (SelectorImage si : lsi) {
 			si.clear();
 		}
-		System.out.println(111);
-		
+		System.out.println(Game.player_me.hand.size()+"------------");
+		for (int i = 0; i <= 2; i++) {
+			handImage a = new handImage(Game.player_me.hand.get(i), i);
+			GameBoard_Window.getInstance().addActor(a);
+			a.act();
+		}
+
 	}
 
 	static class SelectorImage extends Group {
@@ -150,7 +148,6 @@ public class Game_Start extends Period {
 						@Override
 						public void run() {
 							g.clear();
-							//Game_Start.lsi.remove(count);
 							initSelectorImage(count);
 						}
 					});
@@ -224,6 +221,48 @@ public class Game_Start extends Period {
 				});
 				this.addActor(img);
 			}
+		}
+	}
+
+	static class handImage extends Group {
+		public Actor actor;
+		public int position;
+		private static final float x = 800;
+		private static final float y = -3500;
+		private static final float r = 3500;
+		private static final float scale = 0.5f;
+		private static final float time = 0.35f;
+
+		public handImage(CardData ca, int i) {
+			actor = (CardImage) Start.cards.get(ca.ID).getActor().clone();
+			position = i;
+			actor.setPosition(413.5f + 270 * position, 275);
+			this.addActor(actor);
+		}
+
+		public void act() {
+			float degree = (2.8f - 3 * 0.1f) * (position - (3 - 1f) / 2f);
+			float dx = (float) (r * Math.sin(degree * Math.PI / 360)
+					- Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
+			float dy = (float) (r * Math.cos(degree * Math.PI / 360)
+					+ scale * 233f / 2 * Math.sin(degree * Math.PI / 360));
+
+			Action act = Actions.moveTo((int) (x + dx), (int) (y + dy), time);
+			Action rotateto = Actions.rotateTo(-(2.8f - 3 * 0.1f) * (position - (3 - 1f) / 2f), time);
+			Action scaleto = Actions.scaleTo(scale, scale, time);
+			ParallelAction Paction = Actions.parallel(act, rotateto, scaleto);
+
+			Action end = Actions.run(new Runnable() {
+				@Override
+				public void run() {
+					if (position == 2) {
+						GameBoard_Window.getInstance().handrefresh();
+					}
+				}
+			});
+			SequenceAction seq = Actions.sequence(Paction, end);
+			actor.addAction(seq);
+
 		}
 	}
 

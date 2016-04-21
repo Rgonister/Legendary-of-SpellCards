@@ -32,7 +32,7 @@ public class Screen_Cover extends Screen_Window {
 		stage.addActor(new Redirect_Button("storymode", WindowState.StoryMode, 0, 330));
 		stage.addActor(new Redirect_Button("deckmanage", WindowState.DeckManage, 0, 270));
 		stage.addActor(new Redirect_Button("netduel", WindowState.GameBoard, 0, 210));
-		stage.addActor(new Redirect_Button("options", WindowState.Shop, 0, 150));
+		//stage.addActor(new Redirect_Button("options", WindowState.Shop, 0, 150));
 		stage.addActor(new Redirect_Button("shutdown", WindowState.DeckManage, 0, 90));
 		Gdx.input.setInputProcessor(stage);
 	}

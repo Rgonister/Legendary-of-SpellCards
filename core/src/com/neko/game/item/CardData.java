@@ -1,6 +1,6 @@
 package com.neko.game.item;
 
-public class CardData {
+public class CardData implements Cloneable {
 	public int ID;
 	public String NAME;
 	public String RARITY;
@@ -13,4 +13,14 @@ public class CardData {
 	public String DIS = "";
 	public String picPath;
 	public Ability[] ability;
+
+	public Object clone() {
+		CardData o = null;
+		try {
+			o = (CardData) super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return o;
+	}
 }
