@@ -25,7 +25,6 @@ public class Global {
 			oo.writeObject(data);
 			oo.close();
 
-			System.out.println(decks.data.size());
 			ObjectOutputStream oo1 = new ObjectOutputStream(
 					new FileOutputStream(Gdx.files.getLocalStoragePath() + "Decks.neko"));
 			oo1.writeObject(decks);
@@ -79,7 +78,6 @@ public class Global {
 			ObjectInputStream ois = new ObjectInputStream(
 					new FileInputStream(new File(Gdx.files.getLocalStoragePath() + "Decks.neko")));
 			p.decks = (MyDeck) ois.readObject();
-			System.out.println(	p.decks.data.size());
 			System.out.println("卡组 读取成功");
 			ois.close();
 		} catch (ClassNotFoundException e) {

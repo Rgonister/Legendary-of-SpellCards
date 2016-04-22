@@ -1,7 +1,10 @@
 package com.neko.game.duel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -33,14 +36,14 @@ public class Player {
 		Hero = deck.Hero;
 		ArrayList<CardData> l = new ArrayList<CardData>();
 		for (Integer i : deck.data.keySet()) {
-			CardData c = Start.cards.get(i).data;
+			CardData c = Start.cards.get(i).data.clone();
 			l.add(c);
 			if (deck.data.get(i) > 1)
 				l.add(c);
 		}
 		mydeck = new ArrayList<CardData>(l.size());
 		do {
-			int index = (int) (Math.random() * l.size());
+			int index =  new java.util.Random().nextInt(l.size());
 			mydeck.add(l.get(index));
 			l.remove(index);
 		} while (l.size() > 0);
@@ -64,7 +67,8 @@ public class Player {
 	}
 
 	public void getCards(List<Integer> l) {
-		int index = (int) (Math.random() * l.size());
+		int index = new java.util.Random().nextInt(l.size());
+		
 		CardData c = Start.cards.get(index).data;
 		hand.add(c);
 		GameBoard_Window.getInstance().refresh();
@@ -73,7 +77,7 @@ public class Player {
 	public void shuffle() {
 		List<CardData> l = new ArrayList<CardData>(mydeck.size());
 		do {
-			int index = (int) (Math.random() * mydeck.size());
+			int index = new java.util.Random().nextInt(l.size());
 			l.add(mydeck.get(index));
 			mydeck.remove(index);
 		} while (mydeck.size() > 0);
@@ -117,8 +121,8 @@ public class Player {
 				Image img = ImageUtil.getImage("graphics/card/back.png");
 				img.setPosition(ox, oy);
 				this.addActor(img);
-				Action act = Actions.scaleTo(0.01f, 1f, 0.2f);
-				Action move = Actions.moveTo((1000 + ox) / 2, (275 + oy) / 2, 0.2f);
+				Action act = Actions.scaleTo(0.01f, 1f, 0.15f);
+				Action move = Actions.moveTo((1000 + ox) / 2, (275 + oy) / 2, 0.15f);
 				ParallelAction Paction = Actions.parallel(act, move);
 				Action delay = Actions.delay(0.3f);
 				Action end = Actions.run(new Runnable() {
@@ -133,8 +137,8 @@ public class Player {
 			} else {
 				this.addActor(actor);
 				actor.setPosition((1000 + ox) / 2, (275 + oy) / 2);
-				Action act = Actions.scaleTo(1f, 1f, 0.2f);
-				Action move = Actions.moveTo(1000, 275, 0.2f);
+				Action act = Actions.scaleTo(1f, 1f, 0.15f);
+				Action move = Actions.moveTo(1000, 275, 0.15f);
 				ParallelAction Paction = Actions.parallel(act, move);
 				Action delay = Actions.delay(0.6f);
 				Action end = Actions.run(new Runnable() {

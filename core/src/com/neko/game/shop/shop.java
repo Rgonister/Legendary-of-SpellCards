@@ -15,10 +15,10 @@ public class shop {
 			Start.global.data.gold -= 100;
 			for (int i = 0; i < 5; i++) {
 				Integer integ = null;
-				double d = Math.random();
-				if (d <= 0.82)
+				int d = new java.util.Random().nextInt(10000);
+				if (d <= 8325)
 					integ = CardFilter.getCard("Normal");
-				else if (d <= 0.99)
+				else if (d <= 9885)
 					integ = CardFilter.getCard("Rare");
 				else
 					integ = CardFilter.getCard("Legendary");
@@ -36,12 +36,12 @@ public class shop {
 			Start.global.data.gold -= 150;
 			for (int i = 0; i < 5; i++) {
 				Integer integ = null;
-				double d = Math.random();
+				int d = new java.util.Random().nextInt(10000);
 				List<String> list = new ArrayList<String>();
 				list.add(group);
-				if (d <= 0.82)
+				if (d <= 8325)
 					list.add("Normal");
-				else if (d <= 0.99)
+				else if (d <= 9385)
 					list.add("Rare");
 				else
 					list.add("Legendary");

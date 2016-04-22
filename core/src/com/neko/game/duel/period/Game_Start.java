@@ -16,6 +16,7 @@ import com.neko.game.duel.Game;
 import com.neko.game.item.CardData;
 import com.neko.game.item.CardImage;
 import com.neko.ui.window.GameBoard.GameBoard_Window;
+import com.neko.util.Delay;
 import com.neko.util.ImageUtil;
 
 public class Game_Start extends Period {
@@ -95,6 +96,7 @@ public class Game_Start extends Period {
 		for (int i = 0; i < num; i++) {
 			Game.player_me.mydeck.remove(26 - i);
 		}
+		
 		for (SelectorImage si : lsi) {
 			si.clear();
 		}
@@ -157,7 +159,12 @@ public class Game_Start extends Period {
 						@Override
 						public void run() {
 							g.clear();
-							initSelectorImage(count);
+							GameBoard_Window.getInstance().addActor(new Delay(0.3f){
+								@Override
+								public void call() {
+									initSelectorImage(count);
+								}
+							});
 						}
 					});
 					SequenceAction seq = Actions.sequence(Paction, end);
