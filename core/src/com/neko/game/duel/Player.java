@@ -1,10 +1,7 @@
 package com.neko.game.duel;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -77,7 +74,7 @@ public class Player {
 	public void shuffle() {
 		List<CardData> l = new ArrayList<CardData>(mydeck.size());
 		do {
-			int index = new java.util.Random().nextInt(l.size());
+			int index = new java.util.Random().nextInt(mydeck.size());
 			l.add(mydeck.get(index));
 			mydeck.remove(index);
 		} while (mydeck.size() > 0);
@@ -163,7 +160,7 @@ public class Player {
 			gw.myhand.add(ha);
 			gw.handreset();
 
-			gw.addActor(new Delay(3f) {
+			gw.addActor(new Delay(0.3f) {
 				@Override
 				public void call() {
 					System.out.println("-------called");

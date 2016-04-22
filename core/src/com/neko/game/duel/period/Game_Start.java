@@ -90,13 +90,11 @@ public class Game_Start extends Period {
 		for (int i = 0; i <= 2; i++) {
 			if (inter[i] == 1)
 				Game.player_me.mydeck.remove(29 - i);
-		}
-
+		};
 		int num = Game.player_me.mydeck.size() - 27;
 		for (int i = 0; i < num; i++) {
 			Game.player_me.mydeck.remove(26 - i);
 		}
-		
 		for (SelectorImage si : lsi) {
 			si.clear();
 		}
@@ -275,9 +273,9 @@ public class Game_Start extends Period {
 				@Override
 				public void run() {
 					if (position == 2) {
+						Game.player_me.shuffle();
 						GameBoard_Window.game.period = new Before_Turn();
 						GameBoard_Window.getInstance().handrefresh();
-
 					}
 				}
 			});

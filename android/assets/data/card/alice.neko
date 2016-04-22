@@ -3,7 +3,7 @@
 	NAME|泛用人形-上海#
 	COST|2#
 	ATK|2#
-	LIFE|1#
+	LIFE|2#
 	RACE|人形#
 	DIS|冲锋#
 	RARITY|NORMAL#
@@ -29,7 +29,7 @@
 	NAME|泛用人形-法兰西#
 	COST|3#
 	ATK|3#
-	LIFE|3#
+	LIFE|4#
 	RACE|人形#
 	DIS|宣言:恢复一个角色3点生命值.#
 	RARITY|NORMAL#

@@ -23,11 +23,9 @@ public class HandCard_Actor extends Group {
 	public float rotate;
 
 	public CardImage image;
-
 	public CardData cd;
 
 	public int index;
-
 	public int owner;
 
 	public HandCard_Actor(CardData c, int index, int owner) {
