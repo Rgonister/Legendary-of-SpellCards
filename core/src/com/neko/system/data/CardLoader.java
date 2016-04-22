@@ -22,6 +22,7 @@ public class CardLoader {
 		l.addAll(loadData(read("COMMON")));
 		l.addAll(loadData(read("COMMON1")));
 		l.addAll(loadData(read("COMMON2")));
+		l.addAll(loadData(read("Extra")));
 
 		Map<Integer, Card> m = new HashMap<Integer, Card>();
 		for (Card c : l) {

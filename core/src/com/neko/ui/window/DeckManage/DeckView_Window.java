@@ -87,8 +87,11 @@ public class DeckView_Window extends Group {
 	private void initcardimage() {
 		cardID = CardFilter.getlistwithfilter(cfilter);
 		cardimage = new ArrayList<Actor>();
-		if(cardID.size()<=(page-1)*8){
-			page = cardID.size()/8;
+		if (cardID.size() <= (page - 1) * 8 && page != 1) {
+			if (cardID.size() == 0)
+				page = 1;
+			else
+				page = (cardID.size() - 1) / 8 + 1;
 		}
 		for (int i = 0; i < 4; i++) {
 			if ((i + (page - 1) * 8) >= cardID.size())
