@@ -27,9 +27,13 @@ public class Game_Start extends Period {
 	public void act() {
 		acting = true;
 		System.out.println("gamestart init");
-		Game.player_op.drawCard();
-		Game.player_op.drawCard();
-		Game.player_op.drawCard();
+
+		Game.player_op.hand.add(Game.player_op.mydeck.get(29));
+		Game.player_op.hand.add(Game.player_op.mydeck.get(28));
+		Game.player_op.hand.add(Game.player_op.mydeck.get(27));
+		Game.player_op.mydeck.remove(29);
+		Game.player_op.mydeck.remove(28);
+		Game.player_op.mydeck.remove(27);
 
 		l = new ArrayList<CardData>();
 		l.add(Game.player_me.mydeck.get(29));
@@ -49,15 +53,22 @@ public class Game_Start extends Period {
 			public void clicked(InputEvent event, float x, float y) {
 				Game_Start.flag = false;
 				int count = 0;
-				for (int i = 0; i <= 2; i++) {
-					if (Game_Start.inter[i] == -1) {
-						GameBoard_Window.getInstance().removeActor(a);
-						CardData c = Game.player_me.mydeck.get(26 - count);
-						l.set(i, c);
-						count++;
-						Game_Start.lsi.get(i).goback = true;
-						Game_Start.lsi.get(i).flag = false;
-						Game_Start.lsi.get(i).refresh(Game_Start.lsi.get(i));
+				if (inter[0] + inter[1] + inter[2] == 3) {
+					GameBoard_Window.getInstance().removeActor(a);
+					for (SelectorImage si : lsi)
+						si.clear();
+					drawcontrol();
+				} else {
+					for (int i = 0; i <= 2; i++) {
+						if (Game_Start.inter[i] == -1) {
+							GameBoard_Window.getInstance().removeActor(a);
+							CardData c = Game.player_me.mydeck.get(26 - count);
+							l.set(i, c);
+							count++;
+							Game_Start.lsi.get(i).goback = true;
+							Game_Start.lsi.get(i).flag = false;
+							Game_Start.lsi.get(i).refresh(Game_Start.lsi.get(i));
+						}
 					}
 				}
 			}
@@ -92,6 +103,7 @@ public class Game_Start extends Period {
 			GameBoard_Window.getInstance().addActor(a);
 			a.act();
 		}
+		// Game.player_me.drawCard();
 	}
 
 	static class SelectorImage extends Group {
@@ -256,14 +268,14 @@ public class Game_Start extends Period {
 				@Override
 				public void run() {
 					if (position == 2) {
+						GameBoard_Window.game.period = new Before_Turn();
 						GameBoard_Window.getInstance().handrefresh();
+
 					}
 				}
 			});
 			SequenceAction seq = Actions.sequence(Paction, end);
 			actor.addAction(seq);
-
 		}
 	}
-
 }

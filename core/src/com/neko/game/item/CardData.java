@@ -14,7 +14,7 @@ public class CardData implements Cloneable {
 	public String picPath;
 	public Ability[] ability;
 
-	public Object clone() {
+	public CardData clone() {
 		CardData o = null;
 		try {
 			o = (CardData) super.clone();

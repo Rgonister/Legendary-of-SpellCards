@@ -34,9 +34,8 @@ public class CardImage extends Group implements Cloneable {
 		this.addActor(ImageUtil.getImage(border + data.RARITY + ".png"));
 	}
 
-	public Object clone() {
-		Object o = null;
-
+	public CardImage clone() {
+		CardImage o = null;
 		try {
 			o = (CardImage) super.clone();
 		} catch (CloneNotSupportedException e) {

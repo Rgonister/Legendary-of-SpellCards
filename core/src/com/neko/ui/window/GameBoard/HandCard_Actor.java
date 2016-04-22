@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.ParallelAction;
+import com.neko.game.duel.Game;
 import com.neko.game.item.CardData;
 import com.neko.game.item.CardImage;
 
@@ -27,35 +28,44 @@ public class HandCard_Actor extends Group {
 
 	public int index;
 
-	public HandCard_Actor(CardData c, int index, int size) {
-		this.index = index;
-		cd = (CardData) c.clone();
-		image = new CardImage(cd);
-		// image = (CardImage) Start.cards.get(cd.ID).getActor().clone();
-		image.setScale(scale);
+	public int owner;
 
+	public HandCard_Actor(CardData c, int index, int owner) {
+		this.index = index;
+		cd = c.clone();
+		image = new CardImage(cd);
+		image.setScale(scale);
+		this.owner = owner;
 		this.addActor(image);
-		this.postioncaculate(size);
+		this.postioncaculate();
 	}
 
-	private void postioncaculate(int size) {
+	public void postioncaculate() {
+		int size;
+		if (owner == 0)
+			size = Game.player_me.hand.size();
+		else
+			size = Game.player_op.hand.size();
 		float degree = (2.8f - size * 0.1f) * (index - (size - 1f) / 2f);
 		int dx = (int) (r * Math.sin(degree * Math.PI / 360)
 				- Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
 		int dy = (int) (r * Math.cos(degree * Math.PI / 360) + scale * 233f / 2 * Math.sin(degree * Math.PI / 360));
-		rotate=-(2.8f - size * 0.1f) * (index - (size - 1f) / 2f);
+		rotate = -(2.8f - size * 0.1f) * (index - (size - 1f) / 2f);
 		orgx = x + dx;
 		orgy = y + dy;
-		image.setRotation(rotate);
-		image.setPosition(orgx,orgy);
 	}
-	
-	public void reset(){
-		Action move = Actions.moveTo(orgx, orgy, 0.15f);	
+
+	public void reset() {
+		Action move = Actions.moveTo(orgx, orgy, 0.15f);
 		Action rotat = Actions.rotateTo(rotate, 0.15f);
-		ParallelAction Paction = Actions.parallel(rotat, move);
+		Action scalea = Actions.scaleTo(scale, scale,0.15f);
+		ParallelAction Paction = Actions.parallel(rotat, move, scalea);
 		image.addAction(Paction);
-		
 	}
-	
+
+	public void update() {
+		image.setRotation(rotate);
+		image.setPosition(orgx, orgy);
+	}
+
 }

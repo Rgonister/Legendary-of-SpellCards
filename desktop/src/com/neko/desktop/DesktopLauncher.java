@@ -6,17 +6,17 @@ import com.neko.Start;
 import com.neko.config.Config;
 
 public class DesktopLauncher {
-	
-//	-----------------------WARNING--------------------------
-//						 前方黑暗领域
-//						请提前做好准备
-//	-----------------------WARNING--------------------------
-	
+
+	// -----------------------WARNING--------------------------
+	// 前方黑暗领域
+	// 请提前做好准备
+	// -----------------------WARNING--------------------------
 
 	public static void main(String[] arg) {
-		
+
 		LwjglApplicationConfiguration config = init();
-		config.samples = 10;//开启抗锯齿
+		if (Config.samples)
+			config.samples = 8;// 开启抗锯齿
 		new LwjglApplication(new Start(), config);
 	}
 

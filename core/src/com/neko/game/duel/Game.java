@@ -14,16 +14,23 @@ public class Game {
 	
 	public Game(Deck mydeck,Deck opdeck){
 		player_me = new Player(mydeck);
+		player_me.character = 0;
 		player_op = new Player(opdeck);
+		player_op.character = 1;
 	}
 	
 	public Game(){
 		if(player_me == null){
 			player_me = new  Player(Start.global.decks.data.get(0));
+			player_me.character = 0;
 		}
+		
+
 		if(player_op == null){
 			player_op = new  Player(Start.global.decks.data.get(0));
+			player_op.character = 1;
 		}
+				
 	}
 	
 	public void check(){
