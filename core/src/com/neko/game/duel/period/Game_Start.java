@@ -33,9 +33,9 @@ public class Game_Start extends Period {
 		if (new Random().nextInt(1000) > 500) {
 			Game.turn = 0;
 		} else {
-			Game.turn = 1;
+			Game.turn = 0;
 		}
-		
+		Game.turn = 1;
 		Game.player_op.hand.add(Game.player_op.mydeck.get(29));
 		Game.player_op.hand.add(Game.player_op.mydeck.get(28));
 		Game.player_op.hand.add(Game.player_op.mydeck.get(27));
@@ -299,10 +299,11 @@ public class Game_Start extends Period {
 				@Override
 				public void run() {
 					if (position == (2 + Game.turn)) {
+						
 						Game.player_me.shuffle();
 						GameBoard_Window.game.period = new Before_Turn();
-
 						GameBoard_Window.getInstance().handrefresh();
+						Before_Turn.getCoin();
 					}
 				}
 			});

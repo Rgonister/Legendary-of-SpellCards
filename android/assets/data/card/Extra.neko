@@ -2,7 +2,7 @@
 	ID|1001#
 	NAME|灵符#
 	COST|0#
-	DIS|在本回合内,获得一点灵力值。
+	DIS|在本回合内,获得一点灵力值。#
 	RARITY|NORMAL#
 	TYPE|SPELLCARD#
 }

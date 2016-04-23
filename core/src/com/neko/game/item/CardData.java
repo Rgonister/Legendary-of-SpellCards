@@ -3,7 +3,7 @@ package com.neko.game.item;
 public class CardData implements Cloneable {
 	public int ID;
 	public String NAME;
-	public String RARITY;
+	public String RARITY="NORMAL";
 	public String GROUP;
 	public String TYPE;
 	public String RACE = "";
