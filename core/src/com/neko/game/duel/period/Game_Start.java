@@ -33,7 +33,7 @@ public class Game_Start extends Period {
 		if (new Random().nextInt(1000) > 500) {
 			Game.turn = 0;
 		} else {
-			Game.turn = 0;
+			Game.turn = 1;
 		}
 		Game.player_op.hand.add(Game.player_op.mydeck.get(29));
 		Game.player_op.hand.add(Game.player_op.mydeck.get(28));

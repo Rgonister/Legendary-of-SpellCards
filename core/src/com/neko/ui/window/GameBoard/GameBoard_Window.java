@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.neko.game.duel.Game;
 import com.neko.game.item.CardData;
 import com.neko.util.ImageUtil;
@@ -20,6 +18,12 @@ public class GameBoard_Window extends Group {
 	public ArrayList<HandCard_Actor> myhand = new ArrayList<HandCard_Actor>();
 
 	public ArrayList<HandCard_Actor> ophand = new ArrayList<HandCard_Actor>();
+
+	public BattleField_Actor tempcard;
+
+	public ArrayList<BattleField_Actor> mysummon = new ArrayList<BattleField_Actor>();
+
+	public ArrayList<BattleField_Actor> opsummon = new ArrayList<BattleField_Actor>();
 
 	public static GameBoard_Window getInstance() {
 		if (instance == null) {
@@ -58,7 +62,6 @@ public class GameBoard_Window extends Group {
 		}
 
 		// ---------加载手牌区-----------
-		// this.addActor(new Hand_View(Game.player_me.hand));
 		for (HandCard_Actor a : myhand) {
 			this.addActor(a);
 		}
@@ -67,10 +70,14 @@ public class GameBoard_Window extends Group {
 			this.addActor(a);
 		}
 
-		// Group g = new Hand_View(Game.player_op.hand);
-		// g.setPosition(g.getX(), g.getY() + 750);
-		// this.addActor(g);
-		// this.addActor(new Hand_View(Game.player_op.hand));
+		// ---------加载战场区-----------
+		for (BattleField_Actor a : mysummon) {
+			this.addActor(a);
+		}
+
+		for (BattleField_Actor a : opsummon) {
+			this.addActor(a);
+		}
 
 		game.check();
 	}
@@ -86,26 +93,6 @@ public class GameBoard_Window extends Group {
 		for (int i = 0; i < l.size(); i++) {
 			final HandCard_Actor a = new HandCard_Actor(l.get(i), i, 0);
 			a.update();
-			a.addListener(new DragListener() {
-				@Override
-				public void dragStart(InputEvent event, float x, float y, int pointer) {
-					a.setColor(1, 1, 1, 0.5f);
-					a.startdragx = x - a.image.getX();
-					a.startdragy = y - a.image.getY();
-					a.image.setRotation(0f);
-				}
-
-				@Override
-				public void drag(InputEvent event, float x, float y, int pointer) {
-					a.image.setPosition(x - a.startdragx, y - a.startdragy);
-				}
-
-				@Override
-				public void dragStop(InputEvent event, float x, float y, int pointer) {
-					a.setColor(1, 1, 1, 1f);
-					a.reset();
-				}
-			});
 			myhand.add(a);
 		}
 
