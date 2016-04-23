@@ -40,7 +40,7 @@ public class Player {
 		}
 		mydeck = new ArrayList<CardData>(l.size());
 		do {
-			int index =  new java.util.Random().nextInt(l.size());
+			int index = new java.util.Random().nextInt(l.size());
 			mydeck.add(l.get(index));
 			l.remove(index);
 		} while (l.size() > 0);
@@ -51,10 +51,11 @@ public class Player {
 	}
 
 	public void drawCard() {
+		System.out.println("draw");
 		int index = mydeck.size() - 1;
 		CardData c = mydeck.get(index);
-		act(c);
 		mydeck.remove(index);
+		act(c);
 	}
 
 	public void getCards(Integer ID) {
@@ -65,7 +66,7 @@ public class Player {
 
 	public void getCards(List<Integer> l) {
 		int index = new java.util.Random().nextInt(l.size());
-		
+
 		CardData c = Start.cards.get(index).data;
 		hand.add(c);
 		GameBoard_Window.getInstance().refresh();
@@ -83,11 +84,11 @@ public class Player {
 	}
 
 	public void act(CardData c) {
+
+		System.out.println("act");
 		if (hand.size() < 10) {
 			hand.add(c);
-			if (character == 0) {
-				GameBoard_Window.getInstance().addActor(new newcardimage(c, character, hand.size()));
-			}
+			GameBoard_Window.getInstance().addActor(new newcardimage(c, character, hand.size()));
 		}
 	}
 
@@ -107,6 +108,9 @@ public class Player {
 			if (character == 0) {
 				ox = 1367;
 				oy = 80;
+			} else {
+				ox = 0;
+				oy = 470;
 			}
 			this.size = size;
 			owner = character;
@@ -120,7 +124,12 @@ public class Player {
 				img.setPosition(ox, oy);
 				this.addActor(img);
 				Action act = Actions.scaleTo(0.01f, 1f, 0.15f);
-				Action move = Actions.moveTo((1000 + ox) / 2, (275 + oy) / 2, 0.15f);
+				Action move;
+				if (owner == 0) {
+					move = Actions.moveTo((1000 + ox) / 2, (275 + oy) / 2, 0.15f);
+				} else {
+					move = Actions.moveTo((367 + ox) / 2, (275 + oy) / 2, 0.15f);
+				}
 				ParallelAction Paction = Actions.parallel(act, move);
 				Action delay = Actions.delay(0.3f);
 				Action end = Actions.run(new Runnable() {
@@ -136,7 +145,12 @@ public class Player {
 				this.addActor(actor);
 				actor.setPosition((1000 + ox) / 2, (275 + oy) / 2);
 				Action act = Actions.scaleTo(1f, 1f, 0.15f);
-				Action move = Actions.moveTo(1000, 275, 0.15f);
+				Action move;
+				if (owner == 0) {
+					move = Actions.moveTo(1000, 275, 0.15f);
+				} else {
+					move = Actions.moveTo(367, 275, 0.15f);
+				}
 				ParallelAction Paction = Actions.parallel(act, move);
 				Action delay = Actions.delay(0.6f);
 				Action end = Actions.run(new Runnable() {
@@ -154,20 +168,32 @@ public class Player {
 		public void movetohand() {
 			this.clear();
 			HandCard_Actor ha = new HandCard_Actor(data, size - 1, owner);
-			ha.image.setPosition(1000, 275);
+
 			GameBoard_Window gw = GameBoard_Window.getInstance();
-			gw.addActor(ha);
+			if (owner == 0) {
+				ha.image.setPosition(1000, 275);
+				gw.addActor(ha);
+				gw.myhand.add(ha);
+			} else {
+				ha.image.setPosition(367, 275);
+				gw.addActor(ha);
+				gw.ophand.add(ha);
+//				for (HandCard_Actor hca : gw.ophand) {
+//					hca.index += 1;
+//				}
+//				gw.ophand.get(gw.ophand.size() - 1).index = 0;
+
+			}
 			System.out.println("-moved-");
-			gw.myhand.add(ha);
 			gw.handreset();
 
-			gw.addActor(new Delay(0.3f) {
+			new Delay(0.3f) {
 				@Override
 				public void call() {
 					System.out.println("-------called");
 				}
 
-			});
+			};
 		}
 	}
 

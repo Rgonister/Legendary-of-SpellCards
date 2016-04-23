@@ -35,34 +35,23 @@ public class Game_Start extends Period {
 		} else {
 			Game.turn = 1;
 		}
-
-		if (Game.turn == 0) {
-			Game.player_op.hand.add(Game.player_op.mydeck.get(29));
-			Game.player_op.hand.add(Game.player_op.mydeck.get(28));
-			Game.player_op.hand.add(Game.player_op.mydeck.get(27));
+		
+		Game.player_op.hand.add(Game.player_op.mydeck.get(29));
+		Game.player_op.hand.add(Game.player_op.mydeck.get(28));
+		Game.player_op.hand.add(Game.player_op.mydeck.get(27));
+		Game.player_op.mydeck.remove(29);
+		Game.player_op.mydeck.remove(28);
+		Game.player_op.mydeck.remove(27);
+		l = new ArrayList<CardData>();
+		l.add(Game.player_me.mydeck.get(29));
+		l.add(Game.player_me.mydeck.get(28));
+		l.add(Game.player_me.mydeck.get(27));
+		
+		if (Game.turn == 0) {			
 			Game.player_op.hand.add(Game.player_op.mydeck.get(26));
-			Game.player_op.mydeck.remove(29);
-			Game.player_op.mydeck.remove(28);
-			Game.player_op.mydeck.remove(27);
 			Game.player_op.mydeck.remove(26);
-
-			l = new ArrayList<CardData>();
-			l.add(Game.player_me.mydeck.get(29));
-			l.add(Game.player_me.mydeck.get(28));
-			l.add(Game.player_me.mydeck.get(27));
 			inter = new int[] { 1, 1, 1 };
 		} else {
-			Game.player_op.hand.add(Game.player_op.mydeck.get(29));
-			Game.player_op.hand.add(Game.player_op.mydeck.get(28));
-			Game.player_op.hand.add(Game.player_op.mydeck.get(27));
-			Game.player_op.mydeck.remove(29);
-			Game.player_op.mydeck.remove(28);
-			Game.player_op.mydeck.remove(27);
-
-			l = new ArrayList<CardData>();
-			l.add(Game.player_me.mydeck.get(29));
-			l.add(Game.player_me.mydeck.get(28));
-			l.add(Game.player_me.mydeck.get(27));
 			l.add(Game.player_me.mydeck.get(26));
 			inter = new int[] { 1, 1, 1, 1 };
 		}
@@ -190,12 +179,13 @@ public class Game_Start extends Period {
 						@Override
 						public void run() {
 							g.clear();
-							GameBoard_Window.getInstance().addActor(new Delay(0.3f) {
+							
+							new Delay(0.3f) {
 								@Override
 								public void call() {
 									initSelectorImage(count);
 								}
-							});
+							};
 						}
 					});
 					SequenceAction seq = Actions.sequence(Paction, end);
