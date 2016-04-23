@@ -87,7 +87,9 @@ public class HandCard_Actor extends Group {
 					GameBoard_Window gw = GameBoard_Window.getInstance();
 					a.image.setPosition(x - a.startdragx, y - a.startdragy);
 					if (gw.tempcard == null) {
-						gw.tempcard =  new BattleField_Actor(a.cd, 0, 0);
+						gw.tempcard = new BattleField_Actor(a.cd,
+								1 + Game.turn == 0 ? gw.mysummon.size() : gw.opsummon.size(), a.owner);
+						gw.mysummon.add(gw.tempcard);
 						gw.addActor(gw.tempcard);
 					}
 				}
@@ -96,6 +98,8 @@ public class HandCard_Actor extends Group {
 			@Override
 			public void dragStop(InputEvent event, float x, float y, int pointer) {
 				if (Game.turn == a.owner) {
+					GameBoard_Window.getInstance().tempcard = null;
+					System.out.println("once");
 					a.setColor(1, 1, 1, 1f);
 					a.reset();
 				}

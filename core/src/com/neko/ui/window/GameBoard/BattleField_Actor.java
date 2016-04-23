@@ -10,8 +10,8 @@ public class BattleField_Actor extends Group {
 
 	public CardData data;
 	public Actor actor;
-	public static final int width = 200;
-	public float scale = 0.7f;
+	public static final int width = 250;
+	public float scale = 0.65f;
 	public float ox;
 	public float oy;
 
@@ -19,7 +19,8 @@ public class BattleField_Actor extends Group {
 		data = c;
 		actor = new Summon(c);
 		float size = GameBoard_Window.getInstance().mysummon.size();
-		ox = width * (index - 0.5f - size) + 800;
+		System.out.println(size);
+		ox = (width * scale) * (index - 0.5f - size/2) + 800;
 		oy = 300 + owner * 200;
 		actor.setScale(scale);
 		resetposition();
