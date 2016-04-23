@@ -72,6 +72,7 @@ public class Player {
 	}
 
 	public void shuffle() {
+		System.out.println("shuffle");
 		List<CardData> l = new ArrayList<CardData>(mydeck.size());
 		do {
 			int index = new java.util.Random().nextInt(mydeck.size());

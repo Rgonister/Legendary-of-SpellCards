@@ -112,7 +112,7 @@ public class GameBoard_Window extends Group {
 		// 刷新敌方手牌区
 		ophand.clear();
 		List<CardData> lop = Game.player_op.hand;
-		for (int i = 0; i < l.size(); i++) {
+		for (int i = 0; i < lop.size(); i++) {
 			final HandCard_Actor a = new HandCard_Actor(lop.get(i), i, 1);
 			a.orgy += 750;
 			a.update();

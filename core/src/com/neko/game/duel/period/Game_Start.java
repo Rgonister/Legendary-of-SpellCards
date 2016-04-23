@@ -2,6 +2,7 @@ package com.neko.game.duel.period;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -29,19 +30,42 @@ public class Game_Start extends Period {
 		acting = true;
 		System.out.println("gamestart init");
 
-		Game.player_op.hand.add(Game.player_op.mydeck.get(29));
-		Game.player_op.hand.add(Game.player_op.mydeck.get(28));
-		Game.player_op.hand.add(Game.player_op.mydeck.get(27));
-		Game.player_op.mydeck.remove(29);
-		Game.player_op.mydeck.remove(28);
-		Game.player_op.mydeck.remove(27);
+		if (new Random().nextInt(1000) > 500) {
+			Game.turn = 0;
+		} else {
+			Game.turn = 1;
+		}
 
-		l = new ArrayList<CardData>();
-		l.add(Game.player_me.mydeck.get(29));
-		l.add(Game.player_me.mydeck.get(28));
-		l.add(Game.player_me.mydeck.get(27));
+		if (Game.turn == 0) {
+			Game.player_op.hand.add(Game.player_op.mydeck.get(29));
+			Game.player_op.hand.add(Game.player_op.mydeck.get(28));
+			Game.player_op.hand.add(Game.player_op.mydeck.get(27));
+			Game.player_op.hand.add(Game.player_op.mydeck.get(26));
+			Game.player_op.mydeck.remove(29);
+			Game.player_op.mydeck.remove(28);
+			Game.player_op.mydeck.remove(27);
+			Game.player_op.mydeck.remove(26);
 
-		inter = new int[] { 1, 1, 1 };
+			l = new ArrayList<CardData>();
+			l.add(Game.player_me.mydeck.get(29));
+			l.add(Game.player_me.mydeck.get(28));
+			l.add(Game.player_me.mydeck.get(27));
+			inter = new int[] { 1, 1, 1 };
+		} else {
+			Game.player_op.hand.add(Game.player_op.mydeck.get(29));
+			Game.player_op.hand.add(Game.player_op.mydeck.get(28));
+			Game.player_op.hand.add(Game.player_op.mydeck.get(27));
+			Game.player_op.mydeck.remove(29);
+			Game.player_op.mydeck.remove(28);
+			Game.player_op.mydeck.remove(27);
+
+			l = new ArrayList<CardData>();
+			l.add(Game.player_me.mydeck.get(29));
+			l.add(Game.player_me.mydeck.get(28));
+			l.add(Game.player_me.mydeck.get(27));
+			l.add(Game.player_me.mydeck.get(26));
+			inter = new int[] { 1, 1, 1, 1 };
+		}
 
 		GameBoard_Window.getInstance().refresh();
 
@@ -54,16 +78,20 @@ public class Game_Start extends Period {
 			public void clicked(InputEvent event, float x, float y) {
 				Game_Start.flag = false;
 				int count = 0;
-				if (inter[0] + inter[1] + inter[2] == 3) {
+				int sum = 0;
+				for (int in : inter) {
+					sum += in;
+				}
+				if (sum - Game.turn == 3) {
 					GameBoard_Window.getInstance().removeActor(a);
 					for (SelectorImage si : lsi)
 						si.clear();
 					drawcontrol();
 				} else {
-					for (int i = 0; i <= 2; i++) {
+					for (int i = 0; i <= (2 + Game.turn); i++) {
 						if (Game_Start.inter[i] == -1) {
 							GameBoard_Window.getInstance().removeActor(a);
-							CardData c = Game.player_me.mydeck.get(26 - count);
+							CardData c = Game.player_me.mydeck.get((26 - Game.turn) - count);
 							l.set(i, c);
 							count++;
 							Game_Start.lsi.get(i).goback = true;
@@ -78,8 +106,12 @@ public class Game_Start extends Period {
 	}
 
 	public static void initSelectorImage(int count) {
-		if (count <= 2) {
-			SelectorImage si = new SelectorImage(l.get(count), 1367, 80, (413.5f + 270 * count), 275, count);
+		if (count <= (2 + Game.turn)) {
+			SelectorImage si;
+			if (Game.turn == 0)
+				si = new SelectorImage(l.get(count), 1367, 80, (413.5f + 270 * count), 275, count);
+			else
+				si = new SelectorImage(l.get(count), 1367, 80, (241.5f + 270 * count), 275, count);
 			lsi.add(si);
 			GameBoard_Window.getInstance().addActor(si);
 		}
@@ -87,18 +119,19 @@ public class Game_Start extends Period {
 
 	public static void drawcontrol() {
 		Game.player_me.hand.addAll(l);
-		for (int i = 0; i <= 2; i++) {
+		for (int i = 0; i <= (2 + Game.turn); i++) {
 			if (inter[i] == 1)
 				Game.player_me.mydeck.remove(29 - i);
-		};
-		int num = Game.player_me.mydeck.size() - 27;
+		}
+
+		int num = Game.player_me.mydeck.size() - 27 - Game.turn;
 		for (int i = 0; i < num; i++) {
-			Game.player_me.mydeck.remove(26 - i);
+			Game.player_me.mydeck.remove(26 - Game.turn - i);
 		}
 		for (SelectorImage si : lsi) {
 			si.clear();
 		}
-		for (int i = 0; i <= 2; i++) {
+		for (int i = 0; i <= (2 + Game.turn); i++) {
 			handImage a = new handImage(Game.player_me.hand.get(i), i);
 			GameBoard_Window.getInstance().addActor(a);
 			a.act();
@@ -157,7 +190,7 @@ public class Game_Start extends Period {
 						@Override
 						public void run() {
 							g.clear();
-							GameBoard_Window.getInstance().addActor(new Delay(0.3f){
+							GameBoard_Window.getInstance().addActor(new Delay(0.3f) {
 								@Override
 								public void call() {
 									initSelectorImage(count);
@@ -202,7 +235,7 @@ public class Game_Start extends Period {
 							g.refresh(g);
 							if (!Game_Start.flag) {
 								int num = -1;
-								for (int i = 0; i <= 2; i++) {
+								for (int i = 0; i <= (2 + Game.turn); i++) {
 									if (inter[i] == -1)
 										num = i;
 								}
@@ -255,26 +288,30 @@ public class Game_Start extends Period {
 		public handImage(CardData ca, int i) {
 			actor = new CardImage(ca);
 			position = i;
-			actor.setPosition(413.5f + 270 * position, 275);
+			if (Game.turn == 0)
+				actor.setPosition(413.5f + 270 * position, 275);
+			else
+				actor.setPosition(241.5f + 270 * position, 275);
 			this.addActor(actor);
 		}
 
 		public void act() {
-			float degree = 2.5f * (position - 1);
+			float degree = (2.5f - Game.turn * 0.1f) * (position - 1 - Game.turn * 0.5f);
 			int dx = (int) (r * Math.sin(degree * Math.PI / 360)
 					- Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
 			int dy = (int) (r * Math.cos(degree * Math.PI / 360) + scale * 233f / 2 * Math.sin(degree * Math.PI / 360));
 			Action act = Actions.moveTo(x + dx, y + dy, time);
-			Action rotateto = Actions.rotateTo(-2.5f * (position - 1f), time);
+			Action rotateto = Actions.rotateTo(-degree, time);
 			Action scaleto = Actions.scaleTo(scale, scale, time);
 			ParallelAction Paction = Actions.parallel(act, rotateto, scaleto);
 
 			Action end = Actions.run(new Runnable() {
 				@Override
 				public void run() {
-					if (position == 2) {
+					if (position == (2 + Game.turn)) {
 						Game.player_me.shuffle();
 						GameBoard_Window.game.period = new Before_Turn();
+
 						GameBoard_Window.getInstance().handrefresh();
 					}
 				}
