@@ -35,7 +35,6 @@ public class Game_Start extends Period {
 		} else {
 			Game.turn = 0;
 		}
-		Game.turn = 1;
 		Game.player_op.hand.add(Game.player_op.mydeck.get(29));
 		Game.player_op.hand.add(Game.player_op.mydeck.get(28));
 		Game.player_op.hand.add(Game.player_op.mydeck.get(27));
@@ -46,8 +45,8 @@ public class Game_Start extends Period {
 		l.add(Game.player_me.mydeck.get(29));
 		l.add(Game.player_me.mydeck.get(28));
 		l.add(Game.player_me.mydeck.get(27));
-		
-		if (Game.turn == 0) {			
+
+		if (Game.turn == 0) {
 			Game.player_op.hand.add(Game.player_op.mydeck.get(26));
 			Game.player_op.mydeck.remove(26);
 			inter = new int[] { 1, 1, 1 };
@@ -179,7 +178,7 @@ public class Game_Start extends Period {
 						@Override
 						public void run() {
 							g.clear();
-							
+
 							new Delay(0.3f) {
 								@Override
 								public void call() {
@@ -299,7 +298,6 @@ public class Game_Start extends Period {
 				@Override
 				public void run() {
 					if (position == (2 + Game.turn)) {
-						
 						Game.player_me.shuffle();
 						GameBoard_Window.game.period = new Before_Turn();
 						GameBoard_Window.getInstance().handrefresh();

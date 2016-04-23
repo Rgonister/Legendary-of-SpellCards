@@ -40,13 +40,10 @@ public class HandCard_Actor extends Group {
 
 	public void postioncaculate() {
 		int size;
-		if (owner == 0)
-			size = Game.player_me.hand.size();
-		else
-			size = Game.player_op.hand.size();
+		if (owner == 0)	size = Game.player_me.hand.size();
+		else 			size = Game.player_op.hand.size();
 		float degree = (2.8f - size * 0.1f) * (index - (size - 1f) / 2f);
-		int dx = (int) (r * Math.sin(degree * Math.PI / 360)
-				- Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
+		int dx = (int) (r * Math.sin(degree * Math.PI / 360) - Math.abs(scale * 233f / 2 * Math.cos(degree * Math.PI / 360)));
 		int dy = (int) (r * Math.cos(degree * Math.PI / 360) + scale * 233f / 2 * Math.sin(degree * Math.PI / 360));
 		rotate = -(2.8f - size * 0.1f) * (index - (size - 1f) / 2f);
 		orgx = x + dx;
