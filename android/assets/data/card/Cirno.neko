@@ -127,7 +127,7 @@
 	ID|26#
 	NAME|完美冻结#
 	COST|5#
-	DIS|冻结敌方所有角色,如果目标已被冻结,则造成5点伤害.#
+	DIS|冻结敌方所有角色,如果目标已被冻结,则造成4点伤害.#
 	RARITY|RARE#
 	GROUP|CIRNO#
 	TYPE|SPELLCARD#

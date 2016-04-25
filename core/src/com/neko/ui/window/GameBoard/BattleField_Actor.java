@@ -18,10 +18,13 @@ public class BattleField_Actor extends Group {
 	public BattleField_Actor(CardData c, int index, int owner) {
 		data = c;
 		actor = new Summon(c);
-		float size = GameBoard_Window.getInstance().mysummon.size();
-		System.out.println(size);
-		ox = (width * scale) * (index - 0.5f - size/2) + 800;
-		oy = 300 + owner * 200;
+		float size;
+		if (owner == 0)
+			size = GameBoard_Window.getInstance().mysummon.size();
+		else
+			size = GameBoard_Window.getInstance().opsummon.size();
+		ox = (width * scale) * (index - 0.5f - size / 2f) + 800;
+		oy = 202.5f + owner * 247.5f;
 		actor.setScale(scale);
 		resetposition();
 		this.addActor(actor);

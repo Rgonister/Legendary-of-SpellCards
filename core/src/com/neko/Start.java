@@ -59,7 +59,7 @@ public class Start extends ApplicationAdapter {
 				screen = Screen_GameBoard.getInstance(); break;
 			}
 			ag.setScreen(screen);
-			temp = windowstate; // 漏了这句直接爆炸，还好电脑抗性高
+			temp = windowstate; 
 		}
 		ag.render();
 	}

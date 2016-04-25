@@ -105,7 +105,7 @@
 	ID|9#
 	NAME|狡猾的献祭#
 	COST|3#
-	DIS|牺牲一个人形,对敌方所有子机造成等用于该人形攻击力的伤害.#
+	DIS|牺牲一个人形,对敌方所有子机造成等同于该人形攻击力的伤害.#
 	RARITY|NORMAL#
 	GROUP|ALICE#
 	TYPE|SPELLCARD#

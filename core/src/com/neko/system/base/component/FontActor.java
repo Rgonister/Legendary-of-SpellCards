@@ -23,7 +23,7 @@ public class FontActor extends Actor {
 		this.setX(X);
 		this.setY(Y);
 		if (!Bitfont.containsKey(key)) {
-			LazyBitmapFont lbfs = new LazyBitmapFont(new FreeTypeFontGenerator(Gdx.files.internal(font + ".ttf")),
+			LazyBitmapFont lbfs = new LazyBitmapFont(new FreeTypeFontGenerator(Gdx.files.internal("font/"+font + ".ttf")),
 					fontsize);
 			Bitfont.put(key, lbfs);
 		}
@@ -36,7 +36,7 @@ public class FontActor extends Actor {
 	}
 
 	public static void addlbf(String fstring, int size, String key) {
-		LazyBitmapFont lbfs = new LazyBitmapFont(new FreeTypeFontGenerator(Gdx.files.internal(fstring + ".ttf")),
+		LazyBitmapFont lbfs = new LazyBitmapFont(new FreeTypeFontGenerator(Gdx.files.internal("font/"+fstring + ".ttf")),
 				size);
 		Bitfont.put(key, lbfs);
 	}

@@ -35,6 +35,7 @@ public class Game_Start extends Period {
 		} else {
 			Game.turn = 1;
 		}
+		Game.turn = 0;
 		Game.player_op.hand.add(Game.player_op.mydeck.get(29));
 		Game.player_op.hand.add(Game.player_op.mydeck.get(28));
 		Game.player_op.hand.add(Game.player_op.mydeck.get(27));

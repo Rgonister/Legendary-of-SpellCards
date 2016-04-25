@@ -16,7 +16,7 @@
 	NAME|魔导书#
 	COST|3#
 	ATK|0#
-	LIFE|6#
+	LIFE|5#
 	RACE|书籍#
 	DIS|己方回合开始时，摧毁该角色并召唤雾雨魔理沙.#
 	RARITY|NORMAL#
@@ -41,7 +41,7 @@
 	ID|32#
 	NAME|蕾米莉亚·斯卡雷特#
 	COST|7#
-	ATK|5#
+	ATK|6#
 	LIFE|8#
 	RACE|妖怪#
 	DIS|你的回合内，你可以为随机效果指定作用目标.#
@@ -113,7 +113,7 @@
 	ID|38#
 	NAME|慵懒三石塔#
 	COST|3#
-	DIS|本回合内,敌方所有单位获得迟缓.#
+	DIS|所有敌方单位获得迟缓.#
 	RARITY|NORMAL#
 	GROUP|PACHI#
 	TYPE|SPELLCARD#

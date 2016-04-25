@@ -269,6 +269,14 @@ public class DeckView_Window extends Group {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				SEControler.play(1, "Click");
+				page = 1;
+				cfilter.set(0, "Alice");
+				cfilter.set(1, "");
+				cfilter.set(2, "My");
+				viewstate = false;
+				editmode = false;
+
+				DeckView_Window.getInstance().clear();
 				Start.windowstate = WindowState.Cover;
 			}
 		});

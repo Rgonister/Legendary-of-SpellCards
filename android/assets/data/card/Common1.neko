@@ -2,7 +2,7 @@
 	ID|61#
 	NAME|红美铃#
 	COST|3#
-	ATK|4#
+	ATK|5#
 	LIFE|7#
 	RACE|妖怪#
 	DIS|沉睡;底力:唤醒该角色.#
@@ -29,7 +29,7 @@
 	NAME|本居小铃#
 	COST|3#
 	ATK|2#
-	LIFE|4#
+	LIFE|3#
 	RACE|人类#
 	DIS|宣言:随机召唤一本书籍.#
 	RARITY|LEGENDARY#
@@ -246,9 +246,9 @@
 	NAME|八云蓝#
 	COST|6#
 	ATK|4#
-	LIFE|5#
+	LIFE|4#
 	RACE|妖怪#
-	DIS|宣言:摧毁一个结界-魔法阵,并获得+3/+3.#
+	DIS|宣言:摧毁一个结界-魔法阵,并获得+5/+5.#
 	RARITY|RARE#
 	GROUP|COMMON#
 	TYPE|SUMMON#
