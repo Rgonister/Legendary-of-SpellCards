@@ -14,10 +14,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.neko.Start;
 import com.neko.config.Config;
-import com.neko.config.enums.WindowState;
-import com.neko.game.shop.shop;
+import com.neko.game.item.CardImage;
+import com.neko.ui.screen.Screen_Shop;
 import com.neko.util.ImageUtil;
-import com.neko.util.SEControler;
 
 public class Shop_Window extends Group {
 	private static Shop_Window instance = null;
@@ -48,40 +47,29 @@ public class Shop_Window extends Group {
 	}
 
 	private void addbuttom() {
-		final Image toCover = ImageUtil.getImage(Config.Icon_Path + "return0.png");
-		toCover.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				SEControler.play(1, "Click");
-				Shop_Window.instance.clear();
-				Start.windowstate = WindowState.Cover;
-			}
-		});
-		toCover.setPosition(245, 52);
-		this.addActor(toCover);
 
 		final Image back;
 
-		back = ImageUtil.getImage(Config.Icon_Path + "goback0.png");
+		back = ImageUtil.getImage(Config.Icon_Path + "confirm.png");
 		back.addListener(new ClickListener() {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				SEControler.play(1, "Click");
-				List<Integer> l = shop.drawcards(shop.NORMAL);
-				showCards(l);
+				Screen_Shop.g = null;
+				Screen_Shop.getInstance().show();
 			}
 		});
 
-		back.setPosition(125, 65);
+		back.setScale(0.75f);
+		back.setPosition(750, 150);
 		this.addActor(back);
 	}
 
-	private void showCards(List<Integer> l) {
+	public void showCards(List<Integer> l) {
 		cards = new ArrayList<Actor>();
 		int num = 0;
 		for (Integer i : l) {
-			Actor a = Start.cards.get(i).getActor();
+			Actor a = new CardImage(Start.cards.get(i).data);
 			Cardgroup cg = new Cardgroup(a);
 			cg.setPosition(200 + 250 * num, 300);
 			cards.add(cg);
@@ -109,7 +97,7 @@ public class Shop_Window extends Group {
 					public void clicked(InputEvent event, float x, float y) {
 						Action act = Actions.scaleTo(0.01f, 1f, 0.5f);
 						Action move = Actions.moveBy(116.5f, 0, 0.5f);
-						ParallelAction Paction = Actions.parallel(act,move);
+						ParallelAction Paction = Actions.parallel(act, move);
 						Action end = Actions.run(new Runnable() {
 							@Override
 							public void run() {
@@ -127,7 +115,7 @@ public class Shop_Window extends Group {
 				this.addActor(card);
 				Action act = Actions.scaleTo(1f, 1f, 0.5f);
 				Action move = Actions.moveBy(-116.5f, 0, 0.5f);
-				ParallelAction Paction = Actions.parallel(act,move);
+				ParallelAction Paction = Actions.parallel(act, move);
 				this.addAction(Paction);
 			}
 		}

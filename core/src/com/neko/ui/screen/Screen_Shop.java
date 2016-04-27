@@ -12,7 +12,7 @@ public class Screen_Shop extends Screen_Window {
 	private static Screen_Shop instance = null;
 
 	public static Group g;
-	
+
 	public static Screen_Shop getInstance() {
 		if (instance == null) {
 			synchronized (Screen_Shop.class) {
@@ -25,14 +25,18 @@ public class Screen_Shop extends Screen_Window {
 	}
 
 	private Screen_Shop() {
-		g = Sell_Window.getInstance();
+
 	};
 
 	@Override
 	public void show() {
 		stage = new Stage();
 		stage.addActor(ImageUtil.getImage("graphics/bg.jpg", false));
-		g.setScale(Config.ScaleX,Config.ScaleY);
+		if (g == null) {
+			g = Sell_Window.getInstance();
+			Sell_Window.getInstance().refresh();
+		}
+		g.setScale(Config.ScaleX, Config.ScaleY);
 		stage.addActor(g);
 		Gdx.input.setInputProcessor(stage);
 	}

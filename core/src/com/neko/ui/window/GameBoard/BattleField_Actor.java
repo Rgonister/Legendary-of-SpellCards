@@ -1,7 +1,10 @@
 package com.neko.ui.window.GameBoard;
 
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.ParallelAction;
 import com.neko.game.item.CardData;
 import com.neko.system.base.component.FontActor;
 import com.neko.util.ImageUtil;
@@ -14,10 +17,12 @@ public class BattleField_Actor extends Group {
 	public float scale = 0.65f;
 	public float ox;
 	public float oy;
+	public int index;
 
 	public BattleField_Actor(CardData c, int index, int owner) {
 		data = c;
 		actor = new Summon(c);
+		this.index = index;
 		float size;
 		if (owner == 0)
 			size = GameBoard_Window.getInstance().mysummon.size();
@@ -60,5 +65,33 @@ public class BattleField_Actor extends Group {
 
 	public void resetposition() {
 		actor.setPosition(ox, oy);
+	}
+
+	public void positioncaculate() {
+		ox = (width * scale) * (index - 0.5f - (GameBoard_Window.getInstance().mysummon.size() + 1) / 2f) + 800;
+		oy = 202.5f + 0 * 247.5f;
+	}
+
+	public void update() {
+		Action move = Actions.moveTo(ox, oy, 0.15f);
+		Action scalea = Actions.scaleTo(scale, scale, 0.15f);
+		ParallelAction Paction = Actions.parallel(move, scalea);
+		actor.addAction(Paction);
+	}
+
+	public static void tempcaculate(float x) {
+		GameBoard_Window gw = GameBoard_Window.getInstance();
+		for (int i = 0; i < gw.mysummon.size(); i++) {
+			if (gw.mysummon.get(i).actor.getX() < x) {
+				gw.tempcard.index = i + 1;
+			} else {
+				gw.mysummon.get(i).index += 1;
+			}
+			gw.mysummon.get(i).positioncaculate();
+			gw.mysummon.get(i).update();
+		}
+		System.out.println(gw.mysummon.size());
+		gw.tempcard.positioncaculate();
+		gw.tempcard.resetposition();
 	}
 }

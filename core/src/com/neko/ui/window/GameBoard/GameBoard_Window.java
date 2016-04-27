@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.neko.game.duel.Game;
 import com.neko.game.item.CardData;
+import com.neko.util.BackgroundUtil;
 import com.neko.util.ImageUtil;
 
 public class GameBoard_Window extends Group {
@@ -49,6 +50,8 @@ public class GameBoard_Window extends Group {
 		Image opHero = ImageUtil.getImage("graphics/deck/" + Game.player_op.Hero + ".jpg");
 		opHero.setPosition(1250, 740);
 		this.addActor(opHero);
+
+		this.addActor(BackgroundUtil.getImage("gray", 234, 160, 1132, 580, 0.65f));
 
 		if (Game.player_me.mydeck.size() > 0) {
 			Image img = ImageUtil.getImage("graphics/card/back.png");

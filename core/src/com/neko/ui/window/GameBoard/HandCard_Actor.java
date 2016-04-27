@@ -83,18 +83,23 @@ public class HandCard_Actor extends Group {
 
 			@Override
 			public void drag(InputEvent event, float x, float y, int pointer) {
+
 				if (Game.turn == a.owner) {
 					GameBoard_Window gw = GameBoard_Window.getInstance();
 					a.image.setPosition(x - a.startdragx, y - a.startdragy);
 					if (gw.tempcard == null) {
 						if (Game.turn == 0) {
 							gw.tempcard = new BattleField_Actor(a.cd, gw.mysummon.size(), a.owner);
-							gw.mysummon.add(gw.tempcard);
+							// gw.mysummon.add(gw.tempcard);
 						} else {
 							gw.tempcard = new BattleField_Actor(a.cd, gw.opsummon.size(), a.owner);
-							gw.opsummon.add(gw.tempcard);
+							// gw.opsummon.add(gw.tempcard);
 						}
 						gw.addActor(gw.tempcard);
+					}
+					if (x >= 234 && x <= 1366 && y > 160 && y <= 450) {
+						if (gw.mysummon.size() > 0)
+							BattleField_Actor.tempcaculate(x);
 					}
 				}
 			}
@@ -102,9 +107,13 @@ public class HandCard_Actor extends Group {
 			@Override
 			public void dragStop(InputEvent event, float x, float y, int pointer) {
 				if (Game.turn == a.owner) {
-					GameBoard_Window.getInstance().tempcard = null;
+					GameBoard_Window gw = GameBoard_Window.getInstance();
+					gw.removeActor(gw.tempcard);
+					gw.mysummon.add(gw.tempcard);
+					gw.tempcard = null;
 					a.setColor(1, 1, 1, 1f);
 					a.reset();
+					gw.refresh();
 				}
 			}
 		});

@@ -33,7 +33,7 @@ public class shop {
 	public static List<Integer> drawcardsbygroup(int status,String group) {
 		List<Integer> l = new ArrayList<Integer>();
 		if (status == 1) {
-			Start.global.data.gold -= 150;
+			Start.global.data.gold -= 120;
 			for (int i = 0; i < 5; i++) {
 				Integer integ = null;
 				int d = new java.util.Random().nextInt(10000);
@@ -41,7 +41,7 @@ public class shop {
 				list.add(group);
 				if (d <= 8325)
 					list.add("Normal");
-				else if (d <= 9385)
+				else if (d <= 9885)
 					list.add("Rare");
 				else
 					list.add("Legendary");

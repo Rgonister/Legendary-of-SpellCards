@@ -60,8 +60,9 @@ public class Game_Start extends Period {
 
 		initSelectorImage(0);
 
-		final Actor a = ImageUtil.getImage("graphics/icon/lost.png");
-		a.setPosition(725, 160);
+		final Actor a = ImageUtil.getImage("graphics/icon/confirm.png");
+		a.setScale(0.75f);
+		a.setPosition(725, 150);
 		a.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
