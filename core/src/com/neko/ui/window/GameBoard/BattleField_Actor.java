@@ -72,6 +72,11 @@ public class BattleField_Actor extends Group {
 		oy = 202.5f + 0 * 247.5f;
 	}
 
+	public void refresh(){
+		positioncaculate();
+		resetposition();
+	}
+	
 	public void update() {
 		Action move = Actions.moveTo(ox, oy, 0.15f);
 		Action scalea = Actions.scaleTo(scale, scale, 0.15f);
@@ -82,14 +87,16 @@ public class BattleField_Actor extends Group {
 	public static void tempcaculate(float x) {
 		GameBoard_Window gw = GameBoard_Window.getInstance();
 		for (int i = 0; i < gw.mysummon.size(); i++) {
-			if (gw.mysummon.get(i).actor.getX() < x) {
-				gw.tempcard.index = i + 1;
-			} else {
-				gw.mysummon.get(i).index += 1;
-			}
-			gw.mysummon.get(i).positioncaculate();
-			gw.mysummon.get(i).update();
+			if (gw.mysummon.get(i).actor.getX() < x && gw.mysummon.get(i).index >= gw.tempcard.index)
+				gw.tempcard.index = gw.mysummon.get(i).index + 1;
 		}
+		for (BattleField_Actor bfa : gw.mysummon) {
+			float f = 81.25f;
+			if (bfa.index < gw.tempcard.index)
+				f = -f;
+			Action move = Actions.moveBy(f, 0, 0.15f);
+			bfa.addAction(move);
+		}		
 		System.out.println(gw.mysummon.size());
 		gw.tempcard.positioncaculate();
 		gw.tempcard.resetposition();
